@@ -1,0 +1,52 @@
+{
+  "name": "cwbp-site",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run dev",
+    "dev": "npx gatsby develop",
+    "postdev": "npm run format",
+    "build": "npx gatsby build",
+    "develop": "gatsby develop",
+    "format": "npx prettier --write \"src/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwschool/site.git"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [],
+  "author": "nec@shell8.net",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/cwschool/site/issues"
+  },
+  "homepage": "https://github.com/cwschool/site#readme",
+  "dependencies": {
+    "@contentful/rich-text-plain-text-renderer": "^15.12.1",
+    "gatsby": "^4.16.0",
+    "gatsby-plugin-image": "^2.16.1",
+    "gatsby-plugin-react-helmet": "^5.16.0",
+    "gatsby-plugin-sass": "^5.16.0",
+    "gatsby-plugin-sharp": "^4.16.1",
+    "gatsby-source-contentful": "^7.14.0",
+    "gatsby-transformer-sharp": "^4.16.0",
+    "node-sass": "^6.0.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-helmet": "^6.1.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "contentful-import": "^8.3.2",
+    "prettier": "^2.6.2"
+  }
+}
