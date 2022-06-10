@@ -16,3 +16,22 @@
 export const onRouteUpdate = ({ location }) => {
 
 }
+export const onPreRouteUpdate = async ({ location, prevLocation }) => {
+
+
+  // const controller = new AbortController();
+  // const timeout = setTimeout(() => {
+  //   controller.abort();
+  // }, 150);
+  // try {
+  //   await fetch('//localhost:8000/__refresh', {
+  //     method: 'post',
+  //     signal: controller.signal
+  //   })
+  // } catch (error) {
+  //   console.log('request was aborted');
+//
+  // } finally {
+  //   clearTimeout(timeout);
+  // }
+}

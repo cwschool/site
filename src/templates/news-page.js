@@ -1,4 +1,5 @@
 import React from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
@@ -20,11 +21,25 @@ const NewsPageTemplate = ({ data }) => {
     JSON.parse(post.body.raw)
   )
 
+  const options = {
+    renderNode: {
+      'embedded-asset-block': (node) => {
+        console.log(node.data.target)
+        const { gatsbyImageData, title, description: alt } = node.data.target
+        if (!gatsbyImageData) {
+          // asset is not an image
+          return null
+        }
+        return <GatsbyImage image={gatsbyImageData} alt={alt} title={title} />
+      },
+    },
+  }
+
   return (
     <div>
       <Seo title={post.title} description={plainTextDescription} />
 
-      {renderRichText(post.body)}
+      {renderRichText(post.body, options)}
     </div>
   )
 }
@@ -39,6 +54,15 @@ export const pageQuery = graphql`
       createdAt(formatString: "MMMM Do, YYYY")
       body {
         raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            gatsbyImageData(width: 768, placeholder: BLURRED)
+            description
+            title
+          }
+        }
       }
     }
   }
