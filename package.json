@@ -11,7 +11,9 @@
     "postdev": "npm run format",
     "build": "npx gatsby build",
     "develop": "gatsby develop",
-    "format": "npx prettier --write \"src/**/*.js\""
+    "format": "npx prettier --write \"src/**/*.js\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,8 @@
   "homepage": "https://github.com/cwschool/site#readme",
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
+    "@storybook/preset-scss": "^1.0.3",
+    "css-loader": "^6.7.1",
     "gatsby": "^4.16.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.16.1",
@@ -41,13 +45,26 @@
     "node-sass": "^6.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "sass": "^1.52.3",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions"
   ],
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@storybook/addon-actions": "^6.5.8",
+    "@storybook/addon-essentials": "^6.5.8",
+    "@storybook/addon-interactions": "^6.5.8",
+    "@storybook/addon-links": "^6.5.8",
+    "@storybook/builder-webpack5": "^6.5.8",
+    "@storybook/manager-webpack5": "^6.5.8",
+    "@storybook/react": "^6.5.8",
+    "@storybook/testing-library": "^0.0.12",
+    "babel-loader": "^8.2.5",
     "contentful-import": "^8.3.2",
     "prettier": "^2.6.2"
   },

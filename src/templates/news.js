@@ -9,7 +9,7 @@ import Seo from '../components/seo'
 // import Hero from '../components/hero'
 // import Tags from '../components/tags'
 
-import * as css from './news-page.module.scss'
+import * as css from './news.module.scss'
 
 const NewsPageTemplate = ({ data }) => {
   //const post = get(this.props, 'data.contentfulBlogPost')

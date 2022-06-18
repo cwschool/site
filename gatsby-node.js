@@ -1,13 +1,8 @@
 const path = require('path')
-const fetch = require('node-fetch');
 
-
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
-
+const createPosts = async (graphql, createPage, reporter) => {
   // Define a template for blog post
-  const blogPost = path.resolve('./src/templates/news-page.js')
-
+  const tpl = path.resolve('./src/templates/news.js')
   const result = await graphql(
     `
       {
@@ -20,7 +15,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     `
   )
-
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your Contentful posts`,
@@ -39,11 +33,33 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach((post, index) => {
       createPage({
         path: `/news/${post.slug}/`,
-        component: blogPost,
+        component: tpl,
         context: {
           slug: post.slug,
         },
       })
     })
   }
+}
+
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+
+
+  await createPosts(graphql, createPage, reporter)
+
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+
+  const typeDefs = `
+    # ContentfulPage "section" can contain optional Jobs, News or Posts
+    union MyContentfulPageSectionType = ContentfulJob | ContentfulNews | ContentfulPost
+    type ContentfulPage {
+      sections: [MyContentfulPageSectionType] @link(from: "sections___NODE")
+    }
+  `
+  createTypes(typeDefs)
 }
