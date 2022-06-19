@@ -1,0 +1,8 @@
+{
+  "name": "font-baar-philos",
+  "version": "1.0.0",
+  "description": "Baar Philos webfont",
+  "main": "index.css",
+  "keywords": ["font", "font family"],
+  "license": "MIT"
+}

@@ -4,10 +4,27 @@ import { Meta, Story } from '@storybook/addon-docs';
 
 import Header from './index';
 
-<Meta title="Header" component={Header} />
+<Meta
+  title="Header"
+  component={ Header }
+  argTypes={{
+    activeMenu: {
+      options: ['school', 'preschool', 'posts', 'images', 'jobs', 'foundation', 'contact'],
+      control: { type: 'select' }
+    },
+    searchEnabled: {
+      control: { type: 'boolean' }
+    }
+  }}
+/>
 
 # Header
 
-<Story name="Primary">
-  <Header></Header>
+
+export const Template = (args) => (<Header {...args}></Header>);
+
+<Story name="Header" args={{
+    activeMenu: 'school',
+  }}>
+  {Template.bind({})}
 </Story>

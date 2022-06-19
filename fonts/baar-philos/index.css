@@ -1,0 +1,32 @@
+
+@font-face {
+  font-family: 'Baar Philos Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baar Philos Regular'), url('./baarprg_.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baar Philos Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baar Philos Italic'), url('./baarpi__.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baar Philos Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baar Philos Bold'), url('./baarpb__.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baar Philos BoldItalic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baar Philos BoldItalic'), url('./baarpbi_.woff') format('woff');
+}
+

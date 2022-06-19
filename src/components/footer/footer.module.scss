@@ -1,0 +1,46 @@
+@import '../../colors.scss';
+@import '../../fonts.scss';
+
+.footer {
+  position: relative;
+  z-index: 1;
+
+  height: 18.55rem;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  .centered {
+    width: 100%;
+    max-width: 64rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .contact,
+  .social {
+    padding-bottom: 30px;
+  }
+
+  .contact {
+    font-family: $primary-font;
+    font-size: .75rem;
+    color: $color-navy;
+    padding-left: 50px;
+
+    h2 {
+      font-family: $heading-font;
+      font-size: 1rem;
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  .social {
+    font-family: $primary-font;
+    font-size: .65rem;
+    color: $color-navy;
+    padding-right: 30px;
+  }
+}
