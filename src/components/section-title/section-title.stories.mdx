@@ -1,0 +1,32 @@
+<!-- header.stories.mdx -->
+
+import { Meta, Story } from '@storybook/addon-docs';
+
+import SectionTitle from './index';
+
+<Meta
+  title="SectionTitle"
+  component={ SectionTitle }
+   argTypes={{
+    title: {
+      control: { type: 'text' }
+    },
+    align: {
+      control: 'select', options: ["left", "right"]
+    },
+    color: {
+      control: 'select', options: [ "orange", "purple", "blue", "green", "gold", "lilac", "ocean" ]
+    }
+  }}
+/>
+
+# SectionTitle
+export const Template = (args) => (<SectionTitle {...args} />);
+
+<Story name="SectionTitle" args={{
+  title: "Aktualitások",
+  align: "left",
+  color: "orange",
+}}>
+  {Template.bind({})}
+</Story>

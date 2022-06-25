@@ -1,0 +1,43 @@
+<!-- header.stories.mdx -->
+
+import { Meta, Story } from '@storybook/addon-docs';
+
+import ContentBox from './index';
+
+<Meta
+  title="ContentBox"
+  component={ ContentBox }
+   argTypes={{
+    title: {
+      control: { type: 'text' }
+    },
+    buttonText: {
+      control: { type: 'text' }
+    },
+    buttonLink: {
+      control: { type: 'text' }
+    },
+    color: {
+      control: 'select', options: [ "orange", "peach", "blue", "green", "gold", "lilac", "brick" ]
+    },
+    type: {
+      control: 'select', options: ["full", "small"]
+    },
+  }}
+/>
+
+# ContentBox
+export const Template = (args) => (<ContentBox {...args}>
+  Azonnali belépéssel osztálytanítót keresünk a Christophorus Waldorf Iskola jelenlegi (2021/22-es tanév) 2. osztálya számára.
+  17 csillogó szemű kisgyermek várja reménykedve új tanítóját! Pedagógus diplomával rendelkező, a Waldorf pedagógia iránt elkötelezett jelentkezőket várunk...
+</ContentBox>);
+
+<Story name="ContentBox" args={{
+  title: "Osztálytanító",
+  type: "small",
+  color: "orange",
+  buttonText: "Tovább",
+  buttonLink: "/",
+}}>
+  {Template.bind({})}
+</Story>

@@ -1,0 +1,64 @@
+@import '../../colors.scss';
+@import '../../fonts.scss';
+
+.content-box {
+  position: relative;
+  z-index: 2;
+
+
+  width: 100%;
+  height: 100%;
+
+  background-color: $color-gray1;
+  border-radius: .5rem;
+
+  .box-title {
+    font-family: $primary-font;
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 1.1rem 1.2rem;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    border-radius: .5rem .5rem 0 0;
+  }
+
+  $colors: (
+    "orange": $color-orange,
+    "brick": $color-brick,
+    "blue": $color-blue,
+    "green": $color-green,
+    "gold": $color-gold,
+    "purple": $color-purple,
+    "lilac": $color-lilac,
+    "ocean": $color-ocean,
+    "peach": $color-peach
+  );
+
+  @each $name, $color in $colors {
+    &.color-#{$name} .box-title {
+      background-color: $color;
+    }
+  }
+
+  .box-content {
+    font-family: $primary-font;
+    font-size: 1rem;
+    font-weight: $primary-light;
+    padding: 1.2rem 1.85rem 1.35rem 1.85rem;
+  }
+
+  .button {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.15rem 1.85rem 1.35rem 1.85rem;
+  }
+
+  &.type-small .button {
+    justify-content: center;
+  }
+  &.type-full .button {
+    justify-content: flex-end;
+  }
+}

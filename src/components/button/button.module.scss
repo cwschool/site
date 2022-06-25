@@ -1,0 +1,40 @@
+@import '../../colors.scss';
+@import '../../fonts.scss';
+
+.button {
+  display: inline-block;
+  text-align: center;
+
+  font-family: $primary-font;
+  color: $color-white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: $primary-bold;
+
+  min-width: 11.9rem;
+  padding: 0.5rem 0;
+  border-radius: 1.25rem;
+
+
+  $colors: (
+    "orange": $color-orange,
+    "brick": $color-brick,
+    "blue": $color-blue,
+    "green": $color-green,
+    "gold": $color-gold,
+    "purple": $color-purple,
+    "lilac": $color-lilac,
+    "ocean": $color-ocean,
+    "peach": $color-peach
+  );
+
+  @each $name, $color in $colors {
+    &.color-#{$name} {
+      background-color: $color;
+      &:hover {
+        background-color: lighten($color, 10%);
+      }
+    }
+  }
+
+}

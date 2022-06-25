@@ -1,0 +1,32 @@
+<!-- header.stories.mdx -->
+
+import { Meta, Story } from '@storybook/addon-docs';
+
+import Button from './index';
+
+<Meta
+  title="Button"
+  component={ Button }
+   argTypes={{
+    label: {
+      control: { type: 'text' }
+    },
+    link: {
+      control: { type: 'text' }
+    },
+    color: {
+      control: 'select', options: [ "orange", "purple", "blue", "green", "gold", "lilac", "ocean" ]
+    }
+  }}
+/>
+
+# Button
+export const Template = (args) => (<Button {...args} />);
+
+<Story name="Button" args={{
+  label: "Tovább",
+  link: "/",
+  color: "orange",
+}}>
+  {Template.bind({})}
+</Story>

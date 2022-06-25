@@ -1,0 +1,59 @@
+@import '../../colors.scss';
+@import '../../fonts.scss';
+
+.section_title_container {
+  position: relative;
+  z-index: 2;
+
+  height: 5.95rem;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  &.align-left {
+    justify-content: flex-start;
+
+    & .section_title {
+      padding-left: 3.8rem;
+      padding-right: 6.8rem;
+    }
+  }
+  &.align-right {
+    justify-content: flex-end;
+
+    & .section_title {
+      padding-right: 3.8rem;
+      padding-left: 6.8rem;
+    }
+  }
+
+  .section_title {
+    font-family: $heading-font;
+    margin: 0;
+    padding: 0;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+
+
+    $colors: (
+      "orange": $color-orange,
+      "brick": $color-brick,
+      "blue": $color-blue,
+      "green": $color-green,
+      "gold": $color-gold,
+      "purple": $color-purple,
+      "lilac": $color-lilac,
+      "ocean": $color-ocean,
+      "peach": $color-peach
+    );
+
+    @each $name, $color in $colors {
+      &.color-#{$name} {
+        background-color: $color;
+      }
+    }
+  }
+
+}
