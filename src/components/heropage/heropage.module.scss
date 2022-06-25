@@ -3,7 +3,6 @@
 
 
 .hero-page {
-  height: 21.75rem;
   width: 100%;
   max-width: 64rem;
   display: grid;
@@ -15,7 +14,7 @@
     "button";
   position: relative;
   z-index: 10;
-  padding: 4rem 6.4rem 0;
+  padding: 4rem 0 0 0;
 
   .title {
     font-family: $hero-font;

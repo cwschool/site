@@ -46,6 +46,7 @@
     position: relative;
     z-index: 10;
     padding: 0 6.25rem;
+    overflow: hidden;
   }
 
   .title {
@@ -62,5 +63,46 @@
     font-size: 1.65rem;
     font-weight: 100;
     margin: 0;
+  }
+
+  .pager {
+    position: absolute;
+    z-index: 10;
+    width: 3.75rem;
+    height: 3.75rem;
+    background-image: url('../../static/pager.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    top: 50%;
+
+    &.pager-left {
+      left: 1rem;
+      transform: translateY(-50%);
+      &:active {
+        transform: translateY(calc(-50% + .1rem));
+      }
+    }
+
+    &.pager-right {
+      right: 1rem;
+      transform: rotate(180deg) translateY(50%);
+
+      &:active {
+        transform: rotate(180deg) translateY(calc(50% - .1rem));
+      }
+    }
+  }
+
+  .page {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+
+    &.show {
+      opacity: 1;
+    }
   }
 }

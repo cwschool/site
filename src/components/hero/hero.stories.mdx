@@ -3,6 +3,7 @@
 import { Meta, Story } from '@storybook/addon-docs';
 
 import Hero from './index';
+import HeroPage from '../heropage';
 
 <Meta
   title="Hero"
@@ -20,7 +21,29 @@ import Hero from './index';
 # Hero
 export const Basic = (args) => (<Hero {...args} />);
 
-export const Paged = (args) => (<Hero {...args}></Hero>);
+export const Paged = (args) => (<Hero>{[
+  <HeroPage
+    title="Ismerd meg iskolánkat!"
+    lead="Betekintő: megismerheted mindennapjainkat, filozófiánkat. Beszélgetés egyesületünk alapítóival és iskolánk tanáraival."
+    date={new Date()}
+    buttonText="Tovább"
+    buttonLink="/"
+  />,
+  <HeroPage
+    title="Második tök jó hír"
+    lead="Minden, amit a Christophorus Waldorf Általános Iskoláról tudni érdemes"
+    date={new Date()}
+    buttonText="Jelentkezz"
+    buttonLink="/"
+  />,
+  <HeroPage
+    title="Harmadik nagyszerű hír"
+    lead="Beszélgetés egyesületünk alapítóival és iskolánk tanáraival."
+    date={new Date()}
+    buttonText="Olvasd el"
+    buttonLink="/"
+  />
+]}</Hero>);
 
 <Story name="Basic" args={{
   title: "Az általános iskola",
@@ -29,9 +52,6 @@ export const Paged = (args) => (<Hero {...args}></Hero>);
   {Basic.bind({})}
 </Story>
 
-<Story name="Paged" args={{
-  title: "Az általános iskola",
-  lead: "Minden, amit a Christophorus Waldorf Általános Iskoláról tudni érdemes"
-}}>
+<Story name="Paged">
   {Paged.bind({})}
 </Story>

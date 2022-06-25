@@ -108,9 +108,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
         </ul>
       </nav>
       <div className={classNames(css.search)}>
-        {searchEnabled && (
-          <input type={'search'} className={css.searchField} />
-        )}
+        {searchEnabled && <input type={'search'} className={css.searchField} />}
       </div>
     </div>
   </header>
