@@ -1,5 +1,6 @@
+import React from 'react'
 import dayjs from 'dayjs'
-import css from './heropage.module.scss'
+import * as css from './heropage.module.scss'
 import Button from '../button'
 
 const HeroPage = ({ title, lead, date, buttonText = '', buttonLink = '' }) => (

@@ -1,5 +1,6 @@
+import React from 'react'
 import classNames from 'classnames'
-import css from './header.module.scss'
+import * as css from './header.module.scss'
 
 const Header = ({ activeMenu, searchEnabled = false }) => (
   <header className={css.header}>

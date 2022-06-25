@@ -1,6 +1,6 @@
-import { Children, cloneElement, useState } from 'react'
+import React, { Children, cloneElement, useState } from 'react'
 import classNames from 'classnames'
-import css from './hero.module.scss'
+import * as css from './hero.module.scss'
 
 const Hero = ({ children, title = '', lead = '' }) => {
   const pages = Children.toArray(children)

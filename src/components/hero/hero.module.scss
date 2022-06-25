@@ -21,7 +21,7 @@
      position: absolute;
      z-index: 2;
      background-image: url('../../static/wave.svg');
-     background-position: center bottom -216px;
+     background-position: center 295%;
      background-repeat: repeat-x;
   }
 
@@ -50,7 +50,7 @@
   }
 
   .title {
-    font-family: $heading-font;
+    font-family: $hero-font;
     font-size: 3rem;
     margin-bottom: .5rem;
     margin-top: 5.65rem;

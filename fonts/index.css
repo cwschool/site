@@ -1,0 +1,39 @@
+
+@font-face {
+  font-family: 'Baar Philos';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baar Philos'), url('./baar-philos/baarprg_.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baar Philos Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baar Philos Italic'), url('./baar-philos/baarpi__.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baar Philos Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baar Philos Bold'), url('./baar-philos/baarpb__.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baar Philos BoldItalic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baar Philos BoldItalic'), url('./baar-philos/baarpbi_.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Antropos';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Antropos'), url('./antropos/antropos.woff') format('woff');
+}

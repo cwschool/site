@@ -1,6 +1,7 @@
+import React from 'react'
 import classNames from 'classnames'
 import { Link } from 'gatsby'
-import css from './button.module.scss'
+import * as css from './button.module.scss'
 
 const Button = ({ label, link, color = 'ocean' }) => {
   const internal = /^\/(?!\/)/.test(link)

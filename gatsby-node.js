@@ -56,9 +56,15 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   const typeDefs = `
     # ContentfulPage "section" can contain optional Jobs, News or Posts
-    union MyContentfulPageSectionType = ContentfulJob | ContentfulNews | ContentfulPost
+    union ActualType = ContentfulJob | ContentfulNews | ContentfulPost
     type ContentfulPage {
-      sections: [MyContentfulPageSectionType] @link(from: "sections___NODE")
+      sections: [ActualType] @link(from: "sections___NODE")
+    }
+
+    union HeroItemsType = ContentfulJob | ContentfulNews | ContentfulPost | ContentfulPage
+    type ContentfulMainPage {
+      heroItems: [HeroItemsType] @link(from: "sections___NODE")
+      actual: [ActualType] @link(from: "sections___NODE")
     }
   `
   createTypes(typeDefs)

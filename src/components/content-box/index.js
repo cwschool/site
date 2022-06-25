@@ -1,6 +1,7 @@
+import React from 'react'
 import classNames from 'classnames'
 import Button from '../button'
-import css from './content-box.module.scss'
+import * as css from './content-box.module.scss'
 
 const ContentBox = ({
   title,
