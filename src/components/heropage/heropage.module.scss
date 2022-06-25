@@ -1,0 +1,56 @@
+@import '../../colors.scss';
+@import '../../fonts.scss';
+
+
+.hero-page {
+  height: 21.75rem;
+  width: 100%;
+  max-width: 64rem;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-areas:
+    "date"
+    "title"
+    "lead"
+    "button";
+  position: relative;
+  z-index: 10;
+  padding: 4rem 6.4rem 0;
+
+  .title {
+    font-family: $hero-font;
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+    margin-top: 0rem;
+    font-weight: 100;
+    grid-area: title;
+    color: $color-berry;
+  }
+
+  .lead {
+    display: block;
+    font-family: $heading-font;
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin: 0;
+    margin-bottom: 2rem;
+    grid-area: lead;
+    color: $color-purple;
+  }
+
+  .date {
+    grid-area: date;
+    font-family: $heading-font;
+    font-size: 1rem;
+    font-weight: 100;
+    margin: 0;
+    margin-bottom: 1rem;
+    color: $color-purple;
+  }
+
+  .button {
+    grid-area: button;
+  }
+
+}
+

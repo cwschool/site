@@ -1,0 +1,8 @@
+{
+  "name": "font-antropos",
+  "version": "1.0.0",
+  "description": "Antropos webfont",
+  "main": "index.css",
+  "keywords": ["font", "font family"],
+  "license": "MIT"
+}

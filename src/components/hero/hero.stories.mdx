@@ -1,0 +1,37 @@
+<!-- header.stories.mdx -->
+
+import { Meta, Story } from '@storybook/addon-docs';
+
+import Hero from './index';
+
+<Meta
+  title="Hero"
+  component={ Hero }
+  argTypes={{
+    title: {
+      control: { type: 'text' }
+    },
+    lead: {
+      control: { type: 'text' }
+    },
+  }}
+/>
+
+# Hero
+export const Basic = (args) => (<Hero {...args} />);
+
+export const Paged = (args) => (<Hero {...args}></Hero>);
+
+<Story name="Basic" args={{
+  title: "Az általános iskola",
+  lead: "Minden, amit a Christophorus Waldorf Általános Iskoláról tudni érdemes"
+}}>
+  {Basic.bind({})}
+</Story>
+
+<Story name="Paged" args={{
+  title: "Az általános iskola",
+  lead: "Minden, amit a Christophorus Waldorf Általános Iskoláról tudni érdemes"
+}}>
+  {Paged.bind({})}
+</Story>

@@ -1,0 +1,40 @@
+<!-- header.stories.mdx -->
+
+import { Meta, Story } from '@storybook/addon-docs';
+
+import HeroPage from './index';
+
+<Meta
+  title="HeroPage"
+  component={ HeroPage }
+  argTypes={{
+    title: {
+      control: { type: 'text' }
+    },
+    lead: {
+      control: { type: 'text' }
+    },
+    date: {
+      control: { type: 'date'}
+    },
+    buttonText: {
+      control: { type: 'text' }
+    },
+    buttonLink: {
+      control: { type: 'text' }
+    },
+  }}
+/>
+
+# Hero
+export const Template = (args) => (<HeroPage {...args} />);
+
+<Story name="HeroPage" args={{
+  title: "Ismerd meg iskolánkat!",
+  lead: "Betekintő: megismerheted mindennapjainkat, filozófiánkat. Beszélgetés egyesületünk alapítóival és iskolánk tanáraival.",
+  date: new Date(),
+  buttonText: "Tovább",
+  buttonLink: "/"
+}}>
+  {Template.bind({})}
+</Story>
