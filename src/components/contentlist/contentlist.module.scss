@@ -1,0 +1,49 @@
+
+@import '../../colors.scss';
+@import '../../fonts.scss';
+
+
+.content_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    ". . ."
+    "more more more";
+
+  .more {
+    grid-area: more;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+
+    $colors: (
+      "orange": $color-orange,
+      "brick": $color-brick,
+      "blue": $color-blue,
+      "green": $color-green,
+      "gold": $color-gold,
+      "purple": $color-purple,
+      "lilac": $color-lilac,
+      "ocean": $color-ocean,
+      "peach": $color-peach
+    );
+
+    @each $name, $color in $colors {
+      &.color_#{$name} a {
+        color: $color;
+      }
+    }
+
+    & > a {
+      font-weight: bold;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+/*   const { createTypes } = actions
 
   const typeDefs = `
     # ContentfulPage "section" can contain optional Jobs, News or Posts
@@ -67,5 +67,5 @@ exports.createSchemaCustomization = ({ actions }) => {
       actual: [ActualType] @link(from: "sections___NODE")
     }
   `
-  createTypes(typeDefs)
+  createTypes(typeDefs) */
 }

@@ -3,11 +3,16 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
+import classNames from 'classnames'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
+import HeroPage from '../components/heropage'
 import Content from '../components/content'
+import ContentBox from '../components/content-box'
 import SectionTitle from '../components/section-title'
+import ContentList from '../components/contentlist'
+import * as richText from '../richtext.module.scss'
 
 const IndexPage = ({ data }) => {
   console.log(data)
@@ -16,17 +21,60 @@ const IndexPage = ({ data }) => {
     contentfulMainPage: {
       introduction,
       introImage: { gatsbyImageData, title, description: alt },
+      heroItems,
+      actual,
     },
   } = data
   return (
     <Layout menu="">
-      <Hero title="asda" lead="asdasd" />
+      <Hero>
+        {heroItems.map((item) => (
+          <HeroPage
+            key={item.slug}
+            title={item.title}
+            lead={item.lead.lead}
+            date={new Date(item.date)}
+            buttonLink={item.slug}
+            buttonText="Tovább"
+          />
+        ))}
+      </Hero>
       <Content>
         <SectionTitle title="Üdvözlünk!" align="right" color="peach" />
 
-        {renderRichText(introduction)}
+        <div className={richText.content}>
+          {
+            <GatsbyImage
+              image={gatsbyImageData}
+              alt={alt}
+              title={title}
+              className={classNames(richText.image, richText.image_left)}
+            />
+          }
+          {renderRichText(introduction)}
+        </div>
 
-        {<GatsbyImage image={gatsbyImageData} alt={alt} title={title} />}
+        <div className={richText.separator} />
+
+        <SectionTitle title="Aktualitások" align="left" color="orange" />
+
+        <ContentList moreLink="/news" moreLabel="Még több friss hír">
+          {actual.map((item) => (
+            <ContentBox
+              title={item.title}
+              type="small"
+              color="orange"
+              buttonText="Tovább"
+              buttonLink={item.slug}
+            >
+              {item.lead.lead}
+            </ContentBox>
+          ))}
+        </ContentList>
+
+        <div className={richText.separator} />
+
+        <SectionTitle title="Blog" align="right" color="gold" />
       </Content>
     </Layout>
   )
@@ -37,6 +85,47 @@ export default IndexPage
 export const pageQuery = graphql`
   query MainPageQuery {
     contentfulMainPage(id: { eq: "7ab4d2ae-3a70-579f-8255-70e8d5d75041" }) {
+      heroItems {
+        __typename
+        ... on Node {
+          ... on ContentfulPost {
+            id
+            title
+            lead {
+              lead
+            }
+            date
+            slug
+          }
+          ... on ContentfulNews {
+            id
+            title
+            lead {
+              lead
+            }
+            date
+            slug
+          }
+          ... on ContentfulJob {
+            id
+            title
+            lead {
+              lead
+            }
+            date
+            slug
+          }
+          ... on ContentfulPage {
+            id
+            title
+            lead {
+              lead
+            }
+            date
+            slug
+          }
+        }
+      }
       introduction {
         raw
       }
@@ -45,10 +134,39 @@ export const pageQuery = graphql`
           aspectRatio: 1
           placeholder: BLURRED
           cropFocus: CENTER
-          width: 300
+          width: 325
         )
         description
         title
+      }
+      actual {
+        __typename
+        ... on Node {
+          ... on ContentfulPost {
+            id
+            title
+            lead {
+              lead
+            }
+            slug
+          }
+          ... on ContentfulNews {
+            id
+            title
+            lead {
+              lead
+            }
+            slug
+          }
+          ... on ContentfulJob {
+            id
+            title
+            lead {
+              lead
+            }
+            slug
+          }
+        }
       }
     }
   }

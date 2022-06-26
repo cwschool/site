@@ -5,7 +5,7 @@ import * as css from './button.module.scss'
 
 const Button = ({ label, link, color = 'ocean' }) => {
   const internal = /^\/(?!\/)/.test(link)
-  const cls = classNames(css.button, css[`color-${color}`])
+  const cls = classNames(css.button, css[`color_${color}`])
 
   if (internal)
     return (

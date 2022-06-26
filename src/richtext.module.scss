@@ -1,0 +1,25 @@
+
+
+
+.content {
+
+  .image {
+    border-radius: 1rem;
+    display: inline-block;
+
+    &_left {
+      float: left;
+      margin: 0 2rem 2rem 0;
+    }
+  }
+
+}
+
+.separator {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+  float: none;
+  clear: both;
+  margin: 2rem 0;
+}

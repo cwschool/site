@@ -1,10 +1,10 @@
 import React from 'react'
 import dayjs from 'dayjs'
-import * as css from './heropage.module.scss'
 import Button from '../button'
+import * as css from './heropage.module.scss'
 
 const HeroPage = ({ title, lead, date, buttonText = '', buttonLink = '' }) => (
-  <article className={css['hero-page']}>
+  <article className={css.hero_page}>
     <h2 className={css.title}>{title}</h2>
     <p className={css.date}>
       {dayjs(date).locale('hu').format('YYYY. MMMM DD.')}
