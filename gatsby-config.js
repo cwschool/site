@@ -32,7 +32,7 @@ require("dotenv").config({
     );
   }
 
-  const localIdentName = process.env.NODE_ENV === 'production' ? '[hash:md4:5]' : '[name]__[local]--[hash:md4:5]'
+  const localIdentName = process.env.NODE_ENV === 'production' ? '[hash:base64:5]' : '[name]__[local]--[hash:base64:5]'
 
   module.exports = {
     siteMetadata: {
