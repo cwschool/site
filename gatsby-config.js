@@ -32,6 +32,8 @@ require("dotenv").config({
     );
   }
 
+  const localIdentName = process.env.NODE_ENV === 'production' ? '[hash:md4:5]' : '[name]__[local]--[hash:md4:5]'
+
   module.exports = {
     siteMetadata: {
       title: "Gatsby Contentful Starter",
@@ -46,6 +48,15 @@ require("dotenv").config({
         resolve: "gatsby-source-contentful",
         options: contentfulConfig,
       },
-      'gatsby-plugin-sass',
+      {
+        resolve: 'gatsby-plugin-sass',
+        options: {
+          cssLoaderOptions: {
+              modules: {
+                localIdentName,
+              },
+          }
+        }
+      },
     ],
   };

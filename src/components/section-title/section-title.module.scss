@@ -37,25 +37,33 @@
     color: $color-white;
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 2;
 
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-    &.color_peach {
+    &.color_peach::after {
       background-image: url('../../static/peach-brush.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
+      transform: translate(-43%, -59%);
+      height: 116%;
     }
-    &.color_gold {
+    &.color_gold::after {
       background-image: url('../../static/gold-brush.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
     }
-    &.color_orange {
+    &.color_orange::after {
       background-image: url('../../static/orange-brush.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
     }
   }
 
