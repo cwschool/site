@@ -9,13 +9,17 @@ import Footer from '../footer'
 import * as css from './layout.module.scss'
 
 const Layout = ({ menu, children }) => {
+  const debug = false
+
   return (
     <div className={css.layout}>
-      <div className={css.guides}>
-        <span className={css.left}></span>
-        <span className={css.center}></span>
-        <span className={css.right}></span>
-      </div>
+      {debug && (
+        <div className={css.guides}>
+          <span className={css.left}></span>
+          <span className={css.center}></span>
+          <span className={css.right}></span>
+        </div>
+      )}
       <Header activeMenu={menu} />
       <main className={css.main}>{children}</main>
       <Footer title={'Christophorus Waldorf Óvoda és Általános Iskola'}>

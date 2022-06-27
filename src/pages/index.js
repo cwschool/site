@@ -3,6 +3,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
+import truncate from 'truncate'
 import classNames from 'classnames'
 
 import Layout from '../components/layout'
@@ -23,6 +24,7 @@ const IndexPage = ({ data }) => {
       introImage: { gatsbyImageData, title, description: alt },
       heroItems,
       actual,
+      posts,
     },
   } = data
   return (
@@ -75,6 +77,29 @@ const IndexPage = ({ data }) => {
         <div className={richText.separator} />
 
         <SectionTitle title="Blog" align="right" color="gold" />
+
+        <ContentList
+          moreLink="/news"
+          moreLabel="Még több blog"
+          color="gold"
+          type="full"
+        >
+          {posts.map((item) => (
+            <ContentBox
+              title={item.title}
+              type="full"
+              color="gold"
+              buttonText="Tovább"
+              buttonLink={item.slug}
+              image={item.postPicture}
+            >
+              {truncate(
+                documentToPlainTextString(JSON.parse(item.content.raw)),
+                600
+              )}
+            </ContentBox>
+          ))}
+        </ContentList>
       </Content>
     </Layout>
   )
@@ -130,12 +155,7 @@ export const pageQuery = graphql`
         raw
       }
       introImage {
-        gatsbyImageData(
-          aspectRatio: 1
-          placeholder: BLURRED
-          cropFocus: CENTER
-          width: 325
-        )
+        gatsbyImageData(aspectRatio: 1, placeholder: BLURRED, width: 650)
         description
         title
       }
@@ -166,6 +186,18 @@ export const pageQuery = graphql`
             }
             slug
           }
+        }
+      }
+      posts {
+        slug
+        title
+        content {
+          raw
+        }
+        postPicture {
+          gatsbyImageData(placeholder: BLURRED, width: 850)
+          description
+          title
         }
       }
     }

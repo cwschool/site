@@ -5,12 +5,24 @@
 
 .content_list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    ". . ."
-    "more more more";
+
+  &.type_columns {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      ". . ."
+      "more more more";
+  }
+
+  &.type_full {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+
+    grid-template-areas:
+      "."
+      "more";
+  }
 
   .more {
     grid-area: more;

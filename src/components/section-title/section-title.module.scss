@@ -38,22 +38,24 @@
     display: flex;
     align-items: center;
 
-    $colors: (
-      "orange": $color-orange,
-      "brick": $color-brick,
-      "blue": $color-blue,
-      "green": $color-green,
-      "gold": $color-gold,
-      "purple": $color-purple,
-      "lilac": $color-lilac,
-      "ocean": $color-ocean,
-      "peach": $color-peach
-    );
 
-    @each $name, $color in $colors {
-      &.color_#{$name} {
-        background-color: $color;
-      }
+    &.color_peach {
+      background-image: url('../../static/peach-brush.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    &.color_gold {
+      background-image: url('../../static/gold-brush.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    &.color_orange {
+      background-image: url('../../static/orange-brush.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
     }
   }
 

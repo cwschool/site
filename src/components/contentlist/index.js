@@ -3,12 +3,18 @@ import classNames from 'classnames'
 import { Link } from 'gatsby'
 import * as css from './contentlist.module.scss'
 
-const ContentList = ({ moreLabel, moreLink, color = 'orange', children }) => {
+const ContentList = ({
+  moreLabel,
+  moreLink,
+  children,
+  color = 'orange',
+  type = 'columns',
+}) => {
   const internal = /^\/(?!\/)/.test(moreLink)
   const cls = css[`color_${color}`]
 
   return (
-    <div className={css.content_list}>
+    <div className={classNames(css.content_list, css[`type_${type}`])}>
       {children}
 
       <div className={classNames(css.more, css[`color_${color}`])}>

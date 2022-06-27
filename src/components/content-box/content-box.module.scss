@@ -5,12 +5,26 @@
   position: relative;
   z-index: 2;
 
-
   width: 100%;
   height: 100%;
 
   background-color: $color-gray1;
   border-radius: .5rem;
+
+  display: grid;
+  //grid-template-rows: auto 1fr auto;
+  //grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "content"
+    "button";
+
+  &.has_image {
+    grid-template-areas:
+      "title title"
+      "image content"
+      "image button";
+  }
 
   .box_title {
     font-family: $primary-font;
@@ -21,6 +35,7 @@
     display: flex;
     align-items: center;
     border-radius: .5rem .5rem 0 0;
+    grid-area: title;
   }
 
   $colors: (
@@ -41,11 +56,24 @@
     }
   }
 
+
   .box_content {
     font-family: $primary-font;
     font-size: 1rem;
     font-weight: $primary-light;
     padding: 1.2rem 1.85rem 1.35rem 1.85rem;
+    grid-area: content;
+  }
+
+  &.has_image {
+    .box_content {
+      min-height: 5rem;
+    }
+  }
+
+  .image {
+    grid-area: image;
+    border-radius: 0 0 0 .5rem;
   }
 
   .button {
@@ -53,6 +81,9 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0.15rem 1.85rem 1.35rem 1.85rem;
+    grid-area: button;
+    height: 100%;
+    align-items: flex-end;
   }
 
   &.type_small .button {
