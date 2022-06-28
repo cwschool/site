@@ -1,7 +1,7 @@
 @import '../../colors.scss';
 @import '../../fonts.scss';
 
-.content_box {
+.contentBox {
   position: relative;
   z-index: 2;
 
@@ -19,14 +19,14 @@
     "content"
     "button";
 
-  &.has_image {
+  &.hasImage {
     grid-template-areas:
       "title title"
       "image content"
       "image button";
   }
 
-  .box_title {
+  .boxTitle {
     font-family: $primary-font;
     font-size: 1.25rem;
     margin: 0;
@@ -39,25 +39,25 @@
   }
 
   $colors: (
-    "orange": $color-orange,
-    "brick": $color-brick,
-    "blue": $color-blue,
-    "green": $color-green,
-    "gold": $color-gold,
-    "purple": $color-purple,
-    "lilac": $color-lilac,
-    "ocean": $color-ocean,
-    "peach": $color-peach
+    "Orange": $color-orange,
+    "Brick": $color-brick,
+    "Blue": $color-blue,
+    "Green": $color-green,
+    "Gold": $color-gold,
+    "Purple": $color-purple,
+    "Lilac": $color-lilac,
+    "Ocean": $color-ocean,
+    "Peach": $color-peach
   );
 
   @each $name, $color in $colors {
-    &.color_#{$name} .box_title {
+    &.color#{$name} .boxTitle {
       background-color: $color;
     }
   }
 
 
-  .box_content {
+  .boxContent {
     font-family: $primary-font;
     font-size: 1rem;
     font-weight: $primary-light;
@@ -65,8 +65,8 @@
     grid-area: content;
   }
 
-  &.has_image {
-    .box_content {
+  &.hasImage {
+    .boxContent {
       min-height: 5rem;
     }
   }
@@ -86,10 +86,10 @@
     align-items: flex-end;
   }
 
-  &.type_small .button {
+  &.typeSmall .button {
     justify-content: center;
   }
-  &.type_full .button {
+  &.typeFull .button {
     justify-content: flex-end;
   }
 }

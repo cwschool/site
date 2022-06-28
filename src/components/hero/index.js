@@ -32,11 +32,11 @@ const Hero = ({ children, title = '', lead = '' }) => {
           <>
             <div
               onClick={prevPage}
-              className={classNames(css.pager, css.pager_left)}
+              className={classNames(css.pager, css.pagerLeft)}
             ></div>
             <div
               onClick={nextPage}
-              className={classNames(css.pager, css.pager_right)}
+              className={classNames(css.pager, css.pagerRight)}
             ></div>
           </>
         )}

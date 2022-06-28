@@ -3,10 +3,10 @@
 @import '../../fonts.scss';
 
 
-.content_list {
+.contentList {
   display: grid;
 
-  &.type_columns {
+  &.typeColumns {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1rem;
     grid-template-rows: auto auto;
@@ -15,7 +15,7 @@
       "more more more";
   }
 
-  &.type_full {
+  &.typeFull {
     grid-template-columns: 1fr;
     grid-gap: 1rem;
 
@@ -33,19 +33,19 @@
 
 
     $colors: (
-      "orange": $color-orange,
-      "brick": $color-brick,
-      "blue": $color-blue,
-      "green": $color-green,
-      "gold": $color-gold,
-      "purple": $color-purple,
-      "lilac": $color-lilac,
-      "ocean": $color-ocean,
-      "peach": $color-peach
+      "Orange": $color-orange,
+      "Brick": $color-brick,
+      "Blue": $color-blue,
+      "Green": $color-green,
+      "Gold": $color-gold,
+      "Purple": $color-purple,
+      "Lilac": $color-lilac,
+      "Ocean": $color-ocean,
+      "Peach": $color-peach
     );
 
     @each $name, $color in $colors {
-      &.color_#{$name} a {
+      &.color#{$name} a {
         color: $color;
       }
     }

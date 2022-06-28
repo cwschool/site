@@ -4,7 +4,7 @@ import Button from '../button'
 import * as css from './heropage.module.scss'
 
 const HeroPage = ({ title, lead, date, buttonText = '', buttonLink = '' }) => (
-  <article className={css.hero_page}>
+  <article className={css.heroPage}>
     <h2 className={css.title}>{title}</h2>
     <p className={css.date}>
       {dayjs(date).locale('hu').format('YYYY. MMMM DD.')}

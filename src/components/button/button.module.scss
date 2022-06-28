@@ -18,19 +18,19 @@
 
 
   $colors: (
-    "orange": $color-orange,
-    "brick": $color-brick,
-    "blue": $color-blue,
-    "green": $color-green,
-    "gold": $color-gold,
-    "purple": $color-purple,
-    "lilac": $color-lilac,
-    "ocean": $color-ocean,
-    "peach": $color-peach
+    "Orange": $color-orange,
+    "Brick": $color-brick,
+    "Blue": $color-blue,
+    "Green": $color-green,
+    "Gold": $color-gold,
+    "Purple": $color-purple,
+    "Lilac": $color-lilac,
+    "Ocean": $color-ocean,
+    "Peach": $color-peach
   );
 
   @each $name, $color in $colors {
-    &.color_#{$name} {
+    &.color#{$name} {
       background-color: $color;
       &:hover {
         background-color: lighten($color, 10%);

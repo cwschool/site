@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import capitalize from '../../utils/capitalize'
 import Button from '../button'
 import * as css from './content-box.module.scss'
 
@@ -15,13 +16,13 @@ const ContentBox = ({
 }) => (
   <div
     className={classNames(
-      css.content_box,
-      css[`type_${type}`],
-      css[`color_${color}`],
-      image && css.has_image
+      css.contentBox,
+      css[`type${capitalize(type)}`],
+      css[`color${capitalize(color)}`],
+      image && css.hasImage
     )}
   >
-    <h2 className={css.box_title}>{title}</h2>
+    <h2 className={css.boxTitle}>{title}</h2>
     {image && (
       <GatsbyImage
         image={image.gatsbyImageData}
@@ -30,7 +31,7 @@ const ContentBox = ({
         className={css.image}
       />
     )}
-    <div className={css.box_content}>{children}</div>
+    <div className={css.boxContent}>{children}</div>
     {buttonText && buttonLink && (
       <div className={css.button}>
         <Button label={buttonText} link={buttonLink} color={color} />

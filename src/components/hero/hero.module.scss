@@ -77,7 +77,7 @@
     cursor: pointer;
     top: 50%;
 
-    &.pager_left {
+    &.pagerLeft {
       left: 1rem;
       transform: translateY(-50%);
       &:active {
@@ -85,7 +85,7 @@
       }
     }
 
-    &.pager_right {
+    &.pagerRight {
       right: 1rem;
       transform: rotate(180deg) translateY(50%);
 
