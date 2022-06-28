@@ -1,9 +1,9 @@
 
 @font-face {
-  font-family: 'Baar Philos Regular';
+  font-family: 'Baar Philos';
   font-style: normal;
   font-weight: normal;
-  src: local('Baar Philos Regular'), url('./baarprg_.woff') format('woff');
+  src: local('Baar Philos'), url('./baarprg_.woff') format('woff');
 }
 
 

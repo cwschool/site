@@ -11,7 +11,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    {
+  /*   {
       name: '@storybook/preset-scss',
       options: {
         cssLoaderOptions: {
@@ -20,7 +20,7 @@ module.exports = {
             },
         }
       }
-    },
+    }, */
   ],
   "framework": "@storybook/react",
   "core": {
@@ -45,6 +45,39 @@ module.exports = {
         },
       ]}),
     );
+
+// Prevent webpack from using Storybook CSS rules to process CSS modules
+// config.module.rules.find(
+//   (rule) => rule.test.toString() === "/\\.css$/"
+// ).exclude = /\.module\.scss$/;
+
+// Tell webpack what to do with CSS modules
+config.module.rules.push({
+  test: /\.module\.scss$/,
+  include: path.resolve(__dirname, "../src"),
+  use: [
+    {
+      loader: 'style-loader',
+      options: {
+        esModule: true,
+      },
+    },
+    {
+      loader: 'css-loader',
+      options: {
+        importLoaders: 1,
+        esModule: true,
+        modules: {
+          namedExport: true,
+          localIdentName: '[name]__[local]--[hash:base64:5]',
+        },
+      },
+    },
+    {
+      loader: 'sass-loader',
+    }
+  ],
+});
 
     // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
     config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/]

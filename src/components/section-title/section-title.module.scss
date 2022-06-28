@@ -1,7 +1,7 @@
 @import '../../colors.scss';
 @import '../../fonts.scss';
 
-.section_title_container {
+.sectionTitleContainer {
   position: relative;
   z-index: 2;
 
@@ -12,25 +12,32 @@
   justify-content: center;
   margin-bottom: 2rem;
 
-  &.align_left {
+  &.alignLeft {
     justify-content: flex-start;
 
-    & .section_title {
+    & .sectionTitle {
       padding-left: 3.8rem;
       padding-right: 6.8rem;
     }
   }
 
-  &.align_right {
+  &.alignRight {
     justify-content: flex-end;
 
-    & .section_title {
+    & .sectionTitle {
       padding-right: 3.8rem;
       padding-left: 6.8rem;
+
+      &::after {
+        transform: scaleX(-1) translate(-50%, -50%);
+      }
+      &.colorPeach::after {
+        transform: scaleX(-1) translate(46%, -57%);
+      }
     }
   }
 
-  .section_title {
+  .sectionTitle {
     font-family: $hero-font;
     margin: 0;
     padding: 0;
@@ -53,18 +60,56 @@
       top: 50%;
       transform: translate(-50%, -50%);
     }
+  }
 
-    &.color_peach::after {
+
+  .sectionTitle {
+
+    &.colorPeach::after {
       background-image: url('../../static/peach-brush.png');
-      transform: translate(-43%, -59%);
+      transform: translate(-56%, -59%);
       height: 116%;
     }
-    &.color_gold::after {
+    &.colorGold::after {
       background-image: url('../../static/gold-brush.png');
+      transform: translate(-53%, -50%);
     }
-    &.color_orange::after {
+    &.colorOrange::after {
       background-image: url('../../static/orange-brush.png');
+    }
+    &.colorGreen::after {
+      background-image: url('../../static/green-brush.png');
+      transform: scaleX(-1) translate(53%, -66%);
+      height: 116%;
+    }
+    &.colorPurple::after {
+      background-image: url('../../static/purple-brush.png');
+      transform: scaleX(-1) translate(52%, -49%);
+      height: 105%;
     }
   }
 
+  &.alignRight {
+    & .sectionTitle {
+
+      &::after {
+        transform: scaleX(-1) translate(50%, -50%);
+      }
+      &.colorPeach::after {
+        transform: scaleX(-1) translate(46%, -57%);
+      }
+      &.colorGold::after {
+        transform: scaleX(-1) translate(47%, -53%);
+      }
+      &.colorOrange::after {
+        transform: scaleX(-1) translate(51%, -52%);
+      }
+      &.colorGreen::after {
+        transform: translate(-47%, -68%);
+      }
+      &.colorPurple::after {
+        transform: scaleX(1) translate(-48%, -50%);
+      }
+    }
+  }
 }
