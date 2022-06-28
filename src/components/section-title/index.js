@@ -5,10 +5,15 @@ import capitalize from '../../utils/capitalize'
 
 const SectionTitle = ({ title, align = 'left', color = 'ocean' }) => (
   <div
-    className={classNames(css.sectionTitleContainer, css[`align${capitalize(align)}`])}
+    className={classNames(
+      css.sectionTitleContainer,
+      css[`align${capitalize(align)}`]
+    )}
   >
     {console.log(css)}
-    <h2 className={classNames(css.sectionTitle, css[`color${capitalize(color)}`])}>
+    <h2
+      className={classNames(css.sectionTitle, css[`color${capitalize(color)}`])}
+    >
       {title}
     </h2>
   </div>

@@ -87,6 +87,21 @@
       transform: scaleX(-1) translate(52%, -49%);
       height: 105%;
     }
+    &.colorBlue::after {
+      background-image: url('../../static/blue-brush.png');
+    }
+    &.colorLilac::after {
+      background-image: url('../../static/lilac-brush.png');
+      transform: scaleX(-1) translate(49%, -53%);
+    }
+    &.colorViolet::after {
+      background-image: url('../../static/violet-brush.png');
+      transform: scaleX(-1) translate(38%, -53%);
+    }
+    &.colorOcean::after {
+      background-image: url('../../static/ocean-brush.png');
+      transform: scaleX(-1) translate(51%, -49%);
+    }
   }
 
   &.alignRight {
@@ -109,6 +124,15 @@
       }
       &.colorPurple::after {
         transform: scaleX(1) translate(-48%, -50%);
+      }
+      &.colorLilac::after {
+        transform: scaleX(1) translate(-49%, -53%);
+      }
+      &.colorViolet::after {
+        transform: scaleX(1) translate(-61%, -53%);
+      }
+      &.colorOcean::after{
+        transform: scaleX(1) translate(-51%, -49%);
       }
     }
   }
