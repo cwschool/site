@@ -11,9 +11,6 @@
   display: flex;
   justify-content: center;
 
-  background-color: $color-lilac;
-
-
   &::before {
      content: '';
      width: 100%;
@@ -39,6 +36,7 @@
     &::after {
       background-image: url('../../static/pink-watercolor.jpg');
       background-size: 64% auto;
+      background-color: #f8eff2;
     }
     .title,
     .lead {
@@ -61,7 +59,7 @@
   &.colorGold {
     &::after {
       background-image: url('../../static/gold-watercolor.jpg');
-
+      background-color: #fef9db;
     }
     .title,
     .lead {
@@ -72,7 +70,7 @@
   &.colorBlue {
     &::after {
       background-image: url('../../static/blue-watercolor.jpg');
-
+      background-color: #f1fafa;
     }
     .title,
     .lead {
