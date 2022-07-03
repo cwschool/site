@@ -17,26 +17,27 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               [css.selected]: activeMenu === 'school',
             })}
           >
-            <a href="/">Iskola</a>
+            <a href="/iskola">Iskola</a>
             <ul className={css.subMenu}>
               <li>
-                <a href="/">Aktualitások</a>
+                <a href="/iskola#aktualitasok">Aktualitások</a>
               </li>
               <li>
-                <a href="/">Pedagógiánk</a>
+                <a href="/iskola#pedagogiank">Pedagógiánk</a>
               </li>
               <li>
-                <a href="/">Pedagógusaink</a>
+                <a href="/iskola#pedagogusaink">Pedagógusaink</a>
               </li>
               <li>
-                <a href="/">Iskolakertünk</a>
+                <a href="/iskola#iskolakertunk">Iskolakertünk</a>
+              </li>
+              {/*
+              <li>
+                <a href="/iskola">Átjelentkezés</a>
               </li>
               <li>
-                <a href="/">Átjelentkezés</a>
-              </li>
-              <li>
-                <a href="/">Felvételi</a>
-              </li>
+                <a href="/iskola">Felvételi</a>
+              </li> */}
             </ul>
           </li>
           <li
@@ -45,27 +46,13 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
             })}
           >
             <a href="/">Óvoda</a>
-            <ul className={css.subMenu}>
-              <li>
-                <a href="/">Aktualitások</a>
-              </li>
-              <li>
-                <a href="/">Pedagógiánk</a>
-              </li>
-              <li>
-                <a href="/">Pedagógusaink</a>
-              </li>
-              <li>
-                <a href="/">Jelentkezés</a>
-              </li>
-            </ul>
           </li>
           <li
             className={classNames(css.menuItem, {
               [css.selected]: activeMenu === 'posts',
             })}
           >
-            <a href="/">Gondolatok</a>
+            <a href="/gondolatok">Gondolatok</a>
           </li>
           <li
             className={classNames(css.menuItem, {
@@ -79,7 +66,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               [css.selected]: activeMenu === 'jobs',
             })}
           >
-            <a href="/">Állások</a>
+            <a href="/allasok">Állások</a>
           </li>
           <li
             className={classNames(css.menuItem, {
@@ -104,7 +91,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               [css.selected]: activeMenu === 'contact',
             })}
           >
-            <a href="/">Kapcsolat</a>
+            <a href="/kapcsolat">Kapcsolat</a>
           </li>
         </ul>
       </nav>

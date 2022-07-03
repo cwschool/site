@@ -15,6 +15,11 @@
     }
   }
 
+  p {
+    margin-bottom: .6rem;
+    margin-top: 0;
+  }
+
 }
 
 .separator {
@@ -24,4 +29,6 @@
   float: none;
   clear: both;
   margin: 2rem 0;
+  transform: translateX(-1rem);
+  padding: 0 1rem;
 }

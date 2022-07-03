@@ -1,8 +1,9 @@
 import React, { Children, cloneElement, useState } from 'react'
 import classNames from 'classnames'
 import * as css from './hero.module.scss'
+import capitalize from '../../utils/capitalize'
 
-const Hero = ({ children, title = '', lead = '' }) => {
+const Hero = ({ children, title = '', lead = '', color = 'warmRainbow' }) => {
   const pages = Children.toArray(children)
   const [page, setPage] = useState(0)
 
@@ -20,7 +21,7 @@ const Hero = ({ children, title = '', lead = '' }) => {
   }
 
   return (
-    <section className={css.hero}>
+    <section className={classNames(css.hero, css[`color${capitalize(color)}`])}>
       <div className={css.centered}>
         {title && lead && (
           <>

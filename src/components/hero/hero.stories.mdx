@@ -15,13 +15,16 @@ import HeroPage from '../heropage';
     lead: {
       control: { type: 'text' }
     },
+    color: {
+      control: 'select', options: [ "warmRainbow", "coldRainbow", "pink", "blue", "green", "gold", "lilac" ]
+    },
   }}
 />
 
 # Hero
 export const Basic = (args) => (<Hero {...args} />);
 
-export const Paged = (args) => (<Hero>{[
+export const Paged = ({ color }) => (<Hero color={ color }>{[
   <HeroPage
     title="Ismerd meg iskolánkat!"
     lead="Betekintő: megismerheted mindennapjainkat, filozófiánkat. Beszélgetés egyesületünk alapítóival és iskolánk tanáraival."
@@ -47,11 +50,14 @@ export const Paged = (args) => (<Hero>{[
 
 <Story name="Basic" args={{
   title: "Az általános iskola",
-  lead: "Minden, amit a Christophorus Waldorf Általános Iskoláról tudni érdemes"
+  lead: "Minden, amit a Christophorus Waldorf Általános Iskoláról tudni érdemes",
+  color: "pink",
 }}>
   {Basic.bind({})}
 </Story>
 
-<Story name="Paged">
+<Story name="Paged" args={{
+  color: "pink",
+}}>
   {Paged.bind({})}
 </Story>

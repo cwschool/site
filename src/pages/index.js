@@ -16,8 +16,6 @@ import ContentList from '../components/contentlist'
 import * as richText from '../richtext.module.scss'
 
 const IndexPage = ({ data }) => {
-  console.log(data)
-
   const {
     contentfulMainPage: {
       introduction,
