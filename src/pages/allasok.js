@@ -36,7 +36,7 @@ const JobListPageTemplate = ({ data }) => {
 
   return (
     <Layout menu="jobs">
-      <Hero title={title} lead={lead} />
+      <Hero title={title} lead={lead} color="blue" />
       <Content>
         <SectionTitle title={relatedContentTitle} align="right" color="blue" />
 

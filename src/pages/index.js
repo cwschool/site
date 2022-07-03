@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
   } = data
   return (
     <Layout menu="">
-      <Hero>
+      <Hero color="warmRainbow">
         {heroItems.map((item) => (
           <HeroPage
             key={item.slug}

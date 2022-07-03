@@ -36,7 +36,7 @@ const BlogListPageTemplate = ({ data }) => {
 
   return (
     <Layout menu="posts">
-      <Hero title={title} lead={lead} />
+      <Hero title={title} lead={lead} color="gold" />
       <Content>
         <SectionTitle title={relatedContentTitle} align="right" color="gold" />
         <ContentList type="full">

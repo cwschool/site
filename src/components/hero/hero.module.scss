@@ -46,6 +46,40 @@
     }
   }
 
+  &.colorWarmRainbow {
+    &::after {
+      background-image: url('../../static/warmRainbow-watercolor.jpg');
+      background-position: 18% top;
+      background-size: auto 115%;
+    }
+    .title,
+    .lead {
+      color: $color-navigation;
+    }
+  }
+
+  &.colorGold {
+    &::after {
+      background-image: url('../../static/gold-watercolor.jpg');
+
+    }
+    .title,
+    .lead {
+      color: $color-darkgold;
+    }
+  }
+
+  &.colorBlue {
+    &::after {
+      background-image: url('../../static/blue-watercolor.jpg');
+
+    }
+    .title,
+    .lead {
+      color: $color-darkblue;
+    }
+  }
+
   .centered {
     width: 100%;
     max-width: 64rem;
