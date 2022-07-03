@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import { Link } from 'gatsby'
 import * as css from './header.module.scss'
 
 const Header = ({ activeMenu, searchEnabled = false }) => (
@@ -17,19 +18,19 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               [css.selected]: activeMenu === 'school',
             })}
           >
-            <a href="/iskola">Iskola</a>
+            <Link to="/iskola">Iskola</Link>
             <ul className={css.subMenu}>
               <li>
-                <a href="/iskola#aktualitasok">Aktualitások</a>
+                <Link to="/iskola#aktualitasok">Aktualitások</Link>
               </li>
               <li>
-                <a href="/iskola#pedagogiank">Pedagógiánk</a>
+                <Link to="/iskola#pedagogiank">Pedagógiánk</Link>
               </li>
               <li>
-                <a href="/iskola#pedagogusaink">Pedagógusaink</a>
+                <Link to="/iskola#pedagogusaink">Pedagógusaink</Link>
               </li>
               <li>
-                <a href="/iskola#iskolakertunk">Iskolakertünk</a>
+                <Link to="/iskola#iskolakertunk">Iskolakertünk</Link>
               </li>
               {/*
               <li>
@@ -52,28 +53,28 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               [css.selected]: activeMenu === 'posts',
             })}
           >
-            <a href="/gondolatok">Gondolatok</a>
+            <Link to="/gondolatok">Gondolatok</Link>
           </li>
           <li
             className={classNames(css.menuItem, {
               [css.selected]: activeMenu === 'images',
             })}
           >
-            <a href="/">Galéria</a>
+            <Link to="/">Galéria</Link>
           </li>
           <li
             className={classNames(css.menuItem, {
               [css.selected]: activeMenu === 'jobs',
             })}
           >
-            <a href="/allasok">Állások</a>
+            <Link to="/allasok">Állások</Link>
           </li>
           <li
             className={classNames(css.menuItem, {
               [css.selected]: activeMenu === 'foundation',
             })}
           >
-            <a href="/">Alapítvány</a>
+            <Link to="/">Alapítvány</Link>
             <ul className={css.subMenu}>
               <li>
                 <a href="/">Dokumentumok</a>
@@ -91,7 +92,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               [css.selected]: activeMenu === 'contact',
             })}
           >
-            <a href="/kapcsolat">Kapcsolat</a>
+            <Link to="/kapcsolat">Kapcsolat</Link>
           </li>
         </ul>
       </nav>
