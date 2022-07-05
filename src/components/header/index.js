@@ -7,9 +7,9 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
   <header className={css.header}>
     <div className={css.centered}>
       <h1 className={css.logo}>
-        <a href="/" title="Christophorus Waldorf Iskola">
+        <Link to="/" title="Christophorus Waldorf Iskola">
           Christophorus Waldorf Iskola
-        </a>
+        </Link>
       </h1>
       <nav className={css.navigation}>
         <ul>
@@ -42,11 +42,9 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
             </ul>
           </li>
           <li
-            className={classNames(css.menuItem, {
-              [css.selected]: activeMenu === 'preschool',
-            })}
+            className={css.menuItem}
           >
-            <a href="/">Óvoda</a>
+            <a href="https://wokk.hu/">Óvoda</a>
           </li>
           <li
             className={classNames(css.menuItem, {

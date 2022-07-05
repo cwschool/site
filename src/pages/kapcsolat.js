@@ -55,7 +55,7 @@ const ContactPage = ({ data }) => {
 
   return (
     <Layout menu="contact">
-      <Hero title={title} lead={lead} />
+      <Hero title={title} lead={lead} color="coldRainbow" />
       <Content>
         <SectionTitle title={firstContentTitle} align="right" color="ocean" />
 

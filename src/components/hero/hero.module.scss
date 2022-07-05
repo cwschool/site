@@ -56,6 +56,18 @@
     }
   }
 
+  &.colorColdRainbow {
+    &::after {
+      background-image: url('../../static/coldRainbow-watercolor.jpg');
+      background-position: -121% top;
+      background-size: auto 150%;
+    }
+    .title,
+    .lead {
+      color: $color-deepblue;
+    }
+  }
+
   &.colorGold {
     &::after {
       background-image: url('../../static/gold-watercolor.jpg');
@@ -75,6 +87,33 @@
     .title,
     .lead {
       color: $color-darkblue;
+    }
+  }
+
+  &.colorLilac {
+    &::after {
+      background-image: url('../../static/lilac-watercolor.jpg');
+      background-color: #f1fafa;
+      background-position: center top;
+      background-size: auto 150%;
+    }
+    .title,
+    .lead {
+      color: $color-darklilac;
+    }
+  }
+
+
+  &.colorGreen {
+    &::after {
+      background-image: url('../../static/green-watercolor.jpg');
+      background-color: #e8f1c8;
+      background-position: center top;
+      background-size: auto 150%;
+    }
+    .title,
+    .lead {
+      color: $color-darkgreen;
     }
   }
 
