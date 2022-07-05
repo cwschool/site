@@ -41,9 +41,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               </li> */}
             </ul>
           </li>
-          <li
-            className={css.menuItem}
-          >
+          <li className={css.menuItem}>
             <a href="https://wokk.hu/">Óvoda</a>
           </li>
           <li
@@ -72,7 +70,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               [css.selected]: activeMenu === 'foundation',
             })}
           >
-            <Link to="/">Alapítvány</Link>
+            <Link to="/alapitvany">Alapítvány</Link>
             <ul className={css.subMenu}>
               <li>
                 <a href="/">Dokumentumok</a>
