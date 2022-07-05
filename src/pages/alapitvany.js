@@ -49,7 +49,7 @@ const FoundationPage = ({ data }) => {
 
   return (
     <Layout menu="foundation">
-      <Hero title={title} lead={lead} color="coldRainbow" />
+      <Hero title={title} lead={lead} color="lilac" />
       <Content>
         <SectionTitle title={firstContentTitle} align="left" color="violet" />
 
