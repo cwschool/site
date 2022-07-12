@@ -5,10 +5,11 @@
 
 .contentList {
   display: grid;
+  padding: 0 2.6rem;
 
   &.typeColumns {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1rem;
+    grid-gap: 2.6rem;
     grid-template-rows: auto auto;
     grid-template-areas:
       ". . ."
@@ -16,12 +17,15 @@
   }
 
   &.typeFull {
-    grid-template-columns: 1fr;
-    grid-gap: 1rem;
+    display: block;
 
-    grid-template-areas:
-      "."
-      "more";
+    &.typeFull > * {
+      margin-bottom: 2rem;
+
+      &:nth-last-child(2) {
+        margin-bottom: 0rem;
+      }
+    }
   }
 
   .more {
@@ -30,7 +34,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
 
     $colors: (
       "Orange": $color-orange,
