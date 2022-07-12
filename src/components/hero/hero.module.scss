@@ -5,7 +5,7 @@
   position: relative;
   z-index: 2;
 
-  height: 21.75rem;
+  height: 25rem;
   width: 100%;
 
   display: flex;
@@ -18,8 +18,9 @@
      position: absolute;
      z-index: 2;
      background-image: url('../../static/wave-inverse.svg');
-     background-position: center 295%;
+     background-position: center;
      background-repeat: repeat-x;
+     transform: translateY(16rem);
   }
 
   &::after {
@@ -35,7 +36,7 @@
   &.colorPink {
     &::after {
       background-image: url('../../static/pink-watercolor.jpg');
-      background-size: 64% auto;
+      background-size: auto 110%;
       background-color: #f8eff2;
     }
     .title,
@@ -132,8 +133,9 @@
 
   .title {
     font-family: $hero-font;
-    font-size: 3rem;
-    margin-bottom: .5rem;
+    font-size: 2rem;
+    line-height: 2.4rem;
+    margin-bottom: .25rem;
     margin-top: 5.65rem;
     font-weight: 100;
   }
@@ -141,9 +143,9 @@
   .lead {
     display: block;
     font-family: $heading-font;
-    font-size: 1.65rem;
-    line-height: 2.3rem;
+    font-size: 1.25rem;
     font-weight: 100;
+    line-height: 1.8rem;
     margin: 0;
   }
 

@@ -154,7 +154,7 @@ export const pageQuery = graphql`
         raw
       }
       introImage {
-        gatsbyImageData(aspectRatio: 1, placeholder: BLURRED, width: 650)
+        gatsbyImageData(aspectRatio: 1, placeholder: BLURRED, width: 460)
         description
         title
       }
