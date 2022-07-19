@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
+import truncate from 'truncate'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
@@ -36,14 +37,14 @@ const IskolaPageTemplate = ({ data }) => {
     renderNode: {
       'embedded-asset-block': (node) => {
         console.log(node)
-        const { gatsbyImageData, title, description: alt } = node.data.target
-        if (!gatsbyImageData) {
+        const { gatsbyImage, title, description: alt } = node.data.target
+        if (!gatsbyImage) {
           // asset is not an image
           return null
         }
         return (
           <GatsbyImage
-            image={gatsbyImageData}
+            image={gatsbyImage}
             alt={alt}
             title={title}
             className={classNames(richText.image, richText.image_left)}
@@ -112,7 +113,10 @@ const IskolaPageTemplate = ({ data }) => {
               key={item.slug}
               image={item.image}
             >
-              {renderRichText(item.bio, options)}
+              {truncate(
+                documentToPlainTextString(JSON.parse(item.bio.raw)),
+                740
+              )}
             </ContentBox>
           ))}
         </ContentList>
@@ -136,7 +140,7 @@ const IskolaPageTemplate = ({ data }) => {
               key={item.slug}
               image={item.image}
             >
-              {renderRichText(item.bio, options)}
+              {truncate(documentToPlainTextString(item.bio), 240)}
             </ContentBox>
           ))}
         </ContentList>
@@ -174,7 +178,7 @@ export const pageQuery = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImageData(width: 340, placeholder: BLURRED, aspectRatio: 1)
+            gatsbyImage(width: 340, placeholder: BLURRED, aspectRatio: 1)
             description
             title
           }
@@ -189,7 +193,7 @@ export const pageQuery = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImageData(width: 250, placeholder: BLURRED)
+            gatsbyImage(width: 250, placeholder: BLURRED)
             description
             title
           }
@@ -241,7 +245,12 @@ export const pageQuery = graphql`
           raw
         }
         image {
-          gatsbyImageData(placeholder: BLURRED, width: 850, aspectRatio: 1.6)
+          gatsbyImage(
+            placeholder: BLURRED
+            cropFocus: TOP
+            width: 840
+            aspectRatio: 1.2
+          )
         }
         name
         slug
@@ -252,7 +261,12 @@ export const pageQuery = graphql`
           raw
         }
         image {
-          gatsbyImageData(placeholder: BLURRED, width: 850, aspectRatio: 1.6)
+          gatsbyImage(
+            placeholder: BLURRED
+            cropFocus: TOP
+            width: 840
+            aspectRatio: 1.2
+          )
         }
         name
         slug

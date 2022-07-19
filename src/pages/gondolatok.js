@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
+import truncate from 'truncate'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
@@ -50,7 +51,11 @@ const BlogListPageTemplate = ({ data }) => {
               key={item.slug}
               image={item.image}
             >
-              {item.lead.lead}
+
+              {truncate(
+                documentToPlainTextString(JSON.parse(item.content.raw)),
+                740
+              )}
             </ContentBox>
           ))}
         </ContentList>
@@ -75,11 +80,11 @@ export const pageQuery = graphql`
         date
         slug
         title
-        lead {
-          lead
+        content {
+          raw
         }
         image: postPicture {
-          gatsbyImageData(width: 488, placeholder: BLURRED, cropFocus: CENTER)
+          gatsbyImage(width: 488, placeholder: BLURRED, cropFocus: CENTER)
         }
       }
     }

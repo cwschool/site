@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
+import truncate from 'truncate'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
@@ -50,7 +51,7 @@ const JobListPageTemplate = ({ data }) => {
               buttonLink={item.slug}
               key={item.slug}
             >
-              {item.lead.lead}
+              {renderRichText(item.description)}
             </ContentBox>
           ))}
         </ContentList>
@@ -75,8 +76,8 @@ export const pageQuery = graphql`
         date
         slug
         title
-        lead {
-          lead
+        description {
+          raw
         }
       }
     }

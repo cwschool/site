@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
   const {
     contentfulMainPage: {
       introduction,
-      introImage: { gatsbyImageData, title, description: alt },
+      introImage: { gatsbyImage, title, description: alt },
       heroItems,
       actual,
       posts,
@@ -46,7 +46,7 @@ const IndexPage = ({ data }) => {
         <div className={richText.content}>
           {
             <GatsbyImage
-              image={gatsbyImageData}
+              image={gatsbyImage}
               alt={alt}
               title={title}
               className={classNames(richText.image, richText.image_left)}
@@ -154,7 +154,7 @@ export const pageQuery = graphql`
         raw
       }
       introImage {
-        gatsbyImageData(aspectRatio: 1, placeholder: BLURRED, width: 460)
+        gatsbyImage(aspectRatio: 1, placeholder: BLURRED, width: 460)
         description
         title
       }
@@ -194,7 +194,7 @@ export const pageQuery = graphql`
           raw
         }
         postPicture {
-          gatsbyImageData(placeholder: BLURRED, width: 850)
+          gatsbyImage(placeholder: BLURRED, width: 850)
           description
           title
         }

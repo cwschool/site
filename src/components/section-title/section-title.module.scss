@@ -26,7 +26,7 @@
     justify-content: flex-end;
 
     & .sectionTitle {
-      padding-right: 3.8rem;
+      padding-right: 1rem;
       padding-left: 6.8rem;
       transform: translateX(-1rem);
 
@@ -114,7 +114,7 @@
         transform: scaleX(-1) translate(50%, -50%);
       }
       &.colorPeach::after {
-        transform: scaleX(-1) translate(46%, -57%);
+        transform: scale(-1.3, 1.1) translate(33%, -57%);
       }
       &.colorGold::after {
         transform: scaleX(-1.3) scaleY(1.3) translate(47%, -41%);
@@ -125,8 +125,11 @@
       &.colorGreen::after {
         transform: translate(-47%, -68%);
       }
+      &.colorBlue::after {
+        transform: scaleX(-1) translate(44%, -50%);
+      }
       &.colorPurple::after {
-        transform: scaleX(1) translate(-48%, -50%);
+        transform: scaleX(1.2) translate(-40%, -50%);
       }
       &.colorLilac::after {
         transform: scaleX(1) translate(-49%, -53%);
@@ -135,7 +138,7 @@
         transform: scaleX(1) translate(-61%, -53%);
       }
       &.colorOcean::after{
-        transform: scaleX(1) translate(-51%, -49%);
+        transform: scaleX(1.3) translate(-38%, -49%);
       }
     }
   }

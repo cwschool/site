@@ -30,14 +30,14 @@ const FoundationPage = ({ data }) => {
     renderNode: {
       'embedded-asset-block': (node) => {
         console.log(node)
-        const { gatsbyImageData, title, description: alt } = node.data.target
-        if (!gatsbyImageData) {
+        const { gatsbyImage, title, description: alt } = node.data.target
+        if (!gatsbyImage) {
           // asset is not an image
           return null
         }
         return (
           <GatsbyImage
-            image={gatsbyImageData}
+            image={gatsbyImage}
             alt={alt}
             title={title}
             className={classNames(richText.image, richText.image_left)}
@@ -51,6 +51,8 @@ const FoundationPage = ({ data }) => {
     <Layout menu="foundation">
       <Hero title={title} lead={lead} color="lilac" />
       <Content>
+        <Separator />
+
         <SectionTitle title={firstContentTitle} align="left" color="violet" />
 
         <div className={richText.content}>
@@ -86,7 +88,7 @@ export const pageQuery = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImageData(width: 340, placeholder: BLURRED, aspectRatio: 1)
+            gatsbyImage(width: 340, placeholder: BLURRED, aspectRatio: 1)
             description
             title
           }
@@ -99,7 +101,7 @@ export const pageQuery = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImageData(width: 340, placeholder: BLURRED, aspectRatio: 1)
+            gatsbyImage(width: 340, placeholder: BLURRED, aspectRatio: 1)
             description
             title
           }

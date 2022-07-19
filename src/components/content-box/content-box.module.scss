@@ -29,6 +29,7 @@
   .boxTitle {
     font-family: $primary-font;
     font-size: 1.125rem;
+    font-weight: 400;
     margin: 0;
     padding: 1.1rem 1.2rem;
     color: $color-white;
@@ -74,6 +75,7 @@
   .image {
     grid-area: image;
     border-radius: 0 0 0 .5rem;
+    max-width: 28rem;
   }
 
   .button {

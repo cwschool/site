@@ -16,23 +16,25 @@ const ContentList = ({
 
   return (
     <div
-      className={classNames(css.contentList, css[`type${capitalize(type)}`])}
+      className={classNames(
+        css.contentList,
+        css[`type${capitalize(type)}`],
+        (moreLabel && moreLink) ? css.showMoreLink : ''
+      )}
     >
       {children}
 
-      {moreLabel && moreLink && (
-        <div className={css.more}>
-          {internal ? (
-            <Link className={cls} to={moreLink}>
-              {moreLabel}
-            </Link>
-          ) : (
-            <a className={cls} href={moreLink}>
-              {moreLabel}
-            </a>
-          )}
-        </div>
-      )}
+      {moreLabel && moreLink && (<div className={css.more}>
+        {internal ? (
+          <Link className={cls} to={moreLink}>
+            {moreLabel}
+          </Link>
+        ) : (
+          <a className={cls} href={moreLink}>
+            {moreLabel}
+          </a>
+        )}
+      </div>)}
     </div>
   )
 }

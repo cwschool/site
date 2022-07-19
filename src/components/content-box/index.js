@@ -25,7 +25,7 @@ const ContentBox = ({
     <h2 className={css.boxTitle}>{title}</h2>
     {image && (
       <GatsbyImage
-        image={image.gatsbyImageData}
+        image={image.gatsbyImage}
         alt={image.description}
         title={image.title}
         className={css.image}
