@@ -13,6 +13,7 @@ import Content from '../components/content'
 import ContentBox from '../components/content-box'
 import SectionTitle from '../components/section-title'
 import ContentList from '../components/contentlist'
+import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
 
 const IndexPage = ({ data }) => {
@@ -54,7 +55,7 @@ const IndexPage = ({ data }) => {
           {renderRichText(introduction)}
         </div>
 
-        <div className={richText.separator} />
+        <Separator />
 
         <SectionTitle title="Aktualitások" align="left" color="orange" />
 
@@ -72,7 +73,7 @@ const IndexPage = ({ data }) => {
           ))}
         </ContentList>
 
-        <div className={richText.separator} />
+        <Separator />
 
         <SectionTitle title="Blog" align="right" color="gold" />
 

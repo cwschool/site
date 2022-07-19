@@ -11,7 +11,7 @@ import Content from '../components/content'
 import ContentBox from '../components/content-box'
 import SectionTitle from '../components/section-title'
 import ContentList from '../components/contentlist'
-
+import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
 
 import * as css from './school.module.scss'
@@ -79,7 +79,7 @@ const IskolaPageTemplate = ({ data }) => {
           ))}
         </ContentList>
 
-        <div className={richText.separator} />
+        <Separator />
 
         <SectionTitle
           title={firstContentTitle}
@@ -92,7 +92,7 @@ const IskolaPageTemplate = ({ data }) => {
           {renderRichText(firstContent, options)}
         </div>
 
-        <div className={richText.separator} />
+        <Separator />
 
         <SectionTitle
           title={peopleListTitle}
@@ -117,7 +117,7 @@ const IskolaPageTemplate = ({ data }) => {
           ))}
         </ContentList>
 
-        <div className={richText.separator} />
+        <Separator />
 
         <SectionTitle
           title={additionalPeopleTitle}
@@ -141,7 +141,7 @@ const IskolaPageTemplate = ({ data }) => {
           ))}
         </ContentList>
 
-        <div className={richText.separator} />
+        <Separator />
 
         <SectionTitle
           title={secondContentTitle}
