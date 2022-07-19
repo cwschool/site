@@ -15,8 +15,6 @@ import ContentList from '../components/contentlist'
 import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
 
-import * as css from './school.module.scss'
-
 const IskolaPageTemplate = ({ data }) => {
   const {
     title,

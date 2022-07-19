@@ -1,14 +1,11 @@
 const path = require('path')
 
-const createPosts = async (graphql, createPage, reporter) => {
-  // Define a template for blog post
-  const tpl = path.resolve('./src/templates/news.js')
+const createJobs = async (graphql, createPage, reporter) => {
   const result = await graphql(
     `
       {
-        allContentfulNews {
+        allContentfulJob {
           nodes {
-            title
             slug
           }
         }
@@ -17,23 +14,19 @@ const createPosts = async (graphql, createPage, reporter) => {
   )
   if (result.errors) {
     reporter.panicOnBuild(
-      `There was an error loading your Contentful posts`,
+      `There was an error loading job postings`,
       result.errors
     )
     return
   }
 
-  const posts = result.data.allContentfulNews.nodes
-
-  // Create blog posts pages
-  // But only if there's at least one blog post found in Contentful
-  // `context` is available in the template as a prop and as a variable in GraphQL
+  const posts = result.data.allContentfulJob.nodes
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
       createPage({
-        path: `/news/${post.slug}/`,
-        component: tpl,
+        path: `/allasok/${post.slug}/`,
+        component: path.resolve('./src/templates/jobs.js'),
         context: {
           slug: post.slug,
         },
@@ -43,10 +36,49 @@ const createPosts = async (graphql, createPage, reporter) => {
 }
 
 
+const createPosts = async (graphql, createPage, reporter) => {
+  const result = await graphql(
+    `
+      {
+        allContentfulPost {
+          nodes {
+            slug
+          }
+        }
+      }
+    `
+  )
+  if (result.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading blog posts`,
+      result.errors
+    )
+    return
+  }
+
+  const posts = result.data.allContentfulPost.nodes
+
+  if (posts.length > 0) {
+    posts.forEach((post, index) => {
+      createPage({
+        path: `/gondolatok/${post.slug}/`,
+        component: path.resolve('./src/templates/posts.js'),
+        context: {
+          slug: post.slug,
+        },
+      })
+    })
+  }
+}
+
+
+
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
 
+  await createJobs(graphql, createPage, reporter)
   await createPosts(graphql, createPage, reporter)
 
 }

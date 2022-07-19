@@ -47,11 +47,10 @@ const BlogListPageTemplate = ({ data }) => {
               type="full"
               color="gold"
               buttonText="Tovább"
-              buttonLink={item.slug}
+              buttonLink={`/gondolatok/${item.slug}`}
               key={item.slug}
               image={item.image}
             >
-
               {truncate(
                 documentToPlainTextString(JSON.parse(item.content.raw)),
                 740

@@ -78,7 +78,7 @@ const IndexPage = ({ data }) => {
         <SectionTitle title="Blog" align="right" color="gold" />
 
         <ContentList
-          moreLink="/news"
+          moreLink="/gondolatok"
           moreLabel="Még több blog"
           color="gold"
           type="full"
@@ -89,7 +89,7 @@ const IndexPage = ({ data }) => {
               type="full"
               color="gold"
               buttonText="Tovább"
-              buttonLink={item.slug}
+              buttonLink={`/gondolatok/${item.slug}`}
               image={item.postPicture}
             >
               {truncate(

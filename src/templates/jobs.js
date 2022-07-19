@@ -15,25 +15,15 @@ import ContentList from '../components/contentlist'
 
 import * as richText from '../richtext.module.scss'
 
-import * as css from './school.module.scss'
-
-const JobListPageTemplate = ({ data }) => {
+const JobPageTemplate = ({ data }) => {
   const {
-    title,
-    lead: { lead },
-    relatedContentTitle,
-    relatedContent,
-    firstContentTitle,
-    firstContent,
-    secondContentTitle,
-    secondContent,
-    peopleListTitle,
-    peopleList,
-    additionalPeopleTitle,
-    additionalPeople,
-  } = data.contentfulPage
-
-  const { nodes: jobs } = data.allContentfulJob
+    contentfulPage: {
+      title,
+      lead: { lead },
+      relatedContentTitle,
+    },
+    contentfulJob: { slug, title: jobTitle, date, description },
+  } = data
 
   return (
     <Layout menu="jobs">
@@ -41,29 +31,18 @@ const JobListPageTemplate = ({ data }) => {
       <Content>
         <SectionTitle title={relatedContentTitle} align="right" color="blue" />
 
-        <ContentList type="full">
-          {jobs.map((item) => (
-            <ContentBox
-              title={item.title}
-              type="full"
-              color="blue"
-              buttonText="Tovább"
-              buttonLink={`/allasok/${item.slug}`}
-              key={item.slug}
-            >
-              {renderRichText(item.description)}
-            </ContentBox>
-          ))}
-        </ContentList>
+        <ContentBox title={jobTitle} type="full" color="blue" key={slug}>
+          {renderRichText(description)}
+        </ContentBox>
       </Content>
     </Layout>
   )
 }
 
-export default JobListPageTemplate
+export default JobPageTemplate
 
 export const pageQuery = graphql`
-  query JobListPageQuery {
+  query JobPostBySlug($slug: String!) {
     contentfulPage(slug: { eq: "allasok" }) {
       lead {
         lead
@@ -71,14 +50,12 @@ export const pageQuery = graphql`
       title
       relatedContentTitle
     }
-    allContentfulJob {
-      nodes {
-        date
-        slug
-        title
-        description {
-          raw
-        }
+    contentfulJob(slug: { eq: $slug }) {
+      slug
+      title
+      date
+      description {
+        raw
       }
     }
   }
