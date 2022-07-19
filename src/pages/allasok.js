@@ -13,9 +13,6 @@ import ContentBox from '../components/content-box'
 import SectionTitle from '../components/section-title'
 import ContentList from '../components/contentlist'
 
-import * as richText from '../richtext.module.scss'
-
-import * as css from './school.module.scss'
 
 const JobListPageTemplate = ({ data }) => {
   const {

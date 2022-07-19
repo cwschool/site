@@ -13,6 +13,8 @@ import ContentBox from '../components/content-box'
 import SectionTitle from '../components/section-title'
 import ContentList from '../components/contentlist'
 import Separator from '../components/separator'
+import getInternalPath from '../utils/getInternalPath'
+
 import * as richText from '../richtext.module.scss'
 
 const IskolaPageTemplate = ({ data }) => {
@@ -70,7 +72,7 @@ const IskolaPageTemplate = ({ data }) => {
               type="small"
               color="purple"
               buttonText="Tovább"
-              buttonLink={item.slug}
+              buttonLink={getInternalPath(item)}
               key={item.slug}
             >
               {item.lead.lead}
@@ -107,7 +109,7 @@ const IskolaPageTemplate = ({ data }) => {
               type="full"
               color="brick"
               buttonText="Tovább"
-              buttonLink={item.slug}
+              buttonLink={getInternalPath(item)}
               key={item.slug}
               image={item.image}
             >
@@ -134,7 +136,7 @@ const IskolaPageTemplate = ({ data }) => {
               type="full"
               color="peach"
               buttonText="Tovább"
-              buttonLink={item.slug}
+              buttonLink={getInternalPath(item)}
               key={item.slug}
               image={item.image}
             >
@@ -207,6 +209,9 @@ export const pageQuery = graphql`
             }
             date
             slug
+            internal {
+              type
+            }
           }
           ... on ContentfulNews {
             id
@@ -216,6 +221,9 @@ export const pageQuery = graphql`
             }
             date
             slug
+            internal {
+              type
+            }
           }
           ... on ContentfulJob {
             id
@@ -225,6 +233,9 @@ export const pageQuery = graphql`
             }
             date
             slug
+            internal {
+              type
+            }
           }
           ... on ContentfulPage {
             id
@@ -234,6 +245,9 @@ export const pageQuery = graphql`
             }
             date
             slug
+            internal {
+              type
+            }
           }
         }
       }
@@ -252,6 +266,9 @@ export const pageQuery = graphql`
         }
         name
         slug
+        internal {
+          type
+        }
       }
       additionalPeopleTitle
       additionalPeople {
@@ -268,6 +285,9 @@ export const pageQuery = graphql`
         }
         name
         slug
+        internal {
+          type
+        }
       }
     }
   }

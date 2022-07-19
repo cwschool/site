@@ -14,6 +14,8 @@ import ContentBox from '../components/content-box'
 import SectionTitle from '../components/section-title'
 import ContentList from '../components/contentlist'
 import Separator from '../components/separator'
+
+import getInternalPath from '../utils/getInternalPath'
 import * as richText from '../richtext.module.scss'
 
 const IndexPage = ({ data }) => {
@@ -35,7 +37,7 @@ const IndexPage = ({ data }) => {
             title={item.title}
             lead={item.lead.lead}
             date={new Date(item.date)}
-            buttonLink={item.slug}
+            buttonLink={getInternalPath(item)}
             buttonText="Tovább"
           />
         ))}
@@ -59,14 +61,14 @@ const IndexPage = ({ data }) => {
 
         <SectionTitle title="Aktualitások" align="left" color="orange" />
 
-        <ContentList moreLink="/news" moreLabel="Még több friss hír">
+        <ContentList>
           {actual.map((item) => (
             <ContentBox
               title={item.title}
               type="small"
               color="orange"
               buttonText="Tovább"
-              buttonLink={item.slug}
+              buttonLink={getInternalPath(item)}
             >
               {item.lead.lead}
             </ContentBox>
@@ -89,7 +91,7 @@ const IndexPage = ({ data }) => {
               type="full"
               color="gold"
               buttonText="Tovább"
-              buttonLink={`/gondolatok/${item.slug}`}
+              buttonLink={getInternalPath(item)}
               image={item.postPicture}
             >
               {truncate(
@@ -110,7 +112,6 @@ export const pageQuery = graphql`
   query MainPageQuery {
     contentfulMainPage(id: { eq: "7ab4d2ae-3a70-579f-8255-70e8d5d75041" }) {
       heroItems {
-        __typename
         ... on Node {
           ... on ContentfulPost {
             id
@@ -120,6 +121,9 @@ export const pageQuery = graphql`
             }
             date
             slug
+            internal {
+              type
+            }
           }
           ... on ContentfulNews {
             id
@@ -129,6 +133,9 @@ export const pageQuery = graphql`
             }
             date
             slug
+            internal {
+              type
+            }
           }
           ... on ContentfulJob {
             id
@@ -138,6 +145,9 @@ export const pageQuery = graphql`
             }
             date
             slug
+            internal {
+              type
+            }
           }
           ... on ContentfulPage {
             id
@@ -147,6 +157,9 @@ export const pageQuery = graphql`
             }
             date
             slug
+            internal {
+              type
+            }
           }
         }
       }
@@ -168,6 +181,9 @@ export const pageQuery = graphql`
               lead
             }
             slug
+            internal {
+              type
+            }
           }
           ... on ContentfulNews {
             id
@@ -176,6 +192,9 @@ export const pageQuery = graphql`
               lead
             }
             slug
+            internal {
+              type
+            }
           }
           ... on ContentfulJob {
             id
@@ -184,6 +203,9 @@ export const pageQuery = graphql`
               lead
             }
             slug
+            internal {
+              type
+            }
           }
         }
       }

@@ -14,8 +14,6 @@ import ContentList from '../components/contentlist'
 
 import * as richText from '../richtext.module.scss'
 
-import * as css from './school.module.scss'
-
 const FoundationPage = ({ data }) => {
   const {
     title,
