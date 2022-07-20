@@ -13,7 +13,6 @@ import ContentBox from '../components/content-box'
 import SectionTitle from '../components/section-title'
 import ContentList from '../components/contentlist'
 
-
 const JobListPageTemplate = ({ data }) => {
   const {
     title,

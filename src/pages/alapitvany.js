@@ -5,12 +5,13 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 
-import Layout from '../components/layout'
-import Hero from '../components/hero'
 import Content from '../components/content'
-import Separator from '../components/separator'
-import SectionTitle from '../components/section-title'
+import ContentBox from '../components/content-box'
 import ContentList from '../components/contentlist'
+import Hero from '../components/hero'
+import Layout from '../components/layout'
+import SectionTitle from '../components/section-title'
+import Separator from '../components/separator'
 
 import * as richText from '../richtext.module.scss'
 
@@ -49,6 +50,14 @@ const FoundationPage = ({ data }) => {
     <Layout menu="foundation">
       <Hero title={title} lead={lead} color="lilac" />
       <Content>
+        <SectionTitle title="Dokumentumok" align="right" color="lilac" />
+
+        <ContentList>
+          <ContentBox title="" type="small" color="lilac">
+            foo
+          </ContentBox>
+        </ContentList>
+
         <Separator />
 
         <SectionTitle title={firstContentTitle} align="left" color="violet" />
@@ -73,6 +82,20 @@ export default FoundationPage
 
 export const pageQuery = graphql`
   query FoundationPageQuery {
+    allContentfulAsset(
+      filter: {
+        metadata: { tags: { elemMatch: { name: { eq: "document" } } } }
+      }
+    ) {
+      edges {
+        node {
+          id
+          url
+          filename
+          title
+        }
+      }
+    }
     contentfulPage(slug: { eq: "alapitvany" }) {
       date
       slug

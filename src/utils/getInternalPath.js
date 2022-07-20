@@ -1,16 +1,15 @@
 export default (node) => {
-
-  let category = '';
+  let category = ''
   switch (node?.internal?.type ?? '') {
     case 'ContentfulJob':
       category = 'allasok/'
-      break;
+      break
     case 'ContentfulNews':
-      category = 'allasok/'
-      break;
+      category = 'hirek/'
+      break
     case 'ContentfulPost':
       category = 'gondolatok/'
-      break;
+      break
     case 'ContentfulPersonell':
     case 'ContentfulPage':
     default:

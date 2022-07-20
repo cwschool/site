@@ -70,7 +70,7 @@
 
     &.colorPeach::after {
       background-image: url('../../static/peach-brush.png');
-      transform: translate(-56%, -59%);
+      transform: scaleX(1.2) translate(-45%, -59%);
       height: 116%;
     }
     &.colorGold::after {
@@ -82,7 +82,7 @@
     }
     &.colorGreen::after {
       background-image: url('../../static/green-brush.png');
-      transform: scaleX(-1) translate(53%, -66%);
+      transform: scaleX(-1.2) translate(43%, -66%);
       height: 116%;
     }
     &.colorPurple::after {
@@ -99,7 +99,7 @@
     }
     &.colorViolet::after {
       background-image: url('../../static/violet-brush.png');
-      transform: scaleX(-1) translate(38%, -53%);
+      transform: scaleX(-1) translate(44%, -53%);
     }
     &.colorOcean::after {
       background-image: url('../../static/ocean-brush.png');
@@ -117,13 +117,13 @@
         transform: scale(-1.3, 1.1) translate(33%, -57%);
       }
       &.colorGold::after {
-        transform: scaleX(-1.3) scaleY(1.3) translate(47%, -41%);
+        transform: scaleX(-1.3) scaleY(1.4) translate(37%, -38%);
       }
       &.colorOrange::after {
-        transform: scaleX(-1) translate(51%, -52%);
+        transform: scaleX(-1.1) translate(44%, -52%);
       }
       &.colorGreen::after {
-        transform: translate(-47%, -68%);
+        transform: scaleX(1.1) translate(-39%, -68%);
       }
       &.colorBlue::after {
         transform: scaleX(-1) translate(44%, -50%);
@@ -132,10 +132,10 @@
         transform: scaleX(1.2) translate(-40%, -50%);
       }
       &.colorLilac::after {
-        transform: scaleX(1) translate(-49%, -53%);
+        transform: scaleX(1.1) translate(-44%, -53%);
       }
       &.colorViolet::after {
-        transform: scaleX(1) translate(-61%, -53%);
+        transform: scaleX(1.1) translate(-48%, -53%);
       }
       &.colorOcean::after{
         transform: scaleX(1.3) translate(-38%, -49%);
