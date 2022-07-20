@@ -1,5 +1,5 @@
-
-
+@import './colors.scss';
+@import './fonts.scss';
 
 .content {
 
@@ -23,6 +23,15 @@
     margin-top: 0;
   }
 
+  &.contentPage {
+    padding: 4rem 8rem;
+
+    .image {
+      width: 22rem;
+      height: auto;
+    }
+  }
+
 }
 
 .separator {
@@ -34,4 +43,14 @@
   margin: 2rem 0;
   transform: translateX(-1rem);
   padding: 0 1rem;
+}
+
+.linkList li a {
+  font-weight: bold;
+  text-decoration: none;
+  color: $color-lilac;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

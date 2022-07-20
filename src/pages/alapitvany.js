@@ -1,9 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 
 import Content from '../components/content'
 import ContentBox from '../components/content-box'
@@ -17,21 +16,23 @@ import * as richText from '../richtext.module.scss'
 
 const FoundationPage = ({ data }) => {
   const {
-    title,
-    lead: { lead },
-    firstContentTitle,
-    firstContent,
-    secondContentTitle,
-    secondContent,
-  } = data.contentfulPage
+    contentfulPage: {
+      title,
+      lead: { lead },
+      firstContentTitle,
+      firstContent,
+      secondContentTitle,
+      secondContent,
+    },
+    instituteDocs,
+    foundationDocs,
+  } = data
 
   const options = {
     renderNode: {
       'embedded-asset-block': (node) => {
-        console.log(node)
         const { gatsbyImage, title, description: alt } = node.data.target
         if (!gatsbyImage) {
-          // asset is not an image
           return null
         }
         return (
@@ -53,8 +54,37 @@ const FoundationPage = ({ data }) => {
         <SectionTitle title="Dokumentumok" align="right" color="lilac" />
 
         <ContentList>
-          <ContentBox title="" type="small" color="lilac">
-            foo
+          <ContentBox title="Iskola" type="small" color="lilac">
+            <ul className={richText.linkList}>
+              {instituteDocs.edges.map((edge, i) => (
+                <li key={`instituteDocs-${i}`}>
+                  <a href={edge.node.url} download>
+                    {edge.node.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </ContentBox>
+          <ContentBox title="Egyesület" type="small" color="lilac">
+            <ul className={richText.linkList}>
+              {foundationDocs.edges.map((edge, i) => (
+                <li key={`foundationDocs-${i}`}>
+                  <a href={edge.node.url} download>
+                    {edge.node.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </ContentBox>
+          <ContentBox title="Waldorf a nagyvilágban" type="small" color="lilac">
+            <ul className={richText.linkList}>
+              <li>
+                <a href="">Waldorf iskolák kerettanterve</a>
+              </li>
+              <li>
+                <a href="">A világ Waldorf intézményeinek listája</a>
+              </li>
+            </ul>
           </ContentBox>
         </ContentList>
 
@@ -82,16 +112,30 @@ export default FoundationPage
 
 export const pageQuery = graphql`
   query FoundationPageQuery {
-    allContentfulAsset(
+    instituteDocs: allContentfulAsset(
       filter: {
-        metadata: { tags: { elemMatch: { name: { eq: "document" } } } }
+        metadata: {
+          tags: { elemMatch: { name: { eq: "document", in: "institute" } } }
+        }
       }
     ) {
       edges {
         node {
-          id
           url
-          filename
+          title
+        }
+      }
+    }
+    foundationDocs: allContentfulAsset(
+      filter: {
+        metadata: {
+          tags: { elemMatch: { name: { eq: "document", in: "foundation" } } }
+        }
+      }
+    ) {
+      edges {
+        node {
+          url
           title
         }
       }

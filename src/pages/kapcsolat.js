@@ -1,16 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Content from '../components/content'
-import ContentBox from '../components/content-box'
 import SectionTitle from '../components/section-title'
-import ContentList from '../components/contentlist'
 
 import * as richText from '../richtext.module.scss'
 
@@ -18,22 +15,13 @@ const ContactPage = ({ data }) => {
   const {
     title,
     lead: { lead },
-    relatedContentTitle,
-    relatedContent,
     firstContentTitle,
     firstContent,
-    secondContentTitle,
-    secondContent,
-    peopleListTitle,
-    peopleList,
-    additionalPeopleTitle,
-    additionalPeople,
   } = data.contentfulPage
 
   const options = {
     renderNode: {
       'embedded-asset-block': (node) => {
-        console.log(node)
         const { gatsbyImageData, title, description: alt } = node.data.target
         if (!gatsbyImageData) {
           // asset is not an image

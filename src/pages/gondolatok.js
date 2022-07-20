@@ -1,8 +1,5 @@
 import React from 'react'
-import classNames from 'classnames'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, graphql, useStaticQuery } from 'gatsby'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { graphql } from 'gatsby'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import truncate from 'truncate'
 
@@ -13,25 +10,15 @@ import ContentBox from '../components/content-box'
 import SectionTitle from '../components/section-title'
 import ContentList from '../components/contentlist'
 
-import * as richText from '../richtext.module.scss'
-
 const BlogListPageTemplate = ({ data }) => {
   const {
-    title,
-    lead: { lead },
-    relatedContentTitle,
-    relatedContent,
-    firstContentTitle,
-    firstContent,
-    secondContentTitle,
-    secondContent,
-    peopleListTitle,
-    peopleList,
-    additionalPeopleTitle,
-    additionalPeople,
-  } = data.contentfulPage
-
-  const { nodes: posts } = data.allContentfulPost
+    contentfulPage: {
+      title,
+      lead: { lead },
+      relatedContentTitle,
+    },
+    allContentfulPost: { nodes: posts },
+  } = data
 
   return (
     <Layout menu="posts">

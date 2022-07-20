@@ -1,6 +1,6 @@
 import React from 'react'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import truncate from 'truncate'
@@ -46,14 +46,12 @@ const IndexPage = ({ data }) => {
         <SectionTitle title="Üdvözlünk!" align="right" color="peach" />
 
         <div className={richText.content}>
-          {
-            <GatsbyImage
-              image={gatsbyImage}
-              alt={alt}
-              title={title}
-              className={classNames(richText.image, richText.image_left)}
-            />
-          }
+          <GatsbyImage
+            image={gatsbyImage}
+            alt={alt}
+            title={title}
+            className={classNames(richText.image, richText.image_left)}
+          />
           {renderRichText(introduction)}
         </div>
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import truncate from 'truncate'
@@ -36,7 +36,6 @@ const IskolaPageTemplate = ({ data }) => {
   const options = {
     renderNode: {
       'embedded-asset-block': (node) => {
-        console.log(node)
         const { gatsbyImage, title, description: alt } = node.data.target
         if (!gatsbyImage) {
           // asset is not an image
