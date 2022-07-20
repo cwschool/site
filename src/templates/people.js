@@ -13,13 +13,7 @@ import * as richText from '../richtext.module.scss'
 const PeoplePageTemplate = ({ data }) => {
   const {
     contentfulPage: { pageTitle },
-    contentfulPersonell: {
-      lead,
-      name,
-      date,
-      bio,
-      image,
-    },
+    contentfulPersonell: { lead, name, date, bio, image },
   } = data
 
   const richTextOptions = {
@@ -47,12 +41,14 @@ const PeoplePageTemplate = ({ data }) => {
       <Hero title={name} lead={' '} color="pink" />
       <Content>
         <div className={classNames(richText.content, richText.contentPage)}>
-          {image && <GatsbyImage
-            image={image.gatsbyImage}
-            alt={image.alt}
-            title={image.title}
-            className={classNames(richText.image, richText.image_left)}
-          />}
+          {image && (
+            <GatsbyImage
+              image={image.gatsbyImage}
+              alt={image.alt}
+              title={image.title}
+              className={classNames(richText.image, richText.image_left)}
+            />
+          )}
           {renderRichText(bio, richTextOptions)}
         </div>
       </Content>

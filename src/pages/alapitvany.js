@@ -51,7 +51,12 @@ const FoundationPage = ({ data }) => {
     <Layout menu="foundation">
       <Hero title={title} lead={lead} color="lilac" />
       <Content>
-        <SectionTitle title="Dokumentumok" align="right" color="lilac" anchor="dokumentumok" />
+        <SectionTitle
+          title="Dokumentumok"
+          align="right"
+          color="lilac"
+          anchor="dokumentumok"
+        />
 
         <ContentList>
           <ContentBox title="Iskola" type="small" color="lilac">
@@ -90,7 +95,12 @@ const FoundationPage = ({ data }) => {
 
         <Separator />
 
-        <SectionTitle title={firstContentTitle} align="left" color="violet" anchor="fenntarto" />
+        <SectionTitle
+          title={firstContentTitle}
+          align="left"
+          color="violet"
+          anchor="fenntarto"
+        />
 
         <div className={richText.content}>
           {renderRichText(firstContent, options)}
@@ -98,7 +108,12 @@ const FoundationPage = ({ data }) => {
 
         <Separator />
 
-        <SectionTitle title={secondContentTitle} align="right" color="purple" anchor="fundraising" />
+        <SectionTitle
+          title={secondContentTitle}
+          align="right"
+          color="purple"
+          anchor="fundraising"
+        />
 
         <div className={richText.content}>
           {renderRichText(secondContent, options)}
