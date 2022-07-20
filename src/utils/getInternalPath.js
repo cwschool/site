@@ -11,6 +11,8 @@ export default (node) => {
       category = 'gondolatok/'
       break
     case 'ContentfulPersonell':
+      category = 'iskola/'
+      break
     case 'ContentfulPage':
     default:
   }

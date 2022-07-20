@@ -36,6 +36,42 @@ const createJobs = async (graphql, createPage, reporter) => {
 }
 
 
+const createPeople = async (graphql, createPage, reporter) => {
+  const result = await graphql(
+    `
+      {
+        allContentfulPersonell {
+          nodes {
+            slug
+          }
+        }
+      }
+    `
+  )
+  if (result.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading people`,
+      result.errors
+    )
+    return
+  }
+
+  const posts = result.data.allContentfulPersonell.nodes
+
+  if (posts.length > 0) {
+    posts.forEach((post, index) => {
+      createPage({
+        path: `/iskola/${post.slug}/`,
+        component: path.resolve('./src/templates/people.js'),
+        context: {
+          slug: post.slug,
+        },
+      })
+    })
+  }
+}
+
+
 const createPosts = async (graphql, createPage, reporter) => {
   const result = await graphql(
     `
@@ -80,6 +116,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   await createJobs(graphql, createPage, reporter)
   await createPosts(graphql, createPage, reporter)
+  await createPeople(graphql, createPage, reporter)
 
 }
 
