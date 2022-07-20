@@ -18,7 +18,7 @@ const PeoplePageTemplate = ({ data }) => {
       name,
       date,
       bio,
-      image: { gatsbyImage, alt, imageTitle },
+      image,
     },
   } = data
 
@@ -47,12 +47,12 @@ const PeoplePageTemplate = ({ data }) => {
       <Hero title={name} lead={' '} color="pink" />
       <Content>
         <div className={classNames(richText.content, richText.contentPage)}>
-          <GatsbyImage
-            image={gatsbyImage}
-            alt={alt}
-            title={imageTitle}
+          {image && <GatsbyImage
+            image={image.gatsbyImage}
+            alt={image.alt}
+            title={image.title}
             className={classNames(richText.image, richText.image_left)}
-          />
+          />}
           {renderRichText(bio, richTextOptions)}
         </div>
       </Content>
@@ -73,6 +73,8 @@ export const pageQuery = graphql`
       }
       image {
         gatsbyImage(placeholder: BLURRED, cropFocus: TOP, width: 840)
+        title
+        alt: description
       }
       name
     }

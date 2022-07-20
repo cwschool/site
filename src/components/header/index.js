@@ -73,13 +73,13 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
             <Link to="/alapitvany">Alapítvány</Link>
             <ul className={css.subMenu}>
               <li>
-                <a href="/">Dokumentumok</a>
+                <Link to="/alapitvany#dokumentumok">Dokumentumok</Link>
               </li>
               <li>
-                <a href="/">Fenntartó</a>
+                <Link to="/alapitvany#fenntarto">Fenntartó</Link>
               </li>
               <li>
-                <a href="/">Foundraising</a>
+                <Link to="/alapitvany#fundraising">Foundraising</Link>
               </li>
             </ul>
           </li>

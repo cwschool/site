@@ -18,7 +18,7 @@ const BlogPageTemplate = ({ data }) => {
       title: postTitle,
       date,
       content,
-      postPicture: { gatsbyImage, alt, imageTitle },
+      postPicture,
     },
   } = data
 
@@ -47,12 +47,12 @@ const BlogPageTemplate = ({ data }) => {
       <Hero title={postTitle} lead={lead?.lead ?? ' '} color="gold" />
       <Content>
         <div className={classNames(richText.content, richText.contentPage)}>
-          <GatsbyImage
-            image={gatsbyImage}
-            alt={alt}
-            title={imageTitle}
+          {postPicture && <GatsbyImage
+            image={postPicture.gatsbyImage}
+            alt={postPicture.alt}
+            title={postPicture.title}
             className={classNames(richText.image, richText.image_left)}
-          />
+          />}
           {renderRichText(content, richTextOptions)}
         </div>
       </Content>
@@ -79,7 +79,7 @@ export const pageQuery = graphql`
       title
       postPicture {
         gatsbyImage(width: 450, placeholder: BLURRED)
-        imageTitle: title
+        title
         alt: description
       }
     }
