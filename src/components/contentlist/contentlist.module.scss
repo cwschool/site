@@ -8,8 +8,9 @@
   padding: 0 2rem;
 
   &.typeColumns {
+    grid-auto-flow: column;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 2.6rem;
+    grid-column-gap: 2.6rem;
     grid-template-rows: auto auto;
     grid-template-areas:
       ". . ."
@@ -19,16 +20,16 @@
   &.typeFull {
     display: block;
 
-    &.typeFull > * {
+    /* &.typeFull > * {
       margin-bottom: 2rem;
-    }
+    } */
   }
 
-  &.typeFull.showMoreLink > * {
-    margin-bottom: 2rem;
+  &.typeFull > * {
+    margin-bottom: 0rem;
 
-    &:nth-last-child(2) {
-      margin-bottom: 0rem;
+    &:nth-child(2n+2) {
+      margin-bottom: 2rem;
     }
   }
 

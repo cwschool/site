@@ -218,6 +218,9 @@ export const pageQuery = graphql`
           description
           title
         }
+        internal {
+          type
+        }
       }
     }
   }
