@@ -17,7 +17,7 @@
      height: 100%;
      position: absolute;
      z-index: 2;
-     background-image: url('../../static/wave-inverse.svg');
+     background-image: url('./wave-inverse.svg');
      background-position: center;
      background-repeat: repeat-x;
      transform: translateY(16rem);
@@ -35,7 +35,7 @@
 
   &.colorPink {
     &::after {
-      background-image: url('../../static/pink-watercolor.jpg');
+      background-image: url('./pink-watercolor.jpg');
       background-size: auto 110%;
       background-color: #f8eff2;
     }
@@ -47,7 +47,7 @@
 
   &.colorWarmRainbow {
     &::after {
-      background-image: url('../../static/warmRainbow-watercolor.jpg');
+      background-image: url('./warmRainbow-watercolor.jpg');
       background-position: 18% top;
       background-size: auto 115%;
     }
@@ -59,7 +59,7 @@
 
   &.colorColdRainbow {
     &::after {
-      background-image: url('../../static/coldRainbow-watercolor.jpg');
+      background-image: url('./coldRainbow-watercolor.jpg');
       background-position: -121% top;
       background-size: auto 150%;
     }
@@ -71,7 +71,7 @@
 
   &.colorGold {
     &::after {
-      background-image: url('../../static/gold-watercolor.jpg');
+      background-image: url('./gold-watercolor.jpg');
       background-color: #fef9db;
     }
     .title,
@@ -82,7 +82,7 @@
 
   &.colorBlue {
     &::after {
-      background-image: url('../../static/blue-watercolor.jpg');
+      background-image: url('./blue-watercolor.jpg');
       background-color: #f1fafa;
     }
     .title,
@@ -93,7 +93,7 @@
 
   &.colorLilac {
     &::after {
-      background-image: url('../../static/lilac-watercolor.jpg');
+      background-image: url('./lilac-watercolor.jpg');
       background-color: #f1fafa;
       background-position: center top;
       background-size: auto 150%;
@@ -107,7 +107,7 @@
 
   &.colorGreen {
     &::after {
-      background-image: url('../../static/green-watercolor.jpg');
+      background-image: url('./green-watercolor.jpg');
       background-color: #e8f1c8;
       background-position: center top;
       background-size: auto 150%;

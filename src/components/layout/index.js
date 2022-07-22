@@ -22,25 +22,7 @@ const Layout = ({ menu, children }) => {
       )}
       <Header activeMenu={menu} />
       <main className={css.main}>{children}</main>
-      <Footer title={'Christophorus Waldorf Óvoda és Általános Iskola'}>
-        <p>
-          <strong>Cím:</strong> 1108 Budapest, Sibrik Miklós út 66-68.
-        </p>
-        <p>
-          <strong>Telefon:</strong>
-        </p>
-        <ul>
-          <li>Óvoda: 06/70 942-54-77 vagy 06/70 370-76-65</li>
-          <li>Iskola: 06-1-239-6795</li>
-        </ul>
-        <p>
-          <strong>E-mail:</strong>
-        </p>
-        <ul>
-          <li>Óvoda: christophoruswaldorfovi@gmail.com</li>
-          <li>Iskola: iskola@christophoruswaldorf.hu</li>
-        </ul>
-      </Footer>
+      <Footer />
     </div>
   )
 }

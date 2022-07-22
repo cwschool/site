@@ -69,40 +69,40 @@
   .sectionTitle {
 
     &.colorPeach::after {
-      background-image: url('../../static/peach-brush.png');
+      background-image: url('./peach-brush.png');
       transform: scaleX(1.2) translate(-45%, -59%);
       height: 116%;
     }
     &.colorGold::after {
-      background-image: url('../../static/gold-brush.png');
+      background-image: url('./gold-brush.png');
       transform: translate(-53%, -50%);
     }
     &.colorOrange::after {
-      background-image: url('../../static/orange-brush.png');
+      background-image: url('./orange-brush.png');
     }
     &.colorGreen::after {
-      background-image: url('../../static/green-brush.png');
+      background-image: url('./green-brush.png');
       transform: scaleX(-1.2) translate(43%, -66%);
       height: 116%;
     }
     &.colorPurple::after {
-      background-image: url('../../static/purple-brush.png');
+      background-image: url('./purple-brush.png');
       transform: scaleX(-1) translate(52%, -49%);
       height: 105%;
     }
     &.colorBlue::after {
-      background-image: url('../../static/blue-brush.png');
+      background-image: url('./blue-brush.png');
     }
     &.colorLilac::after {
-      background-image: url('../../static/lilac-brush.png');
+      background-image: url('./lilac-brush.png');
       transform: scaleX(-1) translate(49%, -53%);
     }
     &.colorViolet::after {
-      background-image: url('../../static/violet-brush.png');
+      background-image: url('./violet-brush.png');
       transform: scaleX(-1) translate(44%, -53%);
     }
     &.colorOcean::after {
-      background-image: url('../../static/ocean-brush.png');
+      background-image: url('./ocean-brush.png');
       transform: scaleX(-1) translate(51%, -49%);
     }
   }
@@ -132,7 +132,7 @@
         transform: scaleX(1.2) translate(-40%, -50%);
       }
       &.colorLilac::after {
-        transform: scaleX(1.1) translate(-44%, -53%);
+        transform: scaleX(1.1) translate(-40%, -53%);
       }
       &.colorViolet::after {
         transform: scaleX(1.1) translate(-48%, -53%);
