@@ -5,6 +5,7 @@
 
   padding: 0 4rem;
   font-weight: 100;
+  line-height: 1.65rem;
 
   .image {
     width: 230px;
@@ -14,12 +15,12 @@
 
     &_left {
       float: left;
-      margin: 0 2rem 2rem 0
+      margin: 0 2rem 1rem 0
     }
   }
 
   p {
-    margin-bottom: .6rem;
+    margin-bottom: 1rem;
     margin-top: 0;
   }
   ul {
