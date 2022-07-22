@@ -8,7 +8,31 @@ const Footer = ({ title, children }) => (
         <h2>{title}</h2>
         {children}
       </div>
-      <div className={css.social}>2022. Minden jog fenntartva.</div>
+      <div className={css.social}>
+        <ul>
+          <li>
+            <a href="/" className={css.instagram}>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="/" className={css.facebook}>
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="/" className={css.twitter}>
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a href="/" className={css.messenger}>
+              Messenger
+            </a>
+          </li>
+        </ul>
+        2022. Minden jog fenntartva.
+      </div>
     </div>
   </footer>
 )

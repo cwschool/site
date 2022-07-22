@@ -5,7 +5,7 @@
   position: relative;
   z-index: 2;
 
-  height: 18.55rem;
+  height: 22rem;
   width: 100%;
 
   display: flex;
@@ -54,19 +54,74 @@
     font-size: .75rem;
     line-height: 1rem;
     color: $color-navy;
-    padding-left: 50px;
+
 
     h2 {
-      font-family: $heading-font;
+      font-family: $hero-font;
       font-size: 1rem;
       margin-bottom: 1.4rem;
+      //text-transform: uppercase;
+    }
+
+    ul {
+      padding: 0 0 0 1rem;
+    }
+    li {
+      list-style-type: none;
+      padding: 0 0 .5rem 0;
+      &::before {
+        content: '\2022';
+        font-size: 1rem;
+        position: absolute;
+        transform: translate(-12px, 0px);
+      }
     }
   }
 
   .social {
     font-family: $primary-font;
-    font-size: .65rem;
+    font-size: .81rem;
     color: $color-navy;
-    padding-right: 30px;
+
+    ul {
+      margin: 0 0 .4rem;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 2rem 2rem 2rem 2rem;
+      grid-template-rows: 2rem;
+      grid-column-gap: .7rem;
+
+      li {
+        list-style-type: none;
+
+        a {
+          display: block;
+          width: 2rem;
+          height: 2rem;
+          text-indent: -1000px;
+          overflow: hidden;
+          background-size: contain;
+          background-repeat: no-repeat;
+
+          &:hover {
+            opacity: .8;
+          }
+
+          &.twitter {
+            background-image: url(./twitter.png);
+          }
+          &.facebook {
+            background-image: url(./facebook.png);
+          }
+          &.instagram {
+            background-image: url(./instagram.png);
+          }
+          &.messenger {
+            background-image: url(./messenger.png);
+          }
+        }
+      }
+    }
+
   }
 }
