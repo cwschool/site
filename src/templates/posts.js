@@ -21,7 +21,6 @@ const BlogPageTemplate = ({ data }) => {
   const richTextOptions = {
     renderNode: {
       'embedded-asset-block': (node) => {
-        console.log(node)
         const { gatsbyImage, title, description: alt } = node.data.target
         if (!gatsbyImage) {
           // asset is not an image

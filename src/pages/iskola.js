@@ -74,7 +74,7 @@ const IskolaPageTemplate = ({ data }) => {
               buttonLink={getInternalPath(item)}
               key={item.slug}
             >
-              {item.lead.lead}
+              {item.lead?.lead ?? ''}
             </ContentBox>
           ))}
         </ContentList>

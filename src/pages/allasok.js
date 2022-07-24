@@ -11,12 +11,12 @@ import ContentList from '../components/contentlist'
 
 const JobListPageTemplate = ({ data }) => {
   const {
-    contentfulPage: {
+    page: {
       title,
       lead: { lead },
       relatedContentTitle,
     },
-    allContentfulJob: { nodes: jobs },
+    allContentfulJob: { jobs },
   } = data
 
   return (
@@ -48,15 +48,15 @@ export default JobListPageTemplate
 
 export const pageQuery = graphql`
   query JobListPageQuery {
-    contentfulPage(slug: { eq: "allasok" }) {
+    page: contentfulPage(slug: { eq: "allasok" }) {
       lead {
         lead
       }
       title
       relatedContentTitle
     }
-    allContentfulJob {
-      nodes {
+    allContentfulJob(sort: { fields: date, order: ASC }) {
+      jobs: nodes {
         date
         slug
         title

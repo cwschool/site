@@ -12,12 +12,12 @@ import ContentList from '../components/contentlist'
 
 const BlogListPageTemplate = ({ data }) => {
   const {
-    contentfulPage: {
+    page: {
       title,
       lead: { lead },
       relatedContentTitle,
     },
-    allContentfulPost: { nodes: posts },
+    allContentfulPost: { posts },
   } = data
 
   return (
@@ -52,15 +52,15 @@ export default BlogListPageTemplate
 
 export const pageQuery = graphql`
   query BlogListPageQuery {
-    contentfulPage(slug: { eq: "gondolatok" }) {
+    page: contentfulPage(slug: { eq: "gondolatok" }) {
       lead {
         lead
       }
       title
       relatedContentTitle
     }
-    allContentfulPost {
-      nodes {
+    allContentfulPost(sort: { fields: date, order: DESC }) {
+      posts: nodes {
         date
         slug
         title

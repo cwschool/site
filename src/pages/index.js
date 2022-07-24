@@ -35,7 +35,7 @@ const IndexPage = ({ data }) => {
           <HeroPage
             key={item.slug}
             title={item.title}
-            lead={item.lead.lead}
+            lead={item.lead?.lead ?? ' '}
             date={new Date(item.date)}
             buttonLink={getInternalPath(item)}
             buttonText="Tovább"
@@ -68,7 +68,7 @@ const IndexPage = ({ data }) => {
               buttonText="Tovább"
               buttonLink={getInternalPath(item)}
             >
-              {item.lead.lead}
+              {item.lead?.lead ?? ' '}
             </ContentBox>
           ))}
         </ContentList>
