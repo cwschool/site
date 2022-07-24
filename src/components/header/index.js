@@ -79,7 +79,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
                 <Link to="/alapitvany#fenntarto">Fenntartó</Link>
               </li>
               <li>
-                <Link to="/alapitvany#fundraising">Foundraising</Link>
+                <Link to="/alapitvany#fundraising">Fundraising</Link>
               </li>
             </ul>
           </li>

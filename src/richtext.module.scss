@@ -45,8 +45,28 @@
         position: absolute;
         transform: translate(-12px, 0px);
       }
+      p {
+        margin-bottom: 0;
+      }
+
+      ul {
+        margin-top: .5rem;
+
+        > li:last-child {
+          padding-bottom: 0;
+        }
+      }
     }
   }
+
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
 
   &.contentPage {
     padding: 4rem 8rem;
@@ -54,6 +74,17 @@
     .image {
       width: 30%;
       height: auto;
+    }
+  }
+
+
+
+  &.contactPage {
+    padding-top: 4rem;
+
+    a {
+      color: $color-ocean;
+      font-weight: 500;
     }
   }
 

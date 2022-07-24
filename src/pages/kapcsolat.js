@@ -43,9 +43,7 @@ const ContactPage = ({ data }) => {
     <Layout menu="contact">
       <Hero title={title} lead={lead} color="coldRainbow" />
       <Content>
-        <SectionTitle title={firstContentTitle} align="right" color="ocean" />
-
-        <div className={richText.content}>
+        <div className={classNames(richText.content, richText.contactPage)}>
           {renderRichText(firstContent, options)}
         </div>
       </Content>
