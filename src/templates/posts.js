@@ -16,20 +16,28 @@ const BlogPageTemplate = ({ data }) => {
     contentfulPost: { lead, title: postTitle, date, content, postPicture },
   } = data
 
+  let imageIndex = 0
+
   const richTextOptions = {
     renderNode: {
       'embedded-asset-block': (node) => {
+        console.log(node)
         const { gatsbyImage, title, description: alt } = node.data.target
         if (!gatsbyImage) {
           // asset is not an image
           return null
         }
+
+        const alignImage =
+          imageIndex % 2 === 0 ? richText.image_left : richText.image_right
+        imageIndex += 1
+
         return (
           <GatsbyImage
             image={gatsbyImage}
             alt={alt}
             title={title}
-            className={classNames(richText.image, richText.image_left)}
+            className={classNames(richText.image, alignImage)}
           />
         )
       },
@@ -70,6 +78,15 @@ export const pageQuery = graphql`
       }
       content {
         raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            gatsbyImage(width: 450, placeholder: BLURRED)
+            description
+            title
+          }
+        }
       }
       slug
       title

@@ -56,7 +56,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               [css.selected]: activeMenu === 'images',
             })}
           >
-            <Link to="/">Galéria</Link>
+            <Link to="/galeria">Galéria</Link>
           </li>
           <li
             className={classNames(css.menuItem, {
