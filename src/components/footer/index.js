@@ -46,22 +46,26 @@ const Footer = ({ title, children }) => (
       <div className={css.social}>
         <ul>
           <li>
-            <a href="/" className={css.instagram}>
+            <a
+              href="https://www.instagram.com/christophoruswaldorf/?hl=hu"
+              className={css.instagram}
+            >
               Instagram
             </a>
           </li>
           <li>
-            <a href="/" className={css.facebook}>
+            <a
+              href="https://www.facebook.com/waldorfchristophorus"
+              className={css.facebook}
+            >
               Facebook
             </a>
           </li>
           <li>
-            <a href="/" className={css.twitter}>
-              Twitter
-            </a>
-          </li>
-          <li>
-            <a href="/" className={css.messenger}>
+            <a
+              href="https://www.messenger.com/t/1532083490183879"
+              className={css.messenger}
+            >
               Messenger
             </a>
           </li>

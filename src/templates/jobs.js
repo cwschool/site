@@ -20,7 +20,13 @@ const JobPageTemplate = ({ data }) => {
     <Layout menu="jobs">
       <Hero title={title} lead={lead?.lead ?? ' '} color="blue" />
       <Content>
-        <div className={classNames(richText.content, richText.contentPage)}>
+        <div
+          className={classNames(
+            richText.content,
+            richText.contentPage,
+            richText.jobPage
+          )}
+        >
           {renderRichText(description)}
         </div>
       </Content>

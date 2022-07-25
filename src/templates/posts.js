@@ -3,10 +3,13 @@ import classNames from 'classnames'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Content from '../components/content'
+
+import richTextQuote from '../utils/richTextQuote'
 
 import * as richText from '../richtext.module.scss'
 
@@ -20,7 +23,7 @@ const BlogPageTemplate = ({ data }) => {
 
   const richTextOptions = {
     renderNode: {
-      'embedded-asset-block': (node) => {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const { gatsbyImage, title, description: alt } = node.data.target
         if (!gatsbyImage) {
           // asset is not an image
@@ -40,6 +43,7 @@ const BlogPageTemplate = ({ data }) => {
           />
         )
       },
+      [BLOCKS.QUOTE]: richTextQuote,
     },
   }
 

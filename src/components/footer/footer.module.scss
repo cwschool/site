@@ -62,6 +62,8 @@
     }
 
     a {
+      color: $color-brightblue;
+      font-weight: 500;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
@@ -92,12 +94,14 @@
       margin: 0 0 .4rem;
       padding: 0;
       display: grid;
-      grid-template-columns: 2rem 2rem 2rem 2rem;
+      grid-template-columns: 2rem 2rem 2rem;
       grid-template-rows: 2rem;
       grid-column-gap: .7rem;
+      justify-content: end;
 
       li {
         list-style-type: none;
+
 
         a {
           display: block;

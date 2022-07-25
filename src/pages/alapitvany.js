@@ -102,7 +102,7 @@ const FoundationPage = ({ data }) => {
           anchor="fenntarto"
         />
 
-        <div className={richText.content}>
+        <div className={classNames(richText.content, richText.foundationPage)}>
           {renderRichText(firstContent, options)}
         </div>
 
@@ -115,7 +115,7 @@ const FoundationPage = ({ data }) => {
           anchor="fundraising"
         />
 
-        <div className={richText.content}>
+        <div className={classNames(richText.content, richText.foundationPage)}>
           {renderRichText(secondContent, options)}
         </div>
       </Content>

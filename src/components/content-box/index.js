@@ -22,7 +22,8 @@ const ContentBox = ({
       className={classNames(
         css.boxContent,
         image && css.hasImage,
-        css[`type${capitalize(type)}`]
+        css[`type${capitalize(type)}`],
+        css[`color${capitalize(color)}`]
       )}
     >
       {image && (
