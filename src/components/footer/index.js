@@ -1,5 +1,5 @@
-import React from 'react'
 import * as css from './footer.module.scss'
+import React from 'react'
 
 const Footer = ({ title, children }) => (
   <footer className={css.footer}>
@@ -50,6 +50,7 @@ const Footer = ({ title, children }) => (
               href="https://www.instagram.com/christophoruswaldorf/?hl=hu"
               className={css.instagram}
               target="_blank"
+              rel="noreferrer"
             >
               Instagram
             </a>
@@ -59,6 +60,7 @@ const Footer = ({ title, children }) => (
               href="https://www.facebook.com/waldorfchristophorus"
               className={css.facebook}
               target="_blank"
+              rel="noreferrer"
             >
               Facebook
             </a>
@@ -68,6 +70,7 @@ const Footer = ({ title, children }) => (
               href="https://www.messenger.com/t/1532083490183879"
               className={css.messenger}
               target="_blank"
+              rel="noreferrer"
             >
               Messenger
             </a>

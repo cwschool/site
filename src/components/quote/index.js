@@ -1,12 +1,12 @@
-import React from 'react'
+import * as css from './quote.module.scss'
 import classNames from 'classnames'
-import * as richText from '../richtext.module.scss'
+import React from 'react'
 
-const richTextQuote = (node, children) => {
+const Quote = ({ children }) => {
   const data = React.Children.toArray(children)
 
   return (
-    <figure className={classNames(richText.quote, richText.quoteGold)}>
+    <figure className={classNames(css.quote, css.quoteGold)}>
       {data.length > 1 ? (
         <blockquote>{data.slice(0, -1)}</blockquote>
       ) : (
@@ -18,4 +18,4 @@ const richTextQuote = (node, children) => {
   )
 }
 
-export default richTextQuote
+export default Quote

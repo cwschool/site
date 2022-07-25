@@ -1,12 +1,7 @@
-import React from 'react'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, graphql, useStaticQuery } from 'gatsby'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
-
-import Header from '../header'
 import Footer from '../footer'
+import Header from '../header'
 import * as css from './layout.module.scss'
+import React from 'react'
 
 const Layout = ({ menu, children }) => {
   const debug = false

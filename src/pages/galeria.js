@@ -1,13 +1,12 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-
-import Layout from '../components/layout'
-import Hero from '../components/hero'
 import Content from '../components/content'
-import SectionTitle from '../components/section-title'
 import ContentBox from '../components/content-box'
 import ContentList from '../components/contentlist'
 import GalleryPreview from '../components/gallerypreview'
+import Hero from '../components/hero'
+import Layout from '../components/layout'
+import SectionTitle from '../components/section-title'
+import { graphql } from 'gatsby'
+import React from 'react'
 
 const GalleryPage = ({ data }) => {
   const {

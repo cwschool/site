@@ -1,7 +1,7 @@
-import React from 'react'
+import * as richText from '../richtext.module.scss'
 import classNames from 'classnames'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import * as richText from '../richtext.module.scss'
+import React from 'react'
 
 const richTextImage = (node) => {
   const { gatsbyImage, title, description: alt } = node.data.target

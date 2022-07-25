@@ -1,8 +1,8 @@
-import React from 'react'
-import classNames from 'classnames'
-import { Link } from 'gatsby'
 import capitalize from '../../utils/capitalize'
 import * as css from './contentlist.module.scss'
+import classNames from 'classnames'
+import { Link } from 'gatsby'
+import React from 'react'
 
 const ContentList = ({
   moreLabel,
@@ -16,11 +16,7 @@ const ContentList = ({
 
   return (
     <div
-      className={classNames(
-        css.contentList,
-        css[`type${capitalize(type)}`],
-        moreLabel && moreLink ? css.showMoreLink : ''
-      )}
+      className={classNames(css.contentList, css[`type${capitalize(type)}`])}
     >
       {children}
 

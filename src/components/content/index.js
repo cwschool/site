@@ -1,5 +1,5 @@
-import React from 'react'
 import * as css from './content.module.scss'
+import React from 'react'
 
 const Content = ({ children }) => (
   <div className={css.content}>

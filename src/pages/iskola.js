@@ -1,21 +1,19 @@
-import React from 'react'
-import classNames from 'classnames'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { graphql } from 'gatsby'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
-import truncate from 'truncate'
-
-import Layout from '../components/layout'
-import Hero from '../components/hero'
 import Content from '../components/content'
 import ContentBox from '../components/content-box'
-import SectionTitle from '../components/section-title'
 import ContentList from '../components/contentlist'
+import Hero from '../components/hero'
+import Layout from '../components/layout'
+import SectionTitle from '../components/section-title'
 import Separator from '../components/separator'
-import getInternalPath from '../utils/getInternalPath'
-
 import * as richText from '../richtext.module.scss'
+import getInternalPath from '../utils/getInternalPath'
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
+import classNames from 'classnames'
+import { graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import React from 'react'
+import truncate from 'truncate'
 
 const IskolaPageTemplate = ({ data }) => {
   const {

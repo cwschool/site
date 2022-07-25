@@ -1,7 +1,7 @@
-import React from 'react'
-import classNames from 'classnames'
-import * as css from './section-title.module.scss'
 import capitalize from '../../utils/capitalize'
+import * as css from './section-title.module.scss'
+import classNames from 'classnames'
+import React from 'react'
 
 const SectionTitle = ({
   title,

@@ -1,7 +1,7 @@
-import React from 'react'
+import * as css from './header.module.scss'
 import classNames from 'classnames'
 import { Link } from 'gatsby'
-import * as css from './header.module.scss'
+import React from 'react'
 
 const Header = ({ activeMenu, searchEnabled = false }) => (
   <header className={css.header}>

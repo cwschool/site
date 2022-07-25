@@ -1,8 +1,8 @@
-import React from 'react'
-import classNames from 'classnames'
-import { Link } from 'gatsby'
 import capitalize from '../../utils/capitalize'
 import * as css from './button.module.scss'
+import classNames from 'classnames'
+import { Link } from 'gatsby'
+import React from 'react'
 
 const Button = ({ label, link, color = 'ocean' }) => {
   const internal = /^\/(?!\/)/.test(link)

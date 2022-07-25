@@ -1,8 +1,8 @@
-import React from 'react'
-import * as dayjs from 'dayjs'
-import 'dayjs/locale/hu'
 import Button from '../button'
 import * as css from './heropage.module.scss'
+import * as dayjs from 'dayjs'
+import 'dayjs/locale/hu'
+import React from 'react'
 
 const HeroPage = ({ title, lead, date, buttonText = '', buttonLink = '' }) => (
   <article className={css.heroPage}>

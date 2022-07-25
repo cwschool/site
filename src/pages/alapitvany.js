@@ -1,9 +1,3 @@
-import React from 'react'
-import classNames from 'classnames'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { graphql } from 'gatsby'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-
 import Content from '../components/content'
 import ContentBox from '../components/content-box'
 import ContentList from '../components/contentlist'
@@ -11,8 +5,12 @@ import Hero from '../components/hero'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
 import Separator from '../components/separator'
-
 import * as richText from '../richtext.module.scss'
+import classNames from 'classnames'
+import { graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import React from 'react'
 
 const FoundationPage = ({ data }) => {
   const {
@@ -84,10 +82,10 @@ const FoundationPage = ({ data }) => {
           <ContentBox title="Waldorf a nagyvilágban" type="small" color="lilac">
             <ul className={richText.linkList}>
               <li>
-                <a href="">Waldorf iskolák kerettanterve</a>
+                <a href="/">Waldorf iskolák kerettanterve</a>
               </li>
               <li>
-                <a href="">A világ Waldorf intézményeinek listája</a>
+                <a href="/">A világ Waldorf intézményeinek listája</a>
               </li>
             </ul>
           </ContentBox>

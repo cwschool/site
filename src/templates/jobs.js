@@ -1,19 +1,15 @@
-import React from 'react'
+import Content from '../components/content'
+import Hero from '../components/hero'
+import Layout from '../components/layout'
+import * as richText from '../richtext.module.scss'
 import classNames from 'classnames'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-
-import Layout from '../components/layout'
-import Hero from '../components/hero'
-import Content from '../components/content'
-
-import * as richText from '../richtext.module.scss'
+import React from 'react'
 
 const JobPageTemplate = ({ data }) => {
   const {
-    contentfulPage: { pageTitle },
-    contentfulJob: { lead, title, date, description },
+    contentfulJob: { lead, title, description },
   } = data
 
   return (
@@ -38,15 +34,11 @@ export default JobPageTemplate
 
 export const pageQuery = graphql`
   query JobPostBySlug($slug: String!) {
-    contentfulPage(slug: { eq: "allasok" }) {
-      pageTitle: title
-    }
     contentfulJob(slug: { eq: $slug }) {
       lead {
         lead
       }
       title
-      date
       description {
         raw
       }

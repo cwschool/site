@@ -1,22 +1,18 @@
-import React from 'react'
-import classNames from 'classnames'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, graphql, useStaticQuery } from 'gatsby'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
-
-import Layout from '../components/layout'
-import Hero from '../components/hero'
 import Content from '../components/content'
-
-import richTextQuote from '../utils/richTextQuote'
-
+import Hero from '../components/hero'
+import Layout from '../components/layout'
+import Quote from '../components/quote'
 import * as richText from '../richtext.module.scss'
+import { BLOCKS } from '@contentful/rich-text-types'
+import classNames from 'classnames'
+import { graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import React from 'react'
 
 const BlogPageTemplate = ({ data }) => {
   const {
-    contentfulPage: { pageTitle },
-    contentfulPost: { lead, title: postTitle, date, content, postPicture },
+    contentfulPost: { lead, title: postTitle, content, postPicture },
   } = data
 
   let imageIndex = 0
@@ -43,7 +39,7 @@ const BlogPageTemplate = ({ data }) => {
           />
         )
       },
-      [BLOCKS.QUOTE]: richTextQuote,
+      [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
     },
   }
 
@@ -71,11 +67,7 @@ export default BlogPageTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    contentfulPage(slug: { eq: "gondolatok" }) {
-      pageTitle: title
-    }
     contentfulPost(slug: { eq: $slug }) {
-      date
       lead {
         lead
       }

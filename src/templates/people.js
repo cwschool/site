@@ -1,19 +1,16 @@
-import React from 'react'
-import classNames from 'classnames'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, graphql, useStaticQuery } from 'gatsby'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-
-import Layout from '../components/layout'
-import Hero from '../components/hero'
 import Content from '../components/content'
-
+import Hero from '../components/hero'
+import Layout from '../components/layout'
 import * as richText from '../richtext.module.scss'
+import classNames from 'classnames'
+import { graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import React from 'react'
 
 const PeoplePageTemplate = ({ data }) => {
   const {
-    contentfulPage: { pageTitle },
-    contentfulPersonell: { lead, name, date, bio, image },
+    contentfulPersonell: { name, bio, image },
   } = data
 
   const richTextOptions = {
@@ -60,9 +57,6 @@ export default PeoplePageTemplate
 
 export const pageQuery = graphql`
   query PeopleBySlug($slug: String!) {
-    contentfulPage(slug: { eq: "iskola" }) {
-      pageTitle: title
-    }
     contentfulPersonell(slug: { eq: $slug }) {
       bio {
         raw

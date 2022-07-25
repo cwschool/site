@@ -1,7 +1,7 @@
-import React from 'react'
+import * as css from './gallerypreview.module.scss'
 import classNames from 'classnames'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import * as css from './gallerypreview.module.scss'
+import React from 'react'
 
 const GalleryPreview = ({ images, className }) => {
   return (

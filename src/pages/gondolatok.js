@@ -1,14 +1,13 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
-import truncate from 'truncate'
-
-import Layout from '../components/layout'
-import Hero from '../components/hero'
 import Content from '../components/content'
 import ContentBox from '../components/content-box'
-import SectionTitle from '../components/section-title'
 import ContentList from '../components/contentlist'
+import Hero from '../components/hero'
+import Layout from '../components/layout'
+import SectionTitle from '../components/section-title'
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
+import { graphql } from 'gatsby'
+import React from 'react'
+import truncate from 'truncate'
 
 const BlogListPageTemplate = ({ data }) => {
   const {

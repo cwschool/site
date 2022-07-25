@@ -1,9 +1,9 @@
-import React from 'react'
-import classNames from 'classnames'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import capitalize from '../../utils/capitalize'
 import Button from '../button'
 import * as css from './content-box.module.scss'
+import classNames from 'classnames'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import React from 'react'
 
 const ContentBox = ({
   title,

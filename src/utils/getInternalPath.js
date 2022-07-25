@@ -1,4 +1,4 @@
-export default (node) => {
+const getInternalPath = (node) => {
   let category = ''
   switch (node?.internal?.type ?? '') {
     case 'ContentfulJob':
@@ -19,3 +19,5 @@ export default (node) => {
 
   return `/${category}${node.slug}`
 }
+
+export default getInternalPath
