@@ -4,7 +4,9 @@ const createJobs = async (graphql, createPage, reporter) => {
   const result = await graphql(
     `
       {
-        allContentfulJob {
+        allContentfulJob(
+          filter: { title: { ne: null }, description: { raw: { ne: null } } }
+        ) {
           nodes {
             slug
           }
