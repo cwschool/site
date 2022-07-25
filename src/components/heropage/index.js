@@ -1,5 +1,6 @@
 import React from 'react'
-import dayjs from 'dayjs'
+import * as dayjs from 'dayjs'
+import 'dayjs/locale/hu'
 import Button from '../button'
 import * as css from './heropage.module.scss'
 

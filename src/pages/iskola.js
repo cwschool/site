@@ -114,7 +114,7 @@ const IskolaPageTemplate = ({ data }) => {
             >
               {truncate(
                 documentToPlainTextString(JSON.parse(item.bio.raw)),
-                740
+                840
               )}
             </ContentBox>
           ))}
@@ -149,7 +149,7 @@ const IskolaPageTemplate = ({ data }) => {
         <SectionTitle
           title={secondContentTitle}
           align="right"
-          color="ocean"
+          color="orange"
           anchor="iskolakertunk"
         />
 
@@ -256,12 +256,7 @@ export const pageQuery = graphql`
           raw
         }
         image {
-          gatsbyImage(
-            placeholder: BLURRED
-            cropFocus: TOP
-            width: 840
-            aspectRatio: 1.2
-          )
+          gatsbyImage(placeholder: BLURRED, cropFocus: TOP, width: 840)
         }
         name
         slug

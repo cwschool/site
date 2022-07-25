@@ -27,12 +27,14 @@ const ContentBox = ({
       )}
     >
       {image && (
-        <GatsbyImage
-          image={image.gatsbyImage}
-          alt={image.description}
-          title={image.title}
-          className={css.image}
-        />
+        <div className={css.image}>
+          <GatsbyImage
+            image={image.gatsbyImage}
+            alt={image.description}
+            title={image.title}
+            className={css.imageContent}
+          />
+        </div>
       )}
       <div className={css.content}>{children}</div>
 
