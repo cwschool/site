@@ -54,7 +54,10 @@ export const pageQuery = graphql`
       title
       relatedContentTitle
     }
-    allContentfulJob(sort: { fields: date, order: ASC }) {
+    allContentfulJob(
+      sort: { fields: date, order: ASC }
+      filter: { title: { ne: null }, description: { raw: { ne: null } } }
+    ) {
       jobs: nodes {
         date
         slug
