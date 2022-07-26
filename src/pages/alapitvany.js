@@ -6,9 +6,13 @@ import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
 import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
+import richTextImage, { createImageIndexer } from '../utils/richTextImage'
+import * as css from './alapitvany.module.scss'
+import { BLOCKS } from '@contentful/rich-text-types'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { StaticImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import React from 'react'
 
@@ -38,10 +42,18 @@ const FoundationPage = ({ data }) => {
             image={gatsbyImage}
             alt={alt}
             title={title}
-            className={classNames(richText.image, richText.image_left)}
+            className={css.image}
           />
         )
       },
+    },
+  }
+
+  const imageIndexer = createImageIndexer()
+
+  const fundraisingRichTextOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: richTextImage(imageIndexer),
     },
   }
 
@@ -114,7 +126,71 @@ const FoundationPage = ({ data }) => {
         />
 
         <div className={classNames(richText.content, richText.foundationPage)}>
-          {renderRichText(secondContent, options)}
+          {renderRichText(secondContent, fundraisingRichTextOptions)}
+
+          <div className={css.donate}>
+            <form
+              className={css.paypal}
+              target="_blank"
+              action="https://www.paypal.com/cgi-bin/webscr"
+              method="post"
+            >
+              <div className={css.paypalLogo}>
+                <img
+                  src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_74x46.jpg"
+                  alt="PayPal Logo"
+                />
+              </div>
+              <input type="hidden" name="charset" value="utf-8" />
+              <input type="hidden" name="cmd" value="_donations" />
+              <input
+                type="hidden"
+                name="business"
+                value="diamant.emese@gmail.com"
+              />
+              <input type="hidden" name="item_name" value="Adomány" />
+              <input type="hidden" name="currency_code" value="USD" />
+              <input
+                type="hidden"
+                name="notify_url"
+                value="https://christophoruswaldorf.hu/?wp_paypal_ipn=1"
+              />
+              <input type="hidden" name="bn" value="WPPayPal_Donate_WPS_US" />
+              <input
+                type="image"
+                src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
+                name="submit"
+              />
+            </form>
+            <div className={css.iban}>
+              IBAN: HU92 1040 1945 5052 6790 8985 1005
+            </div>
+          </div>
+
+          <p>
+            Please feel free to get in touch with us with any questions or
+            ideas!
+          </p>
+
+          <p>
+            <a href="mailto:iskola@christophoruswaldorf.hu">
+              iskola@christophoruswaldorf.hu
+            </a>
+          </p>
+
+          <p>Thank you for your support!</p>
+
+          <Separator />
+
+          <p>
+            <strong>They already supported us, thank you!</strong>
+          </p>
+
+          <StaticImage
+            src="../static/ihf_logo_2018-768x129.png"
+            alt="Logo of IHF - Internationaal Hulpfonds"
+            placeholder="blurred"
+          />
         </div>
       </Content>
     </Layout>
@@ -166,7 +242,7 @@ export const pageQuery = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImage(width: 340, placeholder: BLURRED, aspectRatio: 1)
+            gatsbyImage(width: 1200, placeholder: BLURRED)
             description
             title
           }
@@ -179,7 +255,7 @@ export const pageQuery = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImage(width: 340, placeholder: BLURRED, aspectRatio: 1)
+            gatsbyImage(width: 450, placeholder: BLURRED)
             description
             title
           }

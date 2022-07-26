@@ -14,7 +14,6 @@ import richTextImage, {
 import * as css from './iskola.module.scss'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
-import classNames from 'classnames'
 import { graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'

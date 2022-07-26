@@ -1,0 +1,42 @@
+@import '../colors.scss';
+@import '../fonts.scss';
+
+.image {
+  border-radius: 1rem;
+  display: inline-block;
+  margin: 0 0 2rem 0;
+  float: none;
+  clear: both;
+}
+
+
+.donate {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 150px auto;
+  grid-column-gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+
+  .iban {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
+
+.paypalLogo {
+  position: relative;
+  width: 148px;
+  height: 92px;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    transform: translate(-1px, -1px);
+  }
+}
+
+

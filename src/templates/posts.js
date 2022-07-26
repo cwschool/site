@@ -16,8 +16,6 @@ const BlogPageTemplate = ({ data }) => {
     contentfulPost: { lead, title: postTitle, content, postPicture },
   } = data
 
-  let imageIndex = 0
-
   const imageIndexer = createImageIndexer()
 
   const richTextOptions = {

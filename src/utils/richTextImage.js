@@ -21,7 +21,6 @@ export const embedImageRenderer = (node, index = 0, classNames = '') => {
 
   const alignImage =
     index % 2 === 0 ? richText.image_left : richText.image_right
-
   return (
     <GatsbyImage
       image={gatsbyImage}
