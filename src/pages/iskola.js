@@ -11,13 +11,33 @@ import richTextImage, {
   createImageIndexer,
   embedImageRenderer,
 } from '../utils/richTextImage'
+import * as css from './iskola.module.scss'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
+import classNames from 'classnames'
 import { graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import React from 'react'
 import truncate from 'truncate'
+
+const Quote = ({ children }) => {
+  const data = React.Children.toArray(children)
+
+  return (
+    <div className={css.quote}>
+      <figure>
+        {data.length > 1 ? (
+          <blockquote>{data.slice(0, -1)}</blockquote>
+        ) : (
+          <blockquote>{data.slice(0, 1)}</blockquote>
+        )}
+
+        {data.length > 1 && <figcaption>{data.slice(-1)}</figcaption>}
+      </figure>
+    </div>
+  )
+}
 
 const IskolaPageTemplate = ({ data }) => {
   const {
@@ -70,6 +90,7 @@ const IskolaPageTemplate = ({ data }) => {
         }
         return embedImageRenderer(node, index, className)
       },
+      [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
     },
   }
 
