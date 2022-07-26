@@ -3,6 +3,7 @@ import Hero from '../components/hero'
 import Layout from '../components/layout'
 import Quote from '../components/quote'
 import * as richText from '../richtext.module.scss'
+import richTextImage, { createImageIndexer } from '../utils/richTextImage'
 import { BLOCKS } from '@contentful/rich-text-types'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
@@ -17,28 +18,11 @@ const BlogPageTemplate = ({ data }) => {
 
   let imageIndex = 0
 
+  const imageIndexer = createImageIndexer()
+
   const richTextOptions = {
     renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const { gatsbyImage, title, description: alt } = node.data.target
-        if (!gatsbyImage) {
-          // asset is not an image
-          return null
-        }
-
-        const alignImage =
-          imageIndex % 2 === 0 ? richText.image_left : richText.image_right
-        imageIndex += 1
-
-        return (
-          <GatsbyImage
-            image={gatsbyImage}
-            alt={alt}
-            title={title}
-            className={classNames(richText.image, alignImage)}
-          />
-        )
-      },
+      [BLOCKS.EMBEDDED_ASSET]: richTextImage(imageIndexer),
       [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
     },
   }

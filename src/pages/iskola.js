@@ -7,10 +7,13 @@ import SectionTitle from '../components/section-title'
 import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
 import getInternalPath from '../utils/getInternalPath'
+import richTextImage, {
+  createImageIndexer,
+  embedImageRenderer,
+} from '../utils/richTextImage'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
-import classNames from 'classnames'
+import { BLOCKS } from '@contentful/rich-text-types'
 import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import React from 'react'
 import truncate from 'truncate'
@@ -31,22 +34,22 @@ const IskolaPageTemplate = ({ data }) => {
     additionalPeople,
   } = data.contentfulPage
 
-  const options = {
+  const gardenImageIndexer = createImageIndexer(2)
+
+  const introRichTextOptions = {
     renderNode: {
-      'embedded-asset-block': (node) => {
-        const { gatsbyImage, title, description: alt } = node.data.target
-        if (!gatsbyImage) {
-          // asset is not an image
-          return null
+      [BLOCKS.EMBEDDED_ASSET]: richTextImage(),
+    },
+  }
+  const gardenRichTextOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const index = gardenImageIndexer()
+        let className = ''
+        if (index === 1) {
+          className = richText.image_fullwidth
         }
-        return (
-          <GatsbyImage
-            image={gatsbyImage}
-            alt={alt}
-            title={title}
-            className={classNames(richText.image, richText.image_left)}
-          />
-        )
+        return embedImageRenderer(node, index, className)
       },
     },
   }
@@ -87,7 +90,7 @@ const IskolaPageTemplate = ({ data }) => {
         />
 
         <div className={richText.content}>
-          {renderRichText(firstContent, options)}
+          {renderRichText(firstContent, introRichTextOptions)}
         </div>
 
         <Separator />
@@ -152,7 +155,7 @@ const IskolaPageTemplate = ({ data }) => {
         />
 
         <div className={richText.content}>
-          {renderRichText(secondContent, options)}
+          {renderRichText(secondContent, gardenRichTextOptions)}
         </div>
       </Content>
     </Layout>
@@ -190,7 +193,7 @@ export const pageQuery = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImage(width: 250, placeholder: BLURRED)
+            gatsbyImage(height: 230, placeholder: BLURRED, aspectRatio: 1)
             description
             title
           }

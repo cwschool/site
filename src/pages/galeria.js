@@ -33,7 +33,10 @@ const GalleryPage = ({ data }) => {
               buttonLink={`/galeria/${item.slug}`}
               key={item.slug}
             >
-              <GalleryPreview images={item.images.slice(0, 6)} />
+              <GalleryPreview
+                images={item.images.slice(0, 6)}
+                key={`gallery-${item.slug}`}
+              />
             </ContentBox>
           ))}
         </ContentList>
