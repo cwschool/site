@@ -14,6 +14,7 @@ import richTextImage, {
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { graphql } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import React from 'react'
 import truncate from 'truncate'
@@ -34,6 +35,7 @@ const IskolaPageTemplate = ({ data }) => {
     additionalPeople,
   } = data.contentfulPage
 
+  const gardenParagprahIndexer = createImageIndexer()
   const gardenImageIndexer = createImageIndexer(2)
 
   const introRichTextOptions = {
@@ -41,8 +43,25 @@ const IskolaPageTemplate = ({ data }) => {
       [BLOCKS.EMBEDDED_ASSET]: richTextImage(),
     },
   }
+
   const gardenRichTextOptions = {
     renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children, ...args) => {
+        if (gardenParagprahIndexer() === 1) {
+          return (
+            <>
+              <p>{children}</p>
+              <div className={richText.image_fullwidth}>
+                <StaticImage
+                  src="../static/iskolakert-tamogatok.png"
+                  alt="Az iskolakert támogatói"
+                />
+              </div>
+            </>
+          )
+        }
+        return <p>{children}</p>
+      },
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const index = gardenImageIndexer()
         let className = ''
