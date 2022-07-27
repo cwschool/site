@@ -2,6 +2,8 @@ import Content from '../components/content'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import * as richText from '../richtext.module.scss'
+import richTextImage, { createImageIndexer } from '../utils/richTextImage'
+import { BLOCKS } from '@contentful/rich-text-types'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
@@ -11,6 +13,14 @@ const JobPageTemplate = ({ data }) => {
   const {
     contentfulJob: { lead, title, description },
   } = data
+
+  const imageIndexer = createImageIndexer(1)
+
+  const richTextOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: richTextImage(imageIndexer),
+    },
+  }
 
   return (
     <Layout menu="jobs">
@@ -23,7 +33,7 @@ const JobPageTemplate = ({ data }) => {
             richText.jobPage
           )}
         >
-          {renderRichText(description)}
+          {renderRichText(description, richTextOptions)}
         </div>
       </Content>
     </Layout>
@@ -41,6 +51,15 @@ export const pageQuery = graphql`
       title
       description {
         raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            gatsbyImage(width: 450, placeholder: BLURRED)
+            description
+            title
+          }
+        }
       }
     }
   }
