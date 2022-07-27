@@ -42,6 +42,10 @@
     align-items: flex-end;
     position: relative;
     z-index: 10;
+
+    @media screen and (max-width: 83.5rem) {
+      padding: 0 2rem;
+    }
   }
 
   .contact,

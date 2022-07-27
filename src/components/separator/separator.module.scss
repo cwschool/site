@@ -1,5 +1,6 @@
 .separator {
   height: 1px;
+
   width: 100%;
   background-color: rgba(0,0,0,0.3);
   float: none;
@@ -7,4 +8,10 @@
   margin: 3rem 0;
   transform: translateX(-1rem);
   padding: 0 1rem;
+
+  @media screen and (max-width: 83.5rem) {
+    box-sizing: border-box;
+    transform: translateX(2rem);
+    width: calc(100% - 4rem);
+  }
 }
