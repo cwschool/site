@@ -126,6 +126,15 @@ margin: 0 2rem;
     }
   }
 
+  &.alignRight .sectionTitle {
+    &.colorGold {
+      margin: 0 4rem 0 0;
+    }
+    &.colorGreen {
+      margin: 0 3rem 0 0;
+    }
+  }
+
   &.alignRight {
     & .sectionTitle {
 

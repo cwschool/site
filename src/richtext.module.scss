@@ -87,7 +87,9 @@
     padding: 4rem 8rem;
 
     .image {
-      width: 30%;
+      min-width: 16rem;
+      max-width: 40%;
+      width: auto;
       height: auto;
     }
   }

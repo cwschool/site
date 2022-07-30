@@ -70,21 +70,31 @@ $linkColors: (
   &.typeFull {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 
     padding: 0 0 0 0;
 
+
+    &.hasImage {
+      grid-template-columns: 38% 1fr;
+    }
+
     .content {
       padding: 1.2rem 1.85rem 1.35rem 1.85rem;
       grid-area: 1 / 2 / 2 / 3;
-      min-height: 17rem;
+      min-height: auto;
     }
 
+
+
+    &.hasImage .content {
+      min-height: 17rem;
+    }
     .image {
       grid-area: 1 / 1 / 3 / 2;
       position: relative;
-      width: 28rem;
+
       overflow: hidden;
 
       .imageContent {

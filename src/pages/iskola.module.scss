@@ -11,6 +11,10 @@
   clear: both;
   transform: translateY(-6rem);
 
+  @media screen and (max-width: 75rem) {
+    transform: translateY(0rem);
+  }
+
   figure {
     width: 42rem;
     height: 28rem;
@@ -33,7 +37,6 @@
       p:last-child {
         margin-bottom: 0;
       }
-
     }
 
     blockquote {
