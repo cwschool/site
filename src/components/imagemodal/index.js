@@ -8,6 +8,7 @@ const modalRoot = document.getElementsByTagName('body')[0]
 const ImageModal = ({ onClose, show, title = '', children }) => {
   const el = document.createElement('div')
   el.className = classNames(css.imageModal, show ? css.show : '')
+  el.addEventListener('click', onClose)
 
   const onKeyDown = (e) => {
     if (e.keyCode === 27) {

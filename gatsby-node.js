@@ -37,7 +37,6 @@ const createJobs = async (graphql, createPage, reporter) => {
   }
 }
 
-
 const createPeople = async (graphql, createPage, reporter) => {
   const result = await graphql(
     `
@@ -72,7 +71,6 @@ const createPeople = async (graphql, createPage, reporter) => {
     })
   }
 }
-
 
 const createPosts = async (graphql, createPage, reporter) => {
   const result = await graphql(
@@ -109,7 +107,6 @@ const createPosts = async (graphql, createPage, reporter) => {
   }
 }
 
-
 const createGalleries = async (graphql, createPage, reporter) => {
   const result = await graphql(
     `
@@ -145,6 +142,40 @@ const createGalleries = async (graphql, createPage, reporter) => {
   }
 }
 
+const createNews = async (graphql, createPage, reporter) => {
+  const result = await graphql(
+    `
+      {
+        allContentfulNews {
+          nodes {
+            slug
+          }
+        }
+      }
+    `
+  )
+  if (result.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading news pages`,
+      result.errors
+    )
+    return
+  }
+
+  const posts = result.data.allContentfulNews.nodes
+
+  if (posts.length > 0) {
+    posts.forEach((post, index) => {
+      createPage({
+        path: `/hirek/${post.slug}/`,
+        component: path.resolve('./src/templates/news.js'),
+        context: {
+          slug: post.slug,
+        },
+      })
+    })
+  }
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -153,4 +184,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   await createPosts(graphql, createPage, reporter)
   await createPeople(graphql, createPage, reporter)
   await createGalleries(graphql, createPage, reporter)
+  await createNews(graphql, createPage, reporter)
+
 }
