@@ -110,33 +110,47 @@ const createPosts = async (graphql, createPage, reporter) => {
 }
 
 
+const createGalleries = async (graphql, createPage, reporter) => {
+  const result = await graphql(
+    `
+      {
+        allContentfulImageGallery {
+          nodes {
+            slug
+          }
+        }
+      }
+    `
+  )
+  if (result.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading galleries`,
+      result.errors
+    )
+    return
+  }
+
+  const posts = result.data.allContentfulImageGallery.nodes
+
+  if (posts.length > 0) {
+    posts.forEach((post, index) => {
+      createPage({
+        path: `/galeria/${post.slug}/`,
+        component: path.resolve('./src/templates/gallery.js'),
+        context: {
+          slug: post.slug,
+        },
+      })
+    })
+  }
+}
 
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-
   await createJobs(graphql, createPage, reporter)
   await createPosts(graphql, createPage, reporter)
   await createPeople(graphql, createPage, reporter)
-
-}
-
-exports.createSchemaCustomization = ({ actions }) => {
-/*   const { createTypes } = actions
-
-  const typeDefs = `
-    # ContentfulPage "section" can contain optional Jobs, News or Posts
-    union ActualType = ContentfulJob | ContentfulNews | ContentfulPost
-    type ContentfulPage {
-      sections: [ActualType] @link(from: "sections___NODE")
-    }
-
-    union HeroItemsType = ContentfulJob | ContentfulNews | ContentfulPost | ContentfulPage
-    type ContentfulMainPage {
-      heroItems: [HeroItemsType] @link(from: "sections___NODE")
-      actual: [ActualType] @link(from: "sections___NODE")
-    }
-  `
-  createTypes(typeDefs) */
+  await createGalleries(graphql, createPage, reporter)
 }

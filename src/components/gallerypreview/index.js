@@ -1,18 +1,21 @@
 import * as css from './gallerypreview.module.scss'
 import classNames from 'classnames'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import React from 'react'
+import React, { useState } from 'react'
 
-const GalleryPreview = ({ images, className }) => {
+const GalleryPreview = ({ thumbnails, images, className, onShow }) => {
   return (
     <div className={classNames(css.galleryPreview, className)}>
-      {images.map((data, i) => (
-        <GatsbyImage
-          image={data.gatsbyImage}
-          alt={data.alt}
-          title={data.title}
-          className={css.image}
-        />
+      {thumbnails.map((data, i) => (
+        <div onClick={() => onShow(images[i])} key={`image-${i}`}>
+          <GatsbyImage
+            image={data.gatsbyImage}
+            alt={data.alt}
+            title={data.title}
+            className={css.image}
+            layout="fullWidth"
+          />
+        </div>
       ))}
     </div>
   )

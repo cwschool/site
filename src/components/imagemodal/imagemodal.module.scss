@@ -1,0 +1,78 @@
+@import '../../colors.scss';
+
+.imageModal {
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 90vw;
+  height: 100vh;
+  grid-template-rows: 4rem calc(100vh - 8rem) 4rem;
+  display: none;
+
+  &::after {
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, .6);
+  }
+
+  &.show {
+    display: grid;
+  }
+
+  .content,
+  .footer,
+  .header {
+    position: relative;
+    z-index: 10;
+    background-color: white;
+  }
+
+  .content {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 0 2rem;
+
+    .image {
+      width: 100%;
+      border-radius: 1.875rem;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 2rem;
+
+    span {
+      color: $color-blue;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &::after {
+        content: '\00D7';
+        display: inline-block;
+        font-size: 2.5rem;
+        transform: translate(.5rem, .3rem);
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

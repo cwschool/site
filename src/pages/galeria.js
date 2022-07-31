@@ -3,10 +3,12 @@ import ContentBox from '../components/content-box'
 import ContentList from '../components/contentlist'
 import GalleryPreview from '../components/gallerypreview'
 import Hero from '../components/hero'
+import ImageModal from '../components/imagemodal'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
 import { graphql } from 'gatsby'
-import React from 'react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import React, { useState } from 'react'
 
 const GalleryPage = ({ data }) => {
   const {
@@ -17,6 +19,16 @@ const GalleryPage = ({ data }) => {
     },
     allContentfulImageGallery: { galleries },
   } = data
+
+  const [image, displayImage] = useState(null)
+
+  const showImage = (image) => {
+    displayImage(image)
+  }
+
+  const close = () => {
+    displayImage(null)
+  }
 
   return (
     <Layout menu="images">
@@ -34,13 +46,28 @@ const GalleryPage = ({ data }) => {
               key={item.slug}
             >
               <GalleryPreview
+                thumbnails={item.thumbnails.slice(0, 6)}
                 images={item.images.slice(0, 6)}
                 key={`gallery-${item.slug}`}
+                onShow={(image) => showImage(image)}
               />
             </ContentBox>
           ))}
         </ContentList>
       </Content>
+      <ImageModal
+        show={image != null}
+        onClose={() => close()}
+        title={image && image.title}
+      >
+        {image && (
+          <GatsbyImage
+            image={image.gatsbyImage}
+            alt={image.alt}
+            title={image.title}
+          />
+        )}
+      </ImageModal>
     </Layout>
   )
 }
@@ -61,10 +88,15 @@ export const pageQuery = graphql`
         title
         date
         slug
-        images {
+        thumbnails: images {
           title
           alt: description
           gatsbyImage(aspectRatio: 1, height: 300, placeholder: BLURRED)
+        }
+        images {
+          title
+          alt: description
+          gatsbyImage(width: 1200, placeholder: BLURRED)
         }
       }
     }

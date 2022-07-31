@@ -1,8 +1,10 @@
 import Content from '../components/content'
 import ContentBox from '../components/content-box'
 import ContentList from '../components/contentlist'
+import GalleryPreview from '../components/gallerypreview'
 import Hero from '../components/hero'
 import HeroPage from '../components/heropage'
+import ImageModal from '../components/imagemodal'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
 import Separator from '../components/separator'
@@ -13,7 +15,7 @@ import classNames from 'classnames'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import React from 'react'
+import React, { useState } from 'react'
 import truncate from 'truncate'
 
 const IndexPage = ({ data }) => {
@@ -24,8 +26,20 @@ const IndexPage = ({ data }) => {
       heroItems,
       actual,
       posts,
+      events,
     },
   } = data
+
+  const [image, displayImage] = useState(null)
+
+  const showImage = (image) => {
+    displayImage(image)
+  }
+
+  const close = () => {
+    displayImage(null)
+  }
+
   return (
     <Layout menu="">
       <Hero color="warmRainbow">
@@ -97,6 +111,29 @@ const IndexPage = ({ data }) => {
             </ContentBox>
           ))}
         </ContentList>
+
+        <Separator />
+
+        <SectionTitle title="Események" align="left" color="green" />
+
+        <GalleryPreview
+          thumbnails={events.thumbnails.slice(0, 6)}
+          images={events.images.slice(0, 6)}
+          onShow={(image) => showImage(image)}
+        />
+        <ImageModal
+          show={image != null}
+          onClose={() => close()}
+          title={image && image.title}
+        >
+          {image && (
+            <GatsbyImage
+              image={image.gatsbyImage}
+              alt={image.alt}
+              title={image.title}
+            />
+          )}
+        </ImageModal>
       </Content>
     </Layout>
   )
@@ -218,6 +255,18 @@ export const pageQuery = graphql`
         }
         internal {
           type
+        }
+      }
+      events {
+        thumbnails: images {
+          title
+          alt: description
+          gatsbyImage(aspectRatio: 1, height: 300, placeholder: BLURRED)
+        }
+        images {
+          title
+          alt: description
+          gatsbyImage(layout: FULL_WIDTH, width: 1200, placeholder: BLURRED)
         }
       }
     }
