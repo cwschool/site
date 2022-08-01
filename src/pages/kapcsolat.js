@@ -3,6 +3,8 @@ import Hero from '../components/hero'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import * as richText from '../richtext.module.scss'
+import richTextImage, { createImageIndexer } from '../utils/richTextImage'
+import { BLOCKS } from '@contentful/rich-text-types'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
@@ -16,23 +18,11 @@ const ContactPage = ({ data }) => {
     firstContent,
   } = data.contentfulPage
 
-  const options = {
+  const imageIndexer = createImageIndexer(1)
+
+  const richTextOptions = {
     renderNode: {
-      'embedded-asset-block': (node) => {
-        const { gatsbyImageData, title, description: alt } = node.data.target
-        if (!gatsbyImageData) {
-          // asset is not an image
-          return null
-        }
-        return (
-          <GatsbyImage
-            image={gatsbyImageData}
-            alt={alt}
-            title={title}
-            className={classNames(richText.image, richText.image_left)}
-          />
-        )
-      },
+      [BLOCKS.EMBEDDED_ASSET]: richTextImage(imageIndexer),
     },
   }
 
@@ -42,7 +32,7 @@ const ContactPage = ({ data }) => {
       <Hero title={title} lead={lead} color="coldRainbow" />
       <Content>
         <div className={classNames(richText.content, richText.contactPage)}>
-          {renderRichText(firstContent, options)}
+          {renderRichText(firstContent, richTextOptions)}
         </div>
       </Content>
     </Layout>
@@ -66,7 +56,7 @@ export const pageQuery = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImageData(width: 340, placeholder: BLURRED, aspectRatio: 1)
+            gatsbyImage(width: 450, placeholder: BLURRED, aspectRatio: 1)
             description
             title
           }
