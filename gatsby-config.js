@@ -29,6 +29,7 @@ require("dotenv").config({
       description: "A Christophorus Waldorf általános iskola, Rudolf Steiner tanításait alapul véve szeretetteli légkörrel és kis létszámú osztályokkal várja az érdeklődőket.",
     },
     plugins: [
+      "gatsby-plugin-netlify",
       "gatsby-transformer-sharp",
       "gatsby-plugin-react-helmet",
       "gatsby-plugin-sharp",
