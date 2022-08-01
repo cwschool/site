@@ -37,8 +37,8 @@ require("dotenv").config({
 
   module.exports = {
     siteMetadata: {
-      title: "Gatsby Contentful Starter",
-      description: "Official Contentful Gatsby Starter",
+      title: "Christophorus Waldorf Általános Iskola",
+      description: "",
     },
     plugins: [
       "gatsby-transformer-sharp",
@@ -57,6 +57,24 @@ require("dotenv").config({
                 localIdentName,
               },
           }
+        }
+      },
+      {
+        resolve: 'gatsby-plugin-manifest',
+        options: {
+          name: 'christophorus-waldorf-budapest',
+          short_name: 'christophorus-waldorf',
+          start_url: '/',
+          background_color: '#ffffff',
+          theme_color: '#43848A',
+          display: 'minimal-ui',
+          icon: 'src/components/header/Logo.png',
+        },
+      },
+      {
+        resolve: "gatsby-plugin-google-tagmanager",
+        options: {
+          id: "GTM-NF9KV7W",
         }
       },
     ],

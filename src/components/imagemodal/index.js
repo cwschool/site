@@ -3,12 +3,15 @@ import classNames from 'classnames'
 import React, { useEffect } from 'react'
 import * as ReactDOM from 'react-dom'
 
-const modalRoot = document.getElementsByTagName('body')[0]
 
 const ImageModal = ({ onClose, show, title = '', children }) => {
-  const el = document.createElement('div')
-  el.className = classNames(css.imageModal, show ? css.show : '')
-  el.addEventListener('click', onClose)
+  let element
+
+  if (typeof document !== 'undefined') {
+    element = document.createElement('div')
+    element.addEventListener('click', onClose)
+    element.className = classNames(css.imageModal, show ? css.show : '')
+  }
 
   const onKeyDown = (e) => {
     if (e.keyCode === 27) {
@@ -17,16 +20,19 @@ const ImageModal = ({ onClose, show, title = '', children }) => {
   }
 
   useEffect(() => {
-    modalRoot.appendChild(el)
+    const modalRoot = document.getElementsByTagName('body')[0]
+    modalRoot.appendChild(element)
     document.addEventListener('keydown', onKeyDown)
 
     return () => {
-      modalRoot.removeChild(el)
+      modalRoot.removeChild(element)
       document.removeEventListener('keydown', onKeyDown)
     }
   })
 
-  el.className = classNames(css.imageModal, show ? css.show : '')
+  if (!element) {
+    return null
+  }
 
   return ReactDOM.createPortal(
     <>
@@ -44,7 +50,7 @@ const ImageModal = ({ onClose, show, title = '', children }) => {
         <span>{title}</span>
       </footer>
     </>,
-    el
+    element
   )
 }
 
