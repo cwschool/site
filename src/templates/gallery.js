@@ -3,6 +3,7 @@ import GalleryPreview from '../components/gallerypreview'
 import Hero from '../components/hero'
 import ImageModal from '../components/imagemodal'
 import Layout from '../components/layout'
+import Seo from '../components/seo'
 import * as richText from '../richtext.module.scss'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
@@ -25,6 +26,7 @@ const GalleryPageTemplate = ({ data }) => {
 
   return (
     <Layout menu="gallery">
+      <Seo title={title} description={' '} />
       <Hero title={title} lead={' '} color="green" />
       <Content>
         <div className={classNames(richText.content, richText.contentPage)}>

@@ -1,6 +1,7 @@
 import Content from '../components/content'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
+import Seo from '../components/seo'
 import * as richText from '../richtext.module.scss'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
@@ -35,6 +36,7 @@ const PeoplePageTemplate = ({ data }) => {
 
   return (
     <Layout menu="school">
+      <Seo title={name} description={''} />
       <Hero title={name} lead={' '} color="pink" />
       <Content>
         <div className={classNames(richText.content, richText.contentPage)}>

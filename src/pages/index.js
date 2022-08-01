@@ -7,6 +7,7 @@ import HeroPage from '../components/heropage'
 import ImageModal from '../components/imagemodal'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
+import Seo from '../components/seo'
 import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
 import getInternalPath from '../utils/getInternalPath'
@@ -42,6 +43,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout menu="">
+      <Seo />
       <Hero color="warmRainbow">
         {heroItems.map((item) => (
           <HeroPage

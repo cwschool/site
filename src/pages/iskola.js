@@ -4,6 +4,7 @@ import ContentList from '../components/contentlist'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
+import Seo from '../components/seo'
 import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
 import getInternalPath from '../utils/getInternalPath'
@@ -95,6 +96,7 @@ const IskolaPageTemplate = ({ data }) => {
 
   return (
     <Layout menu="school">
+      <Seo title={title} description={lead} />
       <Hero title={title} lead={lead} color={'pink'} />
       <Content>
         <SectionTitle

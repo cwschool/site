@@ -4,6 +4,7 @@ import ContentList from '../components/contentlist'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
+import Seo from '../components/seo'
 import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import React from 'react'
@@ -20,6 +21,7 @@ const JobListPageTemplate = ({ data }) => {
 
   return (
     <Layout menu="jobs">
+      <Seo title={title} description={lead} />
       <Hero title={title} lead={lead} color="blue" />
       <Content>
         <SectionTitle title={relatedContentTitle} align="right" color="blue" />

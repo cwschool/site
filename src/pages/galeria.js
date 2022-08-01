@@ -6,6 +6,7 @@ import Hero from '../components/hero'
 import ImageModal from '../components/imagemodal'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
+import Seo from '../components/seo'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React, { useState } from 'react'
@@ -32,6 +33,7 @@ const GalleryPage = ({ data }) => {
 
   return (
     <Layout menu="images">
+      <Seo title={title} description={lead} />
       <Hero title={title} lead={lead} color="green" />
       <Content>
         <SectionTitle title={firstContentTitle} align="right" color="green" />

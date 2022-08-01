@@ -4,6 +4,7 @@ import ContentList from '../components/contentlist'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
+import Seo from '../components/seo'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { graphql } from 'gatsby'
 import React from 'react'
@@ -21,6 +22,7 @@ const BlogListPageTemplate = ({ data }) => {
 
   return (
     <Layout menu="posts">
+      <Seo title={title} description={lead} />
       <Hero title={title} lead={lead} color="gold" />
       <Content>
         <SectionTitle title={relatedContentTitle} align="right" color="gold" />

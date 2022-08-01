@@ -1,6 +1,7 @@
 import Content from '../components/content'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
+import Seo from '../components/seo'
 import * as richText from '../richtext.module.scss'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
@@ -37,6 +38,7 @@ const ContactPage = ({ data }) => {
 
   return (
     <Layout menu="contact">
+      <Seo title={title} description={lead} />
       <Hero title={title} lead={lead} color="coldRainbow" />
       <Content>
         <div className={classNames(richText.content, richText.contactPage)}>

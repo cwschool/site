@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import React, { useEffect } from 'react'
 import * as ReactDOM from 'react-dom'
 
-
 const ImageModal = ({ onClose, show, title = '', children }) => {
   let element
 

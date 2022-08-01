@@ -4,6 +4,7 @@ import ContentList from '../components/contentlist'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
+import Seo from '../components/seo'
 import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import React from 'react'
@@ -20,6 +21,7 @@ const NewsListPageTemplate = ({ data }) => {
 
   return (
     <Layout menu="">
+      <Seo title={'Hírek, aktualitások'} />
       <Hero title={'Hírek, aktualitások'} lead={' '} color="pink" />
       <Content>
         <ContentList type="full">

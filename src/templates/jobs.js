@@ -1,6 +1,7 @@
 import Content from '../components/content'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
+import Seo from '../components/seo'
 import * as richText from '../richtext.module.scss'
 import richTextImage, { createImageIndexer } from '../utils/richTextImage'
 import { BLOCKS } from '@contentful/rich-text-types'
@@ -24,6 +25,7 @@ const JobPageTemplate = ({ data }) => {
 
   return (
     <Layout menu="jobs">
+      <Seo title={title} description={lead?.lead ?? ''} />
       <Hero title={title} lead={lead?.lead ?? ' '} color="blue" />
       <Content>
         <div

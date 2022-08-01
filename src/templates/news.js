@@ -2,6 +2,7 @@ import Content from '../components/content'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import Quote from '../components/quote'
+import Seo from '../components/seo'
 import * as richText from '../richtext.module.scss'
 import richTextImage, { createImageIndexer } from '../utils/richTextImage'
 import { BLOCKS } from '@contentful/rich-text-types'
@@ -26,6 +27,7 @@ const NewsPageTemplate = ({ data }) => {
 
   return (
     <Layout menu="">
+      <Seo title={postTitle} description={lead?.lead ?? ''} />
       <Hero title={postTitle} lead={lead?.lead ?? ' '} color="pink" />
       <Content>
         <div className={classNames(richText.content, richText.contentPage)}>

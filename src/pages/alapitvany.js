@@ -4,6 +4,7 @@ import ContentList from '../components/contentlist'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
+import Seo from '../components/seo'
 import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
 import richTextImage, { createImageIndexer } from '../utils/richTextImage'
@@ -59,6 +60,7 @@ const FoundationPage = ({ data }) => {
 
   return (
     <Layout menu="foundation">
+      <Seo title={title} description={lead} />
       <Hero title={title} lead={lead} color="lilac" />
       <Content>
         <SectionTitle
