@@ -94,7 +94,7 @@ const IndexPage = ({ data }) => {
 
         <ContentList
           moreLink="/gondolatok"
-          moreLabel="Még több blog"
+          moreLabel="Még több bejegyzés"
           color="gold"
           type="full"
         >
@@ -120,11 +120,19 @@ const IndexPage = ({ data }) => {
 
         <SectionTitle title="Események" align="left" color="green" />
 
-        <GalleryPreview
-          thumbnails={events.thumbnails.slice(0, 6)}
-          images={events.images.slice(0, 6)}
-          onShow={(image) => showImage(image)}
-        />
+        <ContentList
+          type="full"
+          moreLink="/galeria"
+          moreLabel="Még több esemény"
+          color="green"
+        >
+          <GalleryPreview
+            thumbnails={events.thumbnails.slice(0, 6)}
+            images={events.images.slice(0, 6)}
+            onShow={(image) => showImage(image)}
+          />
+        </ContentList>
+
         <ImageModal
           show={image != null}
           onClose={() => close()}

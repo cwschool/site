@@ -1,7 +1,5 @@
 
 @import '../../colors.scss';
-@import '../../fonts.scss';
-
 
 .contentList {
   display: grid;
@@ -19,10 +17,6 @@
 
   &.typeFull {
     display: block;
-
-    /* &.typeFull > * {
-      margin-bottom: 2rem;
-    } */
   }
 
   &.typeFull > * {
@@ -34,6 +28,7 @@
   }
 
   .more {
+    margin-top: 2rem;
     grid-area: more;
     height: 4rem;
     display: flex;
@@ -55,14 +50,34 @@
     @each $name, $color in $colors {
       & > a.color#{$name} {
         color: $color;
+
+        &::after {
+          background-color: $color;
+        }
       }
     }
 
     & > a {
       font-weight: bold;
       text-decoration: none;
+      padding-right: 1.4rem;
+      position: relative;
+
       &:hover {
         text-decoration: underline;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 1rem;
+        height: 1.2rem;
+        right: 0;
+        top: .2rem;
+        mask: url('../../static/pager.svg') no-repeat;
+        mask-size: contain;
+        transform: scaleX(-1);
       }
     }
   }
