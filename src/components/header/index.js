@@ -41,9 +41,9 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               </li> */}
             </ul>
           </li>
-          <li className={css.menuItem}>
+          {/* <li className={css.menuItem}>
             <a href="https://wokk.hu/">Óvoda</a>
-          </li>
+          </li> */}
           <li
             className={classNames(css.menuItem, {
               [css.selected]: activeMenu === 'posts',
