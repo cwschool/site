@@ -75,18 +75,18 @@ $linkColors: (
 
     padding: 0 0 0 0;
 
-
     &.hasImage {
       grid-template-columns: 38% 1fr;
+
+      .content {
+        grid-area: 1 / 2 / 2 / 3;
+      }
     }
 
     .content {
       padding: 1.2rem 1.85rem 1.35rem 1.85rem;
-      grid-area: 1 / 2 / 2 / 3;
       min-height: auto;
     }
-
-
 
     &.hasImage .content {
       min-height: 17rem;

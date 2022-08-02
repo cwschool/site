@@ -12,7 +12,7 @@ const ContentBox = ({
   color = 'ocean',
   buttonText = '',
   buttonLink = '',
-  image = '',
+  image = null,
 }) => (
   <>
     <h2 className={classNames(css.boxTitle, css[`color${capitalize(color)}`])}>
