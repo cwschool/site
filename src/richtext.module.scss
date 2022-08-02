@@ -6,6 +6,10 @@
   font-weight: 100;
   line-height: 1.65rem;
 
+  @media screen and (max-width: 1024px) {
+    padding: 0 2rem;
+  }
+
   hr {
     clear: both;
     float: none;
@@ -23,6 +27,7 @@
       clear: left;
       margin: 0 2rem 1rem 0
     }
+
     &_right {
       float: right;
       clear: right;
@@ -50,15 +55,18 @@
   ul {
     padding: 0 0 0 1rem;
     display: inline-block;
+
     li {
       list-style-type: none;
       padding: 0 0 .5rem 0;
+
       &::before {
         content: '\2022';
         font-size: 1rem;
         position: absolute;
         transform: translate(-12px, 0px);
       }
+
       p {
         margin-bottom: 0;
       }
@@ -76,6 +84,7 @@
   a {
     font-weight: 500;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
@@ -83,6 +92,10 @@
 
   &.contentPage {
     padding: 4rem 8rem;
+
+    @media screen and (max-width: 1024px) {
+      padding: 4rem 2rem;
+    }
 
     .image {
       min-width: 16rem;

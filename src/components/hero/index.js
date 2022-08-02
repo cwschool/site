@@ -21,7 +21,13 @@ const Hero = ({ children, title = '', lead = '', color = 'warmRainbow' }) => {
   }
 
   return (
-    <section className={classNames(css.hero, css[`color${capitalize(color)}`])}>
+    <section
+      className={classNames(
+        css.hero,
+        css[`color${capitalize(color)}`],
+        pages.length === 0 ? css.nonPaged : ''
+      )}
+    >
       <div className={css.centered}>
         {title && lead && (
           <>

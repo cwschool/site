@@ -86,6 +86,7 @@ $linkColors: (
     .content {
       padding: 1.2rem 1.85rem 1.35rem 1.85rem;
       min-height: auto;
+      grid-area: 1 / 1 / 2 / 3;
     }
 
     &.hasImage .content {
