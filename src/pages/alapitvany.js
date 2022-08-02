@@ -132,7 +132,6 @@ const FoundationPage = ({ data }) => {
 
           <div className={css.donate}>
             <form
-              className={css.paypal}
               target="_blank"
               action="https://www.paypal.com/cgi-bin/webscr"
               method="post"
@@ -162,6 +161,7 @@ const FoundationPage = ({ data }) => {
                 type="image"
                 src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
                 name="submit"
+                alt="Submit"
               />
             </form>
             <div className={css.iban}>

@@ -81,6 +81,7 @@ const IndexPage = ({ data }) => {
               color="orange"
               buttonText="Tovább"
               buttonLink={getInternalPath(item)}
+              key={`actual-${item.slug}`}
             >
               {item.lead?.lead ?? ' '}
             </ContentBox>
@@ -105,6 +106,7 @@ const IndexPage = ({ data }) => {
               buttonText="Tovább"
               buttonLink={getInternalPath(item)}
               image={item.postPicture}
+              key={`blog-${item.slug}`}
             >
               {truncate(
                 documentToPlainTextString(JSON.parse(item.content.raw)),
