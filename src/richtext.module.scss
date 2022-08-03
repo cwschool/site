@@ -10,6 +10,10 @@
     padding: 0 2rem;
   }
 
+  @media screen and (max-width: 480px) {
+    line-height: 1.35rem;
+  }
+
   hr {
     clear: both;
     float: none;
@@ -22,16 +26,29 @@
     border-radius: 1rem;
     display: inline-block;
 
+    @media screen and (max-width: 480px) {
+      width: 105px;
+      height: 105px;
+    }
+
     &_left {
       float: left;
       clear: left;
-      margin: 0 2rem 1rem 0
+      margin: 0 2rem 1rem 0;
+
+      @media screen and (max-width: 480px) {
+        margin: 0 1rem .5rem 0;
+      }
     }
 
     &_right {
       float: right;
       clear: right;
-      margin: 0 0 1rem 2rem
+      margin: 0 0 1rem 2rem;
+
+      @media screen and (max-width: 480px) {
+        margin: 0 0 .7rem 1rem
+      }
     }
 
     &_fullwidth {
