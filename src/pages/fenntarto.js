@@ -231,7 +231,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    contentfulPage(slug: { eq: "alapitvany" }) {
+    contentfulPage(slug: { eq: "fenntarto" }) {
       date
       slug
       title
