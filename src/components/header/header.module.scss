@@ -15,11 +15,23 @@
   display: flex;
   justify-content: center;
 
+
+
+  @media screen and (max-width: 480px) {
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+
   .centered {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 72rem;
+
+    @media screen and (max-width: 480px) {
+      max-width: 100vw;
+    }
   }
 
   .logo {
