@@ -34,7 +34,7 @@
     }
 
     @media screen and (max-width: 480px) {
-      transform: translateY(8rem);
+      transform: translateY(9rem);
     }
 
   }
@@ -210,9 +210,10 @@
     top: 40%;
 
     @media screen and (max-width: 480px) {
-      width: 1rem;
-      height: 1rem;
-      background-size: contain;
+      width: 2.5rem;
+      height: 50%;
+      background-size: 33%;
+      top: 4.429rem;
     }
 
     &.pagerLeft {
@@ -223,7 +224,7 @@
       }
 
       @media screen and (max-width: 480px) {
-        left: .5rem;
+        left: 0rem;
       }
     }
 
@@ -236,7 +237,7 @@
       }
 
       @media screen and (max-width: 480px) {
-        right: .5rem;
+        right: 0rem;
       }
     }
   }

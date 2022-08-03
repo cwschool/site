@@ -13,6 +13,10 @@
     grid-template-areas:
       ". . ."
       "more more more";
+
+    @media screen and (max-width: 480px) {
+      display: block;
+    }
   }
 
   &.typeFull {

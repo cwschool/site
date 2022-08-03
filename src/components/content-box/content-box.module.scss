@@ -52,6 +52,10 @@ $linkColors: (
   padding: 1.2rem 1.85rem 1.35rem 1.85rem;
   background-color: $color-gray1;
 
+  @media screen and (max-width: 480px) {
+    margin-bottom: 2rem;
+  }
+
   &.hasImage {
     min-height: 5rem;
   }
@@ -75,6 +79,10 @@ $linkColors: (
 
     padding: 0 0 0 0;
 
+    @media screen and (max-width: 480px) {
+      display: block;
+    }
+
     &.hasImage {
       grid-template-columns: 38% 1fr;
 
@@ -92,11 +100,16 @@ $linkColors: (
     &.hasImage .content {
       min-height: 17rem;
     }
+
     .image {
       grid-area: 1 / 1 / 3 / 2;
       position: relative;
 
       overflow: hidden;
+
+      @media screen and (max-width: 480px) {
+        height: 12rem;
+      }
 
       .imageContent {
         position: absolute;
@@ -127,12 +140,12 @@ $linkColors: (
   &.typeSmall .button {
     justify-content: center;
   }
+
   &.typeFull .button  {
     grid-area: 2 / 2 / 3 / 3;
     justify-content: flex-end;
     padding: 0 1.85rem 1.35rem 1.85rem;
   }
-
 
   a {
     text-decoration: none;
