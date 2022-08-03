@@ -168,6 +168,7 @@ const IskolaPageTemplate = ({ data }) => {
           title={additionalPeopleTitle}
           align="left"
           color="peach"
+          anchor="kollegaink"
         />
 
         <ContentList type="full">
@@ -181,7 +182,10 @@ const IskolaPageTemplate = ({ data }) => {
               key={item.slug}
               image={item.image}
             >
-              {truncate(documentToPlainTextString(item.bio), 240)}
+              {truncate(
+                documentToPlainTextString(JSON.parse(item.bio.raw)),
+                840
+              )}
             </ContentBox>
           ))}
         </ContentList>
@@ -312,12 +316,7 @@ export const pageQuery = graphql`
           raw
         }
         image {
-          gatsbyImage(
-            placeholder: BLURRED
-            cropFocus: TOP
-            width: 840
-            aspectRatio: 1.2
-          )
+          gatsbyImage(placeholder: BLURRED, cropFocus: TOP, width: 840)
         }
         name
         slug

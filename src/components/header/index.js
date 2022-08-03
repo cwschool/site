@@ -30,6 +30,9 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
                 <Link to="/iskola#pedagogusaink">Pedagógusaink</Link>
               </li>
               <li>
+                <Link to="/iskola#kollegaink">Kollégáink</Link>
+              </li>
+              <li>
                 <Link to="/iskola#iskolakertunk">Iskolakertünk</Link>
               </li>
               {/*
