@@ -67,19 +67,19 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
           </li>
           <li
             className={classNames(css.menuItem, {
-              [css.selected]: activeMenu === 'foundation',
+              [css.selected]: activeMenu === 'maintainer',
             })}
           >
-            <Link to="/alapitvany">Alapítvány</Link>
+            <Link to="/fenntarto">Fenntartó</Link>
             <ul className={css.subMenu}>
               <li>
-                <Link to="/alapitvany#dokumentumok">Dokumentumok</Link>
+                <Link to="/fenntarto#dokumentumok">Dokumentumok</Link>
               </li>
               <li>
-                <Link to="/alapitvany#fenntarto">Fenntartó</Link>
+                <Link to="/fenntarto#egyesulet">Egyesület</Link>
               </li>
               <li>
-                <Link to="/alapitvany#fundraising">Fundraising</Link>
+                <Link to="/fenntarto#fundraising">Fundraising</Link>
               </li>
             </ul>
           </li>

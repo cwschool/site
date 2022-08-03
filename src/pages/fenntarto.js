@@ -8,7 +8,7 @@ import Seo from '../components/seo'
 import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
 import richTextImage, { createImageIndexer } from '../utils/richTextImage'
-import * as css from './alapitvany.module.scss'
+import * as css from './fenntarto.module.scss'
 import { BLOCKS } from '@contentful/rich-text-types'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
@@ -59,7 +59,7 @@ const FoundationPage = ({ data }) => {
   }
 
   return (
-    <Layout menu="foundation">
+    <Layout menu="maintainer">
       <Seo title={title} description={lead} />
       <Hero title={title} lead={lead} color="lilac" />
       <Content>
@@ -111,7 +111,7 @@ const FoundationPage = ({ data }) => {
           title={firstContentTitle}
           align="left"
           color="violet"
-          anchor="fenntarto"
+          anchor="egyesulet"
         />
 
         <div className={classNames(richText.content, richText.foundationPage)}>
