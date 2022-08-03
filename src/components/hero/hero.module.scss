@@ -11,20 +11,30 @@
   display: flex;
   justify-content: center;
 
-  &::before {
-     content: '';
-     width: 100%;
-     height: 100%;
-     position: absolute;
-     z-index: 2;
-     background-image: url('./wave-inverse.svg');
-     background-position: center;
-     background-repeat: repeat-x;
-     transform: translateY(16rem);
+  @media screen and (max-width: 480px) {
+    height: 13.375rem;
+  }
 
-     @media screen and (max-width: 1024px) {
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background-image: url('./wave-inverse.svg');
+    background-position: center;
+    background-repeat: repeat-x;
+    transform: translateY(16rem);
+
+    @media screen and (max-width: 1024px) {
       transform: translateY(12rem);
       background-size: 120% 100%;
+    }
+
+    @media screen and (max-width: 480px) {
+
+      transform: translateY(8rem);
     }
 
   }
@@ -37,6 +47,11 @@
     z-index: 1;
     background-repeat: repeat-x;
     background-position: center top;
+
+    @media screen and (max-width: 480px) {
+      transform: translateY(-3.875rem);
+      height: calc(100% + 3.875rem);
+    }
   }
 
   &.nonPaged {
@@ -63,6 +78,11 @@
       background-image: url('./warmRainbow-watercolor.jpg');
       background-position: 18% top;
       background-size: auto 115%;
+
+      @media screen and (max-width: 480px) {
+        background-position: 127% top;
+        background-size: auto 100%;
+      }
     }
     .title,
     .lead {
@@ -146,6 +166,10 @@
     @media screen and (max-width: 1024px) {
       padding: 0 4rem;
     }
+
+    @media screen and (max-width: 480px) {
+      padding: 0 2.5rem;
+    }
   }
 
   .title {
@@ -157,6 +181,9 @@
     font-weight: 100;
 
     @media screen and (max-width: 1024px) {
+      margin-top: 3.65rem;
+    }
+    @media screen and (max-width: 480px) {
       margin-top: 3.65rem;
     }
   }
@@ -179,13 +206,23 @@
     background-repeat: no-repeat;
     background-position: center center;
     cursor: pointer;
-    top: 50%;
+    top: 40%;
+
+    @media screen and (max-width: 480px) {
+      width: 1rem;
+      height: 1rem;
+      background-size: contain;
+    }
 
     &.pagerLeft {
       left: 1rem;
       transform: translateY(-50%);
       &:active {
         transform: translateY(calc(-50% + .1rem));
+      }
+
+      @media screen and (max-width: 480px) {
+        left: .5rem;
       }
     }
 
@@ -195,6 +232,10 @@
 
       &:active {
         transform: rotate(180deg) translateY(calc(50% - .1rem));
+      }
+
+      @media screen and (max-width: 480px) {
+        right: .5rem;
       }
     }
   }

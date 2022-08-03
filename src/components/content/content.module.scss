@@ -15,6 +15,11 @@
     max-width: 79rem;
     position: relative;
     z-index: 10;
+
+
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
   }
 
 }

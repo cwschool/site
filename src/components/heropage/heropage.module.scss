@@ -16,6 +16,11 @@
   z-index: 10;
   padding: 4rem 0 0 0;
 
+  @media screen and (max-width: 480px) {
+    padding-top: 1rem;
+    max-width: calc(100vw - 5rem);
+  }
+
   .title {
     font-family: $hero-font;
     font-size: 2rem;
@@ -25,6 +30,17 @@
     font-weight: 100;
     grid-area: title;
     color: $color-berry;
+
+    a {
+      text-decoration: none;
+      color: $color-berry;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 1.3rem;
+      line-height: 1.6rem;
+      margin-bottom: 1rem;
+    }
   }
 
   .lead {
@@ -37,6 +53,11 @@
     margin-bottom: 2rem;
     grid-area: lead;
     color: $color-purple;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.81rem;
+      line-height: 1.2rem;
+    }
   }
 
   .date {
@@ -47,10 +68,20 @@
     margin: 0;
     margin-bottom: .87rem;
     color: $color-purple;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.75rem;
+      margin-bottom: .4rem;
+    }
   }
 
   .button {
     grid-area: button;
+
+
+    @media screen and (max-width: 480px) {
+     display: none;
+    }
   }
 
 }
