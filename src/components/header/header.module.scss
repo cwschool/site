@@ -63,10 +63,10 @@
       height: 100%;
 
       @media screen and (max-width: 480px) {
-        width: 50vw;
+        width: 55vw;
         display: flex;
         align-items: center;
-        font-size: .7rem;
+        font-size: .8rem;
         line-height: 1rem;
         font-weight: 100;
         font-family: $heading-font;
@@ -325,6 +325,7 @@
       position: fixed;
       top: 0;
       padding-top: 4.429rem;
+
       width: calc(100% + 2px);
 
       & > ul {
@@ -333,6 +334,7 @@
         flex-flow: column;
         align-items: flex-end;
         width: calc(100% + 1px);
+        margin-bottom: 2rem;
       }
 
       .menuItem {
@@ -343,6 +345,7 @@
         a {
           padding-right: 2rem;
           color: $color-white;
+          font-size: 1.2rem;
         }
 
         &:hover > .subMenu,
@@ -363,7 +366,7 @@
         }
       }
 
-      &::after {
+      &::before {
         content: '';
         width: calc(100% + 2px);
         height: 10rem;
@@ -379,9 +382,17 @@
         transform: translateY(7rem);
         background-color: $color-lilac;
         bottom: 0;
-
       }
 
+      &::after {
+        content: '';
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 1;
+        //background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(9px) grayscale(50%) brightness(90%);
+      }
 
     }
   }
