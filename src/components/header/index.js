@@ -6,11 +6,6 @@ import React from 'react'
 const Header = ({ activeMenu, searchEnabled = false }) => (
   <header className={css.header}>
     <div className={css.centered}>
-      <h1 className={css.logo}>
-        <Link to="/" title="Christophorus Waldorf Iskola">
-          Christophorus Waldorf Iskola
-        </Link>
-      </h1>
       <input
         id="MobileMenuTrigger"
         type="checkbox"
@@ -24,6 +19,14 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
       >
         <span>Open Menu</span>
       </label>
+      <h1 className={css.logo}>
+        <Link
+          to="/"
+          title="Christophorus Waldorf Általános Iskola és AMI hivatalos honlapja"
+        >
+          Christophorus Waldorf Általános Iskola és AMI hivatalos honlapja
+        </Link>
+      </h1>
       <nav className={css.navigation}>
         <ul>
           <li

@@ -48,13 +48,34 @@
 
     @media screen and (max-width: 480px) {
       height: 4.2rem;
-      width: 4.2rem;
+      width: 100vw;
+      text-indent: 0;
+      overflow: visible;
+      display: flex;
+      justify-content: center;
+      background-size: contain;
+      background-position: left;
     }
 
     a {
       display: block;
       width: 100%;
-      height: 100%;;
+      height: 100%;
+
+      @media screen and (max-width: 480px) {
+        width: 50vw;
+        display: flex;
+        align-items: center;
+        font-size: .7rem;
+        line-height: 1rem;
+        font-weight: 100;
+        font-family: $heading-font;
+        color: $color-berry;
+        text-decoration: none;
+        text-align: center;
+        //text-shadow: 0px 0px 1px rgba(0,0,0,.5);
+
+      }
     }
   }
 
@@ -292,6 +313,10 @@
       &::after {
         transform: rotate(-45deg) translateX(-12%) translateY(-1rem);
       }
+    }
+
+    .triggerCheckbox:checked ~ .logo a {
+      color: $color-white;
     }
 
 
