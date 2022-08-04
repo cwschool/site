@@ -4,10 +4,8 @@
 .footer {
   position: relative;
   z-index: 2;
-
   height: 22rem;
   width: 100%;
-
   display: flex;
   justify-content: center;
 
@@ -87,6 +85,7 @@
       color: $color-brightblue;
       font-weight: 500;
       text-decoration: none;
+
       &:hover {
         text-decoration: underline;
       }
@@ -95,14 +94,16 @@
     ul {
       padding: 0 0 0 1rem;
     }
+
     li {
       list-style-type: none;
-      padding: 0 0 .5rem 0;
+      padding: 0 0 .5rem;
+
       &::before {
         content: '\2022';
         font-size: 1rem;
         position: absolute;
-        transform: translate(-12px, 0px);
+        transform: translate(-12px, 0);
       }
     }
   }
@@ -150,12 +151,15 @@
           &.twitter {
             background-image: url(./twitter.png);
           }
+
           &.facebook {
             background-image: url(./facebook.png);
           }
+
           &.instagram {
             background-image: url(./instagram.png);
           }
+
           &.messenger {
             background-image: url(./messenger.png);
           }

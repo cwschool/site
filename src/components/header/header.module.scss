@@ -4,13 +4,10 @@
 .header {
   position: relative;
   z-index: 20;
-
   height: 4.7rem;
   width: 100%;
-
   background-color: $color-white;
-  box-shadow: 0 4px 40px rgba(0,0,0,0.5);
-
+  box-shadow: 0 4px 40px rgb(0 0 0 / 50%);
   font-weight: 400;
   display: flex;
   justify-content: center;
@@ -125,10 +122,9 @@
         position: absolute;
         top: calc(4.7rem + 1px);
         display: none;
-
         background-color: $color-white;
-        border-radius: 0 30px 30px 30px;
-        box-shadow: 0 20px 20px rgba(0,0,0,0.2);
+        border-radius: 0 30px 30px;
+        box-shadow: 0 20px 20px rgb(0 0 0 / 20%);
         padding: 20px 6px;
 
         li a {
@@ -182,7 +178,6 @@
       box-sizing: border-box;
       border-radius: 5px;
       border: 1px solid $color-gray4;
-
       font-size: .8rem;
       background-image: url('./search.svg');
       background-repeat: no-repeat;

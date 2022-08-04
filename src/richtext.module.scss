@@ -75,13 +75,13 @@
 
     li {
       list-style-type: none;
-      padding: 0 0 .5rem 0;
+      padding: 0 0 .5rem;
 
       &::before {
         content: '\2022';
         font-size: 1rem;
         position: absolute;
-        transform: translate(-12px, 0px);
+        transform: translate(-12px, 0);
       }
 
       p {

@@ -4,10 +4,8 @@
 .hero {
   position: relative;
   z-index: 2;
-
   height: 25rem;
   width: 100%;
-
   display: flex;
   justify-content: center;
 
@@ -16,7 +14,6 @@
     height: auto;
     width: 100vw;
   }
-
 
   &::before {
     content: '';
@@ -35,10 +32,10 @@
     }
 
     @media screen and (max-width: 480px) {
-      transform: translateY(8rem);
+      transform: translateY(50%);
+      height: 10rem;
       bottom: 0;
     }
-
   }
 
   &::after {
@@ -69,6 +66,7 @@
       background-size: auto 110%;
       background-color: #f8eff2;
     }
+
     .title,
     .lead {
       color: $color-navigation;
@@ -86,6 +84,7 @@
         background-size: auto 100%;
       }
     }
+
     .title,
     .lead {
       color: $color-navigation;
@@ -98,6 +97,7 @@
       background-position: -121% top;
       background-size: auto 150%;
     }
+
     .title,
     .lead {
       color: $color-deepblue;
@@ -109,6 +109,7 @@
       background-image: url('./gold-watercolor.jpg');
       background-color: #fef9db;
     }
+
     .title,
     .lead {
       color: $color-darkgold;
@@ -120,6 +121,7 @@
       background-image: url('./blue-watercolor.jpg');
       background-color: #f1fafa;
     }
+
     .title,
     .lead {
       color: $color-darkblue;
@@ -133,6 +135,7 @@
       background-position: center top;
       background-size: auto 150%;
     }
+
     .title,
     .lead {
       color: $color-darklilac;
@@ -147,6 +150,7 @@
       background-position: center top;
       background-size: auto 150%;
     }
+
     .title,
     .lead {
       color: $color-darkgreen;
@@ -188,11 +192,9 @@
     }
     @media screen and (max-width: 480px) {
       margin-top: 3rem;
-
       font-size: 1.5rem;
       line-height: 1.9rem;
       margin-bottom: 1rem;
-
     }
   }
 
@@ -203,7 +205,6 @@
     font-weight: 100;
     line-height: 1.8rem;
     margin: 0;
-
 
     @media screen and (max-width: 480px) {
       font-size: 1rem;
@@ -233,12 +234,13 @@
     &.pagerLeft {
       left: 1rem;
       transform: translateY(-50%);
+
       &:active {
         transform: translateY(calc(-50% + .1rem));
       }
 
       @media screen and (max-width: 480px) {
-        left: 0rem;
+        left: 0;
       }
     }
 
@@ -251,7 +253,7 @@
       }
 
       @media screen and (max-width: 480px) {
-        right: 0rem;
+        right: 0;
       }
     }
   }

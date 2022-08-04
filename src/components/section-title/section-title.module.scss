@@ -4,10 +4,8 @@
 .sectionTitleContainer {
   position: relative;
   z-index: 2;
-
   height: 5.95rem;
   width: 100%;
-
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
@@ -42,6 +40,7 @@
       &::after {
         transform: scaleX(-1) translate(-50%, -50%);
       }
+
       &.colorPeach::after {
         transform: scaleX(-1) translate(46%, -57%);
       }
@@ -65,7 +64,7 @@
 
     @media screen and (max-width: 480px) {
       font-size: 1.2rem;
-      margin: 0 0;
+      margin: 0;
     }
 
     &::after {
@@ -93,10 +92,12 @@
       transform: scaleX(1.2) translate(-31%, -59%);
       height: 116%;
     }
+
     &.colorGold::after {
       background-image: url('./gold-brush.png');
       transform: translate(-53%, -50%);
     }
+
     &.colorOrange::after {
       background-image: url('./orange-brush.png');
       transform: translate(-41%, -50%);
@@ -105,6 +106,7 @@
         transform: scaleX(1.3) translate(-17%, -50%);
       }
     }
+
     &.colorGreen::after {
       background-image: url('./green-brush.png');
       transform: scaleX(-1.2) translate(33%, -66%);
@@ -115,25 +117,30 @@
         transform: scaleX(-1.3) translate(19%, -66%);
       }
     }
+
     &.colorPurple::after {
       background-image: url('./purple-brush.png');
       background-position: right center;
       transform: scaleX(-1) translate(52%, -49%);
       height: 105%;
     }
+
     &.colorBlue::after {
       background-image: url('./blue-brush.png');
     }
+
     &.colorLilac::after {
       background-image: url('./lilac-brush.png');
       background-position: right center;
       transform: scaleX(-1) translate(49%, -53%);
     }
+
     &.colorViolet::after {
       background-image: url('./violet-brush.png');
       background-position: right center;
       transform: scaleX(-1) translate(44%, -53%);
     }
+
     &.colorOcean::after {
       background-image: url('./ocean-brush.png');
       background-position: right center;
@@ -149,6 +156,7 @@
         margin: 0 2rem 0 0;
       }
     }
+
     &.colorGreen {
       margin: 0 3rem 0 0;
     }
@@ -156,15 +164,16 @@
 
   &.alignRight {
     & .sectionTitle {
-
       &::after {
         background-position: left center;
         transform: scaleX(-1) translate(50%, -50%);
       }
+
       &.colorPeach::after {
         background-position: left center;
         transform: scale(-1.3, 1.1) translate(47%, -57%);
       }
+
       &.colorGold::after {
         background-position: left center;
         transform: scaleX(-1.3) scaleY(1.4) translate(33%, -38%);
@@ -173,30 +182,37 @@
           transform: scaleX(-1.3) scaleY(1.4) translate(33%, -38%);
         }
       }
+
       &.colorOrange::after {
         background-position: left center;
         transform: scaleX(-1.1) translate(47%, -52%);
       }
+
       &.colorGreen::after {
         background-position: right center;
         transform: scaleX(1.3) translate(-33%, -68%);
       }
+
       &.colorBlue::after {
         background-position: left center;
         transform: scaleX(-1) translate(44%, -50%);
       }
+
       &.colorPurple::after {
         background-position: right center;
         transform: scaleX(1.2) translate(-40%, -50%);
       }
+
       &.colorLilac::after {
         background-position: right center;
         transform: scaleX(1.1) translate(-40%, -53%);
       }
+
       &.colorViolet::after {
         background-position: right center;
         transform: scaleX(1.1) translate(-48%, -53%);
       }
+
       &.colorOcean::after{
         background-position: right center;
         transform: scaleX(1.3) translate(-38%, -49%);
