@@ -248,6 +248,14 @@
       .logo a {
         color: $color-navigation;
       }
+
+      .navigation {
+        background-color: $color-lightpurple;
+
+        &::before {
+          background-color: $color-lightpurple;
+        }
+      }
     }
 
     .menuPosts {
@@ -259,6 +267,14 @@
 
       .logo a {
         color: $color-darkgold;
+      }
+
+      .navigation {
+        background-color: $color-deepgold;
+
+        &::before {
+          background-color: $color-deepgold;
+        }
       }
     }
 
@@ -272,6 +288,14 @@
       .logo a {
         color: $color-darkgreen;
       }
+
+      .navigation {
+        background-color: $color-darkgreen;
+
+        &::before {
+          background-color: $color-darkgreen;
+        }
+      }
     }
 
     .menuJobs {
@@ -283,6 +307,14 @@
 
       .logo a {
         color: $color-darkblue;
+      }
+
+      .navigation {
+        background-color: $color-darkblue;
+
+        &::before {
+          background-color: $color-darkblue;
+        }
       }
     }
 
@@ -296,6 +328,14 @@
       .logo a {
         color: $color-darklilac;
       }
+
+      .navigation {
+        background-color: $color-darklilac;
+
+        &::before {
+          background-color: $color-darklilac;
+        }
+      }
     }
 
     .menuContact {
@@ -307,6 +347,14 @@
 
       .logo a {
         color: $color-deepblue;
+      }
+
+      .navigation {
+        background-color: $color-ocean;
+
+        &::before {
+          background-color: $color-ocean;
+        }
       }
     }
 

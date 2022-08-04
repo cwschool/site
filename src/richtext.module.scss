@@ -127,6 +127,11 @@
     padding-left: 18rem;
     position: relative;
 
+
+    @media screen and (max-width: 480px) {
+      padding-left: 2rem;
+    }
+
     a {
       color: $color-ocean;
     }
@@ -134,6 +139,16 @@
     .image {
       position: absolute;
       left: 2rem;
+
+
+    @media screen and (max-width: 480px) {
+      position: relative;
+      float: none;
+      left: 0;
+      width: 100%;
+      height: auto;
+      margin-bottom: 2rem;
+    }
     }
 
     .map {
