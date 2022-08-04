@@ -27,8 +27,8 @@
     display: inline-block;
 
     @media screen and (max-width: 480px) {
-      width: 105px;
-      height: 105px;
+      width: 100%;
+      height: 18rem;
     }
 
     &_left {
