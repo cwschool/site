@@ -55,7 +55,7 @@ require("dotenv").config({
           short_name: 'christophorus-waldorf',
           start_url: '/',
           background_color: '#ffffff',
-          theme_color: '#43848A',
+          theme_color: '#ffffff',
           display: 'minimal-ui',
           icon: 'src/components/header/Logo.png',
         },

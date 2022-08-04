@@ -1,3 +1,4 @@
+import capitalize from '../../utils/capitalize'
 import * as css from './header.module.scss'
 import classNames from 'classnames'
 import { Link } from 'gatsby'
@@ -5,7 +6,9 @@ import React from 'react'
 
 const Header = ({ activeMenu, searchEnabled = false }) => (
   <header className={css.header}>
-    <div className={css.centered}>
+    <div
+      className={classNames(css.centered, css[`menu${capitalize(activeMenu)}`])}
+    >
       <input
         id="MobileMenuTrigger"
         type="checkbox"

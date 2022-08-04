@@ -53,8 +53,8 @@
       overflow: visible;
       display: flex;
       justify-content: center;
-      background-size: contain;
-      background-position: left;
+      background-size: 3.8rem auto;
+      background-position: 4px 5px;
     }
 
     a {
@@ -238,6 +238,79 @@
   }
 
   @media screen and (max-width: 480px) {
+    .menuSchool {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-navigation;
+      }
+
+      .logo a {
+        color: $color-navigation;
+      }
+    }
+
+    .menuPosts {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-darkgold;
+      }
+
+      .logo a {
+        color: $color-darkgold;
+      }
+    }
+
+    .menuImages {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-darkgreen;
+      }
+
+      .logo a {
+        color: $color-darkgreen;
+      }
+    }
+
+    .menuJobs {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-darkblue;
+      }
+
+      .logo a {
+        color: $color-darkblue;
+      }
+    }
+
+    .menuMaintainer {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-darklilac;
+      }
+
+      .logo a {
+        color: $color-darklilac;
+      }
+    }
+
+    .menuContact {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-deepblue;
+      }
+
+      .logo a {
+        color: $color-deepblue;
+      }
+    }
+
+
     .mobileMenuTrigger {
       display: block;
       cursor: pointer;
@@ -257,7 +330,6 @@
         transform: translateX(-50%);
         width: 100%;
         height: 3px;
-        background-color: $color-white;
         transition: transform .5 ease-in-out;
       }
 
@@ -278,7 +350,6 @@
         top: 50%;
         left: 50%;
         transform: translateX(-50%);
-        background-color: $color-white;
         transition: width .5 ease-in-out, background-color .5 ease-in-out;
       }
 
@@ -286,8 +357,10 @@
       &::before,
       span {
         background-color: $color-white;
+        border-radius: 2px;
       }
     }
+
 
     .triggerCheckbox {
       display: block;
@@ -325,7 +398,6 @@
       position: fixed;
       top: 0;
       padding-top: 4.429rem;
-
       width: calc(100% + 2px);
 
       & > ul {
@@ -375,10 +447,6 @@
         z-index: 2;
         mask: url('../../static/wave-inverse.svg') no-repeat;
         mask-size: contain;
-        //background-image: url('../../static/wave-inverse.svg');
-        //background-position: center;
-        //background-repeat: repeat-x;
-        //background-size: contain;
         transform: translateY(7rem);
         background-color: $color-lilac;
         bottom: 0;
@@ -390,7 +458,6 @@
         height: 100vh;
         position: absolute;
         z-index: 1;
-        //background: rgba(0,0,0,0.4);
         backdrop-filter: blur(9px) grayscale(50%) brightness(90%);
       }
 
