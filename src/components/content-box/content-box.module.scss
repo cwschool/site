@@ -49,7 +49,7 @@ $linkColors: (
   font-family: $primary-font;
   font-size: 1rem;
   font-weight: $primary-light;
-  padding: 1.2rem 1.85rem 1.35rem 1.85rem;
+  padding: 1.2rem 1.85rem 1.35rem;
   background-color: $color-gray1;
 
   @media screen and (max-width: 480px) {
@@ -76,8 +76,7 @@ $linkColors: (
     grid-auto-flow: column;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-
-    padding: 0 0 0 0;
+    padding: 0;
 
     @media screen and (max-width: 480px) {
       display: block;
@@ -87,24 +86,20 @@ $linkColors: (
       grid-template-columns: 38% 1fr;
 
       .content {
+        min-height: 17rem;
         grid-area: 1 / 2 / 2 / 3;
       }
     }
 
     .content {
-      padding: 1.2rem 1.85rem 1.35rem 1.85rem;
+      padding: 1.2rem 1.85rem 1.35rem;
       min-height: auto;
       grid-area: 1 / 1 / 2 / 3;
-    }
-
-    &.hasImage .content {
-      min-height: 17rem;
     }
 
     .image {
       grid-area: 1 / 1 / 3 / 2;
       position: relative;
-
       overflow: hidden;
 
       @media screen and (max-width: 480px) {
@@ -123,7 +118,6 @@ $linkColors: (
     display: flex;
     width: 100%;
     box-sizing: border-box;
-
     padding-top: 2rem;
     align-items: flex-end;
     border-radius: 0 0 .5rem .5rem;
@@ -131,6 +125,7 @@ $linkColors: (
     &, a {
       font-weight: bold;
       color: $color-white !important;
+
       &:hover {
         text-decoration: none;
       }
@@ -144,12 +139,13 @@ $linkColors: (
   &.typeFull .button  {
     grid-area: 2 / 2 / 3 / 3;
     justify-content: flex-end;
-    padding: 0 1.85rem 1.35rem 1.85rem;
+    padding: 0 1.85rem 1.35rem;
   }
 
   a {
     text-decoration: none;
     font-weight: 500;
+
     &:hover {
       text-decoration: underline;
     }

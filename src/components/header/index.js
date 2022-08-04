@@ -11,6 +11,19 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
           Christophorus Waldorf Iskola
         </Link>
       </h1>
+      <input
+        id="MobileMenuTrigger"
+        type="checkbox"
+        className={css.triggerCheckbox}
+        aria-hidden="true"
+      />
+      <label
+        htmlFor="MobileMenuTrigger"
+        className={css.mobileMenuTrigger}
+        aria-hidden="true"
+      >
+        <span>Open Menu</span>
+      </label>
       <nav className={css.navigation}>
         <ul>
           <li
@@ -95,6 +108,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
           </li>
         </ul>
       </nav>
+
       <div className={classNames(css.search)}>
         {searchEnabled && <input type={'search'} className={css.searchField} />}
       </div>

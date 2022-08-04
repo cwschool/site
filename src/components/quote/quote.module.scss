@@ -15,6 +15,16 @@
     border-color: $color-gold;
   }
 
+  figcaption {
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+
+    p {
+      margin: 0;
+      text-align: right;
+    }
+  }
+
   blockquote {
     margin: 1rem;
     margin-block: 1rem;
@@ -23,16 +33,6 @@
 
     p:last-child {
       margin-bottom: 0;
-    }
-  }
-
-  figcaption {
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-
-    p {
-      margin: 0;
-      text-align: right;
     }
   }
 }

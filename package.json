@@ -11,7 +11,9 @@
     "postdev": "npm run format",
     "build": "npx gatsby build",
     "develop": "gatsby develop",
-    "format": "npx prettier --write \"src/**/*.js\"",
+    "format": "npm run prettier; npm run stylelint",
+    "prettier": "npx prettier --write \"src/**/*.js\"",
+    "stylelint": "npx stylelint \"src/**/*.scss\" --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -53,6 +55,7 @@
     "gatsby-transformer-sharp": "^4.16.0",
     "node-fetch": "^2.6.7",
     "node-sass": "^6.0.1",
+    "postcss-scss": "^4.0.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",

@@ -5,6 +5,13 @@
   ],
   "rules": {
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
-    "function-url-quotes": "never"
-  }
+    "function-url-quotes": "always",
+    "no-descending-specificity": null
+  },
+  "overrides": [
+    {
+      "files": ["*.scss", "**/*.scss"],
+      "customSyntax": "postcss-scss"
+    }
+  ]
 }
