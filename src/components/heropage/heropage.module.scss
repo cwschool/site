@@ -14,17 +14,33 @@
     "button";
   position: relative;
   z-index: 10;
-  padding: 4rem 0 0 0;
+  padding: 4rem 0 0;
+
+  @media screen and (max-width: 480px) {
+    padding-top: 2rem;
+    max-width: calc(100vw - 5rem);
+  }
 
   .title {
     font-family: $hero-font;
     font-size: 2rem;
     line-height: 2.4rem;
     margin-bottom: .25rem;
-    margin-top: 0rem;
+    margin-top: 0;
     font-weight: 100;
     grid-area: title;
     color: $color-berry;
+
+    a {
+      text-decoration: none;
+      color: $color-berry;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 1.5rem;
+      line-height: 1.9rem;
+      margin-bottom: 1rem;
+    }
   }
 
   .lead {
@@ -37,6 +53,11 @@
     margin-bottom: 2rem;
     grid-area: lead;
     color: $color-purple;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1rem;
+      line-height: 1.4rem;
+    }
   }
 
   .date {
@@ -47,10 +68,19 @@
     margin: 0;
     margin-bottom: .87rem;
     color: $color-purple;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.75rem;
+      margin-bottom: .4rem;
+    }
   }
 
   .button {
     grid-area: button;
+
+    @media screen and (max-width: 480px) {
+     display: none;
+    }
   }
 
 }

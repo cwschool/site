@@ -1,14 +1,15 @@
 
-
-
 .galleryPreview {
   display: grid;
-  //grid-auto-flow: column;
   grid-gap: 2rem;
   grid-template-columns: repeat(6, 1fr);
 
   @media screen and (max-width: 1024px) {
     grid-gap: 1rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .image {

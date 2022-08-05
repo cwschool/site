@@ -4,27 +4,38 @@
 .header {
   position: relative;
   z-index: 20;
-
   height: 4.7rem;
   width: 100%;
-
   background-color: $color-white;
-  box-shadow: 0 4px 40px rgba(0,0,0,0.5);
-
+  box-shadow: 0 4px 40px rgb(0 0 0 / 50%);
   font-weight: 400;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 480px) {
+    box-shadow: none;
+    background-color: transparent;
+    display: block;
+    height: 4.429rem;
+  }
 
   .centered {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 72rem;
+
+    @media screen and (max-width: 480px) {
+      max-width: 100vw;
+      display: block;
+    }
   }
 
   .logo {
     margin: 0;
     padding: 0;
+    position: relative;
+    z-index: 10;
     height: 4.7rem;
     width: 4.7rem;
     display: block;
@@ -35,10 +46,35 @@
     background-position: center center;
     overflow: hidden;
 
+    @media screen and (max-width: 480px) {
+      height: 4.2rem;
+      width: 100vw;
+      text-indent: 0;
+      overflow: visible;
+      display: flex;
+      justify-content: flex-start;
+      background-size: 3.8rem auto;
+      background-position: 4px 5px;
+    }
+
     a {
       display: block;
       width: 100%;
-      height: 100%;;
+      height: 100%;
+
+      @media screen and (max-width: 480px) {
+        width: 55vw;
+        display: flex;
+        align-items: center;
+        font-size: .8rem;
+        line-height: 1rem;
+        font-weight: 100;
+        font-family: $heading-font;
+        color: $color-berry;
+        text-decoration: none;
+        text-align: center;
+        padding-left: 22.5vw;
+      }
     }
   }
 
@@ -101,10 +137,9 @@
         position: absolute;
         top: calc(4.7rem + 1px);
         display: none;
-
         background-color: $color-white;
-        border-radius: 0 30px 30px 30px;
-        box-shadow: 0 20px 20px rgba(0,0,0,0.2);
+        border-radius: 0 30px 30px;
+        box-shadow: 0 20px 20px rgb(0 0 0 / 20%);
         padding: 20px 6px;
 
         li a {
@@ -139,12 +174,17 @@
   }
 
 
+
   .search {
     width: 200px;
     display: flex;
     align-items: center;
     position: relative;
     height: 100%;
+
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
 
     .searchField {
       margin: 0;
@@ -154,7 +194,6 @@
       box-sizing: border-box;
       border-radius: 5px;
       border: 1px solid $color-gray4;
-
       font-size: .8rem;
       background-image: url('./search.svg');
       background-repeat: no-repeat;
@@ -174,6 +213,301 @@
     @media screen and (max-width: 56.5rem) {
       width: 100px;
     }
-
   }
+
+  .mobileMenuTrigger {
+    display: none;
+  }
+
+  .triggerCheckbox {
+    display: none;
+    position: absolute;
+    top: -100rem;
+    opacity: 0;
+  }
+
+
+  @media screen and (max-width: 480px) {
+    .triggerCheckbox ~ .navigation {
+      display: none;
+    }
+
+    .triggerCheckbox:checked ~ .navigation {
+      display: block;
+    }
+
+    .menuSchool {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-navigation;
+      }
+
+      .logo a {
+        color: $color-navigation;
+      }
+
+      .navigation {
+        background-color: $color-lightpurple;
+
+        &::before {
+          background-color: $color-lightpurple;
+        }
+      }
+    }
+
+    .menuPosts {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-darkgold;
+      }
+
+      .logo a {
+        color: $color-darkgold;
+      }
+
+      .navigation {
+        background-color: $color-deepgold;
+
+        &::before {
+          background-color: $color-deepgold;
+        }
+      }
+    }
+
+    .menuImages {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-darkgreen;
+      }
+
+      .logo a {
+        color: $color-darkgreen;
+      }
+
+      .navigation {
+        background-color: $color-darkgreen;
+
+        &::before {
+          background-color: $color-darkgreen;
+        }
+      }
+    }
+
+    .menuJobs {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-darkblue;
+      }
+
+      .logo a {
+        color: $color-darkblue;
+      }
+
+      .navigation {
+        background-color: $color-darkblue;
+
+        &::before {
+          background-color: $color-darkblue;
+        }
+      }
+    }
+
+    .menuMaintainer {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-darklilac;
+      }
+
+      .logo a {
+        color: $color-darklilac;
+      }
+
+      .navigation {
+        background-color: $color-darklilac;
+
+        &::before {
+          background-color: $color-darklilac;
+        }
+      }
+    }
+
+    .menuContact {
+      .mobileMenuTrigger::after,
+      .mobileMenuTrigger::before,
+      .mobileMenuTrigger span {
+        background-color: $color-deepblue;
+      }
+
+      .logo a {
+        color: $color-deepblue;
+      }
+
+      .navigation {
+        background-color: $color-ocean;
+
+        &::before {
+          background-color: $color-ocean;
+        }
+      }
+    }
+
+
+    .mobileMenuTrigger {
+      display: block;
+      cursor: pointer;
+      position: absolute;
+      z-index: 11;
+      width: 1.6rem;
+      height: 2rem;
+      top: 1rem;
+      right: 1rem;
+
+      &::after,
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 3px;
+        transition: transform .5 ease-in-out;
+      }
+
+      &::before {
+        top: 20%
+      }
+
+      &::after {
+        top: 80%
+      }
+
+      span {
+        display: block;
+        text-indent: -1000rem;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width .5 ease-in-out, background-color .5 ease-in-out;
+      }
+
+      &::after,
+      &::before,
+      span {
+        background-color: $color-white;
+        border-radius: 2px;
+      }
+    }
+
+
+    .triggerCheckbox {
+      display: block;
+    }
+
+
+    .triggerCheckbox:checked ~ .mobileMenuTrigger {
+      position: fixed;
+
+      span {
+        width: 0%;
+      }
+
+      &::after,
+      &::before {
+        background-color: $color-white;
+      }
+
+      &::before {
+        transform: rotate(45deg) translateX(-12%) translateY(1rem);
+      }
+
+      &::after {
+        transform: rotate(-45deg) translateX(-12%) translateY(-1rem);
+      }
+    }
+
+    .triggerCheckbox:checked ~ .logo a {
+      color: $color-white;
+    }
+
+
+    .navigation {
+      background-color: $color-lilac;
+      position: fixed;
+      top: 0;
+      padding-top: 4.429rem;
+      width: calc(100% + 2px);
+
+      & > ul {
+        z-index: 10;
+        position: relative;
+        flex-flow: column;
+        align-items: flex-end;
+        width: calc(100% + 1px);
+        margin-bottom: 2rem;
+      }
+
+      .menuItem {
+        margin-right: 0;
+        padding: 0;
+        height: 3rem;
+
+        a {
+          padding-right: 2rem;
+          color: $color-white;
+          font-size: 1.2rem;
+        }
+
+        &:hover > .subMenu,
+        & > .subMenu {
+          display: none;
+        }
+
+
+        &.selected > a::before {
+          position: absolute;
+          width: 10px;
+          height: 100%;
+          top: 0;
+          left: auto;
+          right: 0;
+          background-color: $color-white;
+          content: '';
+        }
+      }
+
+      &::before {
+        content: '';
+        width: calc(100% + 2px);
+        height: 10rem;
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        mask: url('../../static/wave-inverse.svg') no-repeat;
+        mask-size: contain;
+        transform: translateY(7rem);
+        background-color: $color-lilac;
+        bottom: 0;
+      }
+
+      &::after {
+        content: '';
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 1;
+        backdrop-filter: blur(9px) grayscale(50%) brightness(90%);
+      }
+
+    }
+  }
+
 }

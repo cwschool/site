@@ -7,7 +7,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-
   padding-bottom: 3rem;
 
   .inner {
@@ -15,6 +14,12 @@
     max-width: 79rem;
     position: relative;
     z-index: 10;
+
+
+    @media screen and (max-width: 480px) {
+      //display: none;
+      width: 100vw;
+    }
   }
 
 }

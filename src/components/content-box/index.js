@@ -4,6 +4,7 @@ import * as css from './content-box.module.scss'
 import classNames from 'classnames'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
+import { Link } from 'gatsby'
 
 const ContentBox = ({
   title,
@@ -28,12 +29,14 @@ const ContentBox = ({
     >
       {image && (
         <div className={css.image}>
-          <GatsbyImage
-            image={image.gatsbyImage}
-            alt={image.description}
-            title={image.title}
-            className={css.imageContent}
-          />
+          <Link to={buttonLink}>
+            <GatsbyImage
+              image={image.gatsbyImage}
+              alt={image.description}
+              title={image.title}
+              className={css.imageContent}
+            />
+          </Link>
         </div>
       )}
       <div className={css.content}>{children}</div>

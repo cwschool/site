@@ -1,181 +1,155 @@
 const path = require('path')
+const getEntry = require('./src/utils/getEntry')
 
-const createJobs = async (graphql, createPage, reporter) => {
-  const result = await graphql(
-    `
+const isPublished = async (contentful_id) => {
+  const entry = await getEntry(contentful_id)
+
+  return !!entry.sys.publishedVersion &&
+    entry.sys.version == entry.sys.publishedVersion + 1;
+}
+
+const runQuery = async (params, graphql, reporter, createPage) => {
+  const {
+    query,
+    errorMessage,
+    rootPath,
+    component
+  } = params
+
+  const result = await graphql(query)
+
+  if (result.errors) {
+    reporter.panicOnBuild(
+      errorMessage,
+      result.errors
+    )
+    throw errormsg
+  }
+
+  const { nodes } = result.data.collection
+
+  if (nodes.length > 0) {
+    for (let node of nodes) {
+      const published = await isPublished(node.contentful_id)
+      if (published) {
+        await createPage({
+          path: `/${rootPath}/${node.slug}/`,
+          component,
+          context: {
+            slug: node.slug,
+          },
+        })
+      }
+    }
+  }
+}
+
+const createJobs = async (graphql, createPage, reporter) => runQuery(
+  {
+    query: `
       {
-        allContentfulJob(
+        collection: allContentfulJob(
           filter: { title: { ne: null }, description: { raw: { ne: null } } }
         ) {
           nodes {
             slug
+            contentful_id
           }
         }
       }
-    `
-  )
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading job postings`,
-      result.errors
-    )
-    return
-  }
+    `,
+    errorMessage:`There was an error loading job postings`,
+    rootPath:'allasok',
+    component: path.resolve('./src/templates/jobs.js'),
+  },
+  graphql,
+  reporter,
+  createPage
+)
 
-  const posts = result.data.allContentfulJob.nodes
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      createPage({
-        path: `/allasok/${post.slug}/`,
-        component: path.resolve('./src/templates/jobs.js'),
-        context: {
-          slug: post.slug,
-        },
-      })
-    })
-  }
-}
-
-const createPeople = async (graphql, createPage, reporter) => {
-  const result = await graphql(
-    `
+const createPeople = async (graphql, createPage, reporter) => runQuery(
+  {
+    query: `
       {
-        allContentfulPersonell {
+        collection: allContentfulPersonell {
           nodes {
             slug
+            contentful_id
           }
         }
       }
-    `
-  )
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading people`,
-      result.errors
-    )
-    return
-  }
+    `,
+    errorMessage: `There was an error loading people`,
+    rootPath: 'iskola',
+    component: path.resolve('./src/templates/people.js'),
+  },
+  graphql,
+  reporter,
+  createPage
+)
 
-  const posts = result.data.allContentfulPersonell.nodes
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      createPage({
-        path: `/iskola/${post.slug}/`,
-        component: path.resolve('./src/templates/people.js'),
-        context: {
-          slug: post.slug,
-        },
-      })
-    })
-  }
-}
-
-const createPosts = async (graphql, createPage, reporter) => {
-  const result = await graphql(
-    `
+const createPosts = async (graphql, createPage, reporter) => runQuery(
+  {
+    query: `
       {
-        allContentfulPost {
+        collection: allContentfulPost {
           nodes {
             slug
+            contentful_id
           }
         }
       }
-    `
-  )
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading blog posts`,
-      result.errors
-    )
-    return
-  }
+    `,
+    errorMessage: `There was an error loading blog posts`,
+    rootPath: 'gondolatok',
+    component: path.resolve('./src/templates/posts.js'),
+  },
+  graphql,
+  reporter,
+  createPage
+)
 
-  const posts = result.data.allContentfulPost.nodes
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      createPage({
-        path: `/gondolatok/${post.slug}/`,
-        component: path.resolve('./src/templates/posts.js'),
-        context: {
-          slug: post.slug,
-        },
-      })
-    })
-  }
-}
-
-const createGalleries = async (graphql, createPage, reporter) => {
-  const result = await graphql(
-    `
+const createGalleries = async (graphql, createPage, reporter) => runQuery(
+  {
+    query: `
       {
-        allContentfulImageGallery {
+        collection: allContentfulImageGallery {
           nodes {
             slug
+            contentful_id
           }
         }
       }
-    `
-  )
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading galleries`,
-      result.errors
-    )
-    return
-  }
+    `,
+    errorMessage: `There was an error loading galleries`,
+    rootPath: 'galeria',
+    component: path.resolve('./src/templates/gallery.js'),
+  },
+  graphql,
+  reporter,
+  createPage
+)
 
-  const posts = result.data.allContentfulImageGallery.nodes
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      createPage({
-        path: `/galeria/${post.slug}/`,
-        component: path.resolve('./src/templates/gallery.js'),
-        context: {
-          slug: post.slug,
-        },
-      })
-    })
-  }
-}
-
-const createNews = async (graphql, createPage, reporter) => {
-  const result = await graphql(
-    `
+const createNews = async (graphql, createPage, reporter) => runQuery(
+  {
+    query: `
       {
-        allContentfulNews {
+        collection: allContentfulNews {
           nodes {
             slug
+            contentful_id
           }
         }
       }
-    `
-  )
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading news pages`,
-      result.errors
-    )
-    return
-  }
-
-  const posts = result.data.allContentfulNews.nodes
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      createPage({
-        path: `/hirek/${post.slug}/`,
-        component: path.resolve('./src/templates/news.js'),
-        context: {
-          slug: post.slug,
-        },
-      })
-    })
-  }
-}
+    `,
+    errorMessage: `There was an error loading news pages`,
+    rootPath: 'hirek',
+    component: path.resolve('./src/templates/news.js'),
+  },
+  graphql,
+  reporter,
+  createPage
+)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions

@@ -4,13 +4,14 @@
 .footer {
   position: relative;
   z-index: 2;
-
   height: 22rem;
   width: 100%;
-
   display: flex;
   justify-content: center;
 
+  @media screen and (max-width: 480px) {
+    height: 33rem;
+  }
 
   &::before {
     content: '';
@@ -21,6 +22,11 @@
     background-image: url('./wave.svg');
     background-position: center -214px;
     background-repeat: repeat-x;
+
+    @media screen and (max-width: 480px) {
+      background-position: -69px -218px;
+      background-size: 140% 100%;
+    }
   }
 
   &::after {
@@ -46,6 +52,11 @@
     @media screen and (max-width: 83.5rem) {
       padding: 0 2rem;
     }
+
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+      padding-top: 6rem;
+    }
   }
 
   .contact,
@@ -63,12 +74,18 @@
       font-family: $hero-font;
       font-size: 1rem;
       margin-bottom: 1.4rem;
+
+      @media screen and (max-width: 480px) {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
     }
 
     a {
       color: $color-brightblue;
       font-weight: 500;
       text-decoration: none;
+
       &:hover {
         text-decoration: underline;
       }
@@ -77,14 +94,16 @@
     ul {
       padding: 0 0 0 1rem;
     }
+
     li {
       list-style-type: none;
-      padding: 0 0 .5rem 0;
+      padding: 0 0 .5rem;
+
       &::before {
         content: '\2022';
         font-size: 1rem;
         position: absolute;
-        transform: translate(-12px, 0px);
+        transform: translate(-12px, 0);
       }
     }
   }
@@ -94,6 +113,11 @@
     font-size: .81rem;
     color: $color-navy;
 
+    @media screen and (max-width: 480px) {
+      width: 100%;
+      text-align: center;
+    }
+
     ul {
       margin: 0 0 .4rem;
       padding: 0;
@@ -102,6 +126,10 @@
       grid-template-rows: 2rem;
       grid-column-gap: .7rem;
       justify-content: end;
+
+      @media screen and (max-width: 480px) {
+        justify-content: center;
+      }
 
       li {
         list-style-type: none;
@@ -121,16 +149,19 @@
           }
 
           &.twitter {
-            background-image: url(./twitter.png);
+            background-image: url('./twitter.png');
           }
+
           &.facebook {
-            background-image: url(./facebook.png);
+            background-image: url('./facebook.png');
           }
+
           &.instagram {
-            background-image: url(./instagram.png);
+            background-image: url('./instagram.png');
           }
+
           &.messenger {
-            background-image: url(./messenger.png);
+            background-image: url('./messenger.png');
           }
         }
       }

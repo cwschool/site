@@ -48,7 +48,7 @@ const PeoplePageTemplate = ({ data }) => {
               className={classNames(richText.image, richText.image_left)}
             />
           )}
-          {renderRichText(bio, richTextOptions)}
+          {bio?.raw && renderRichText(bio, richTextOptions)}
         </div>
       </Content>
     </Layout>

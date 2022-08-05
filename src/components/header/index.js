@@ -1,3 +1,4 @@
+import capitalize from '../../utils/capitalize'
 import * as css from './header.module.scss'
 import classNames from 'classnames'
 import { Link } from 'gatsby'
@@ -5,10 +6,28 @@ import React from 'react'
 
 const Header = ({ activeMenu, searchEnabled = false }) => (
   <header className={css.header}>
-    <div className={css.centered}>
+    <div
+      className={classNames(css.centered, css[`menu${capitalize(activeMenu)}`])}
+    >
+      <input
+        id="MobileMenuTrigger"
+        type="checkbox"
+        className={css.triggerCheckbox}
+        aria-hidden="true"
+      />
+      <label
+        htmlFor="MobileMenuTrigger"
+        className={css.mobileMenuTrigger}
+        aria-hidden="true"
+      >
+        <span>Open Menu</span>
+      </label>
       <h1 className={css.logo}>
-        <Link to="/" title="Christophorus Waldorf Iskola">
-          Christophorus Waldorf Iskola
+        <Link
+          to="/"
+          title="Christophorus Waldorf Általános Iskola és AMI hivatalos honlapja"
+        >
+          Christophorus Waldorf Általános Iskola és AMI hivatalos honlapja
         </Link>
       </h1>
       <nav className={css.navigation}>
@@ -95,6 +114,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
           </li>
         </ul>
       </nav>
+
       <div className={classNames(css.search)}>
         {searchEnabled && <input type={'search'} className={css.searchField} />}
       </div>

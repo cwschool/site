@@ -13,6 +13,10 @@
     grid-template-areas:
       ". . ."
       "more more more";
+
+    @media screen and (max-width: 480px) {
+      display: block;
+    }
   }
 
   &.typeFull {
@@ -20,7 +24,7 @@
   }
 
   &.typeFull > * {
-    margin-bottom: 0rem;
+    margin-bottom: 0;
 
     &:nth-child(2n+2) {
       margin-bottom: 2rem;

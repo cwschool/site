@@ -4,4 +4,5 @@
   font-style: normal;
   font-weight: normal;
   src: local('Antropos'), url('./antropos.woff') format('woff');
+  font-display: swap;
 }
