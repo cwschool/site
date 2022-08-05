@@ -1,5 +1,4 @@
 const path = require('path')
-
 const getEntry = require('./src/utils/getEntry')
 
 const isPublished = async (contentful_id) => {
@@ -45,7 +44,6 @@ const runQuery = async (params, graphql, reporter, createPage) => {
   }
 }
 
-
 const createJobs = async (graphql, createPage, reporter) => runQuery(
   {
     query: `
@@ -69,7 +67,6 @@ const createJobs = async (graphql, createPage, reporter) => runQuery(
   createPage
 )
 
-
 const createPeople = async (graphql, createPage, reporter) => runQuery(
   {
     query: `
@@ -90,7 +87,6 @@ const createPeople = async (graphql, createPage, reporter) => runQuery(
   reporter,
   createPage
 )
-
 
 const createPosts = async (graphql, createPage, reporter) => runQuery(
   {
@@ -134,7 +130,6 @@ const createGalleries = async (graphql, createPage, reporter) => runQuery(
   createPage
 )
 
-
 const createNews = async (graphql, createPage, reporter) => runQuery(
   {
     query: `
@@ -155,7 +150,6 @@ const createNews = async (graphql, createPage, reporter) => runQuery(
   reporter,
   createPage
 )
-
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
