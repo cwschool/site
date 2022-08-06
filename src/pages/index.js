@@ -10,6 +10,7 @@ import SectionTitle from '../components/section-title'
 import Seo from '../components/seo'
 import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
+import getImageSize from '../utils/getImageSize'
 import getInternalPath from '../utils/getInternalPath'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import classNames from 'classnames'
@@ -32,6 +33,8 @@ const IndexPage = ({ data }) => {
   } = data
 
   const [image, displayImage] = useState(null)
+
+  console.log(image)
 
   const showImage = (image) => {
     displayImage(image)
@@ -143,6 +146,7 @@ const IndexPage = ({ data }) => {
               image={image.gatsbyImage}
               alt={image.alt}
               title={image.title}
+              style={getImageSize(image.gatsbyImage)}
             />
           )}
         </ImageModal>

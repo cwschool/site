@@ -8,9 +8,9 @@ import * as richText from '../richtext.module.scss'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import React, { useState } from 'react'
 
+import React, { useState } from 'react'
+import getImageSize from '../utils/getImageSize'
 const GalleryPageTemplate = ({ data }) => {
   const { title, thumbnails, images } = data.contentfulImageGallery
 
@@ -47,6 +47,7 @@ const GalleryPageTemplate = ({ data }) => {
             image={image.gatsbyImage}
             alt={image.alt}
             title={image.title}
+            style={getImageSize(image.gatsbyImage)}
           />
         )}
       </ImageModal>

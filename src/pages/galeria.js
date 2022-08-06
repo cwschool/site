@@ -10,6 +10,7 @@ import Seo from '../components/seo'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React, { useState } from 'react'
+import getImageSize from '../utils/getImageSize'
 
 const GalleryPage = ({ data }) => {
   const {
@@ -67,6 +68,7 @@ const GalleryPage = ({ data }) => {
             image={image.gatsbyImage}
             alt={image.alt}
             title={image.title}
+            style={getImageSize(image.gatsbyImage)}
           />
         )}
       </ImageModal>

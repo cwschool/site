@@ -2,9 +2,9 @@ import capitalize from '../../utils/capitalize'
 import Button from '../button'
 import * as css from './content-box.module.scss'
 import classNames from 'classnames'
+import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
-import { Link } from 'gatsby'
 
 const ContentBox = ({
   title,
