@@ -154,10 +154,14 @@ const createNews = async (graphql, createPage, reporter) => runQuery(
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  await createJobs(graphql, createPage, reporter)
-  await createPosts(graphql, createPage, reporter)
-  await createPeople(graphql, createPage, reporter)
-  await createGalleries(graphql, createPage, reporter)
-  await createNews(graphql, createPage, reporter)
+  try {
+    await createJobs(graphql, createPage, reporter)
+    await createPosts(graphql, createPage, reporter)
+    await createPeople(graphql, createPage, reporter)
+    await createGalleries(graphql, createPage, reporter)
+    await createNews(graphql, createPage, reporter)
+  } catch(e) {
+    console.log(e)
+  }
 
 }
