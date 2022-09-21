@@ -105,6 +105,9 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               </li>
             </ul>
           </li>
+          <li className={classNames(css.menuItem)}>
+            <a href="/hirek/jelentkezes">Jelentkezés</a>
+          </li>
           <li
             className={classNames(css.menuItem, {
               [css.selected]: activeMenu === 'contact',
