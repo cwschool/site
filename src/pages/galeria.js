@@ -7,10 +7,10 @@ import ImageModal from '../components/imagemodal'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
 import Seo from '../components/seo'
+import getImageSize from '../utils/getImageSize'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React, { useState } from 'react'
-import getImageSize from '../utils/getImageSize'
 
 const GalleryPage = ({ data }) => {
   const {

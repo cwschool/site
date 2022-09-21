@@ -5,12 +5,12 @@ import ImageModal from '../components/imagemodal'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import * as richText from '../richtext.module.scss'
+import getImageSize from '../utils/getImageSize'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-
 import React, { useState } from 'react'
-import getImageSize from '../utils/getImageSize'
+
 const GalleryPageTemplate = ({ data }) => {
   const { title, thumbnails, images } = data.contentfulImageGallery
 
