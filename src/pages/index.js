@@ -77,18 +77,61 @@ const IndexPage = ({ data }) => {
         <SectionTitle title="Aktualitások" align="left" color="orange" />
 
         <ContentList>
-          {actual.map((item) => (
-            <ContentBox
-              title={item.title}
-              type="small"
-              color="orange"
-              buttonText="Tovább"
-              buttonLink={getInternalPath(item)}
-              key={`actual-${item.slug}`}
+          {actual
+            .filter((_, i) => i < 2) // extra fix box
+            .map((item) => (
+              <ContentBox
+                title={item.title}
+                type="small"
+                color="orange"
+                buttonText="Tovább"
+                buttonLink={getInternalPath(item)}
+                key={`actual-${item.slug}`}
+              >
+                {item.lead?.lead ?? ' '}
+              </ContentBox>
+            ))}
+
+          <ContentBox
+            title={'Rendkívüli adományok'}
+            type="small"
+            color="brick"
+            key={`actual-4`}
+          >
+            A megemelkedett rezsiköltségek miatt kérjük, ha teheti, az alábbi
+            PayPalon keresztül adományozzon iskolánk fenntartására.
+            <form
+              style={{
+                display: 'grid',
+                marginTop: '2rem',
+                justifyContent: 'center',
+              }}
+              action="https://www.paypal.com/donate"
+              method="post"
+              target="_top"
             >
-              {item.lead?.lead ?? ' '}
-            </ContentBox>
-          ))}
+              <input
+                type="hidden"
+                name="hosted_button_id"
+                value="SV9AUKQV3CAYE"
+              />
+              <input
+                type="image"
+                src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
+                border="0"
+                name="submit"
+                title="PayPal - The safer, easier way to pay online!"
+                alt="Donate with PayPal button"
+              />
+              <img
+                alt=""
+                border="0"
+                src="https://www.paypal.com/en_HU/i/scr/pixel.gif"
+                width="1"
+                height="1"
+              />
+            </form>
+          </ContentBox>
         </ContentList>
 
         <Separator />

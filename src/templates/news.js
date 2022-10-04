@@ -32,7 +32,13 @@ const NewsPageTemplate = ({ data }) => {
       <Seo title={postTitle} description={lead?.lead ?? ''} />
       <Hero title={postTitle} lead={lead?.lead ?? ' '} color="pink" />
       <Content>
-        <div className={classNames(richText.content, richText.contentPage, richText.newsPage)}>
+        <div
+          className={classNames(
+            richText.content,
+            richText.contentPage,
+            richText.newsPage
+          )}
+        >
           {renderRichText(body, richTextOptions)}
         </div>
       </Content>

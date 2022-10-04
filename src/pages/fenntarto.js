@@ -165,7 +165,10 @@ const FoundationPage = ({ data }) => {
               />
             </form>
             <div className={css.iban}>
-              IBAN: HU92 1040 1945 5052 6790 8985 1005
+              10918001-00000105-53380005
+              <br />
+              <br />
+              IBAN HU43 1091 8001 0000 0105 5338 0005
             </div>
           </div>
 
