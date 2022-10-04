@@ -93,13 +93,12 @@ const IndexPage = ({ data }) => {
             ))}
 
           <ContentBox
-            title={'Rendkívüli adományok'}
+            title={'Adomány'}
             type="small"
             color="brick"
             key={`actual-4`}
           >
-            A megemelkedett rezsiköltségek miatt kérjük, ha teheti, az alábbi
-            PayPalon keresztül adományozzon iskolánk fenntartására.
+            Köszönettel fogadunk minden adományt!
             <form
               style={{
                 display: 'grid',
