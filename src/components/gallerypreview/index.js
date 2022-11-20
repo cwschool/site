@@ -7,7 +7,7 @@ const GalleryPreview = ({ thumbnails, images, className, onShow }) => {
   return (
     <div className={classNames(css.galleryPreview, className)}>
       {thumbnails.map((data, i) => (
-        <div onClick={() => onShow(images[i])} key={`image-${i}`}>
+        <div onClick={() => onShow(i)} key={`image-${i}`}>
           <GatsbyImage
             image={data.gatsbyImage}
             alt={data.alt}

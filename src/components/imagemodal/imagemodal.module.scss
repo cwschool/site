@@ -40,9 +40,56 @@
     justify-content: center;
     padding: 0 2rem;
 
+    & > div {
+      width: 100%;
+      min-height: 1px;
+      position: relative;
+    }
+
     .image {
       width: 100%;
       border-radius: 1.875rem;
+      max-height: 85vh;
+    }
+
+    .pager {
+      height: 100%;
+      position: absolute;
+      border-radius: 1.875rem;
+      top: 0;
+      width: 25vw;
+      text-indent: -100rem;
+
+      cursor: pointer;
+
+      &::after {
+        position: absolute;
+        content: '';
+        display: none;
+        width: 100%;
+        height: 4rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url('../../static/pager.svg');
+        background-repeat: no-repeat;
+        background-position: 3vw center;
+      }
+
+      &:hover {
+        background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0) 100%);
+        &::after {
+          display: block;
+        }
+      }
+
+      &.nextPage {
+        right: 0;
+        transform: rotate(180deg);
+      }
+
+      &.previousPage {
+        left: 0;
+      }
     }
   }
 
