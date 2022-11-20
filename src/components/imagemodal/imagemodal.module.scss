@@ -59,7 +59,6 @@
       top: 0;
       width: 25vw;
       text-indent: -100rem;
-
       cursor: pointer;
 
       &::after {
@@ -76,7 +75,8 @@
       }
 
       &:hover {
-        background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0) 100%);
+        background: linear-gradient(90deg, rgb(0 0 0 / 60%) 0%, rgb(0 0 0 / 40%) 30%, rgb(0 0 0 / 0%) 100%);
+
         &::after {
           display: block;
         }
