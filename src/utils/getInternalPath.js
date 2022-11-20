@@ -13,6 +13,9 @@ const getInternalPath = (node) => {
     case 'ContentfulPersonell':
       category = 'iskola/'
       break
+    case 'ContentfulImageGallery':
+      category = 'galeria/'
+      break
     case 'ContentfulPage':
     default:
   }
