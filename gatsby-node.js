@@ -31,7 +31,10 @@ const runQuery = async (params, graphql, reporter, createPage) => {
   if (nodes.length > 0) {
     for (let node of nodes) {
       try {
+
         const published = await isPublished(node.contentful_id)
+        console.info(`/${rootPath}/${node.slug}`, 'published', published)
+
         if (published) {
           await createPage({
             path: `/${rootPath}/${node.slug}/`,

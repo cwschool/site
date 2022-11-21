@@ -68,6 +68,8 @@ export const pageQuery = graphql`
             url
           }
           ... on ContentfulImageGallery {
+            contentful_id
+            __typename
             slug
             internal {
               type
