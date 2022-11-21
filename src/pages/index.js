@@ -33,15 +33,16 @@ const IndexPage = ({ data }) => {
   } = data
 
   const [image, displayImage] = useState(null)
+  const [imageCollection, setImageCollection] = useState(null)
 
-  console.log(image)
-
-  const showImage = (image) => {
+  const showImage = (image, images) => {
+    setImageCollection(images)
     displayImage(image)
   }
 
   const close = () => {
     displayImage(null)
+    setImageCollection(null)
   }
 
   return (
@@ -174,24 +175,16 @@ const IndexPage = ({ data }) => {
           <GalleryPreview
             thumbnails={events.thumbnails.slice(0, 6)}
             images={events.images.slice(0, 6)}
-            onShow={(image) => showImage(image)}
+            onShow={(i) => showImage(i, events.images)}
           />
         </ContentList>
 
         <ImageModal
           show={image != null}
           onClose={() => close()}
-          title={image && image.title}
-        >
-          {image && (
-            <GatsbyImage
-              image={image.gatsbyImage}
-              alt={image.alt}
-              title={image.title}
-              style={getImageSize(image.gatsbyImage)}
-            />
-          )}
-        </ImageModal>
+          imageCollection={imageCollection}
+          imageIndex={image}
+        />
       </Content>
     </Layout>
   )

@@ -5,6 +5,7 @@ import Quote from '../components/quote'
 import Seo from '../components/seo'
 import * as richText from '../richtext.module.scss'
 import richTextAssetLink from '../utils/richTextAssetLink'
+import richTextEntryLink from '../utils/richTextEntryLink'
 import richTextImage, { createImageIndexer } from '../utils/richTextImage'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import classNames from 'classnames'
@@ -24,6 +25,7 @@ const NewsPageTemplate = ({ data }) => {
       [BLOCKS.EMBEDDED_ASSET]: richTextImage(imageIndexer),
       [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
       [INLINES.ASSET_HYPERLINK]: richTextAssetLink,
+      [INLINES.ENTRY_HYPERLINK]: richTextEntryLink,
     },
   }
 
@@ -64,6 +66,14 @@ export const pageQuery = graphql`
             description
             title
             url
+          }
+          ... on ContentfulImageGallery {
+            contentful_id
+            __typename
+            slug
+            internal {
+              type
+            }
           }
         }
       }

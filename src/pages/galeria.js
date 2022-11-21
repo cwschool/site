@@ -23,13 +23,16 @@ const GalleryPage = ({ data }) => {
   } = data
 
   const [image, displayImage] = useState(null)
+  const [imageCollection, setImageCollection] = useState(null)
 
-  const showImage = (image) => {
+  const showImage = (image, images) => {
+    setImageCollection(images)
     displayImage(image)
   }
 
   const close = () => {
     displayImage(null)
+    setImageCollection(null)
   }
 
   return (
@@ -52,7 +55,7 @@ const GalleryPage = ({ data }) => {
                 thumbnails={item.thumbnails.slice(0, 6)}
                 images={item.images.slice(0, 6)}
                 key={`gallery-${item.slug}`}
-                onShow={(image) => showImage(image)}
+                onShow={(i) => showImage(i, item.images)}
               />
             </ContentBox>
           ))}
@@ -61,17 +64,9 @@ const GalleryPage = ({ data }) => {
       <ImageModal
         show={image != null}
         onClose={() => close()}
-        title={image && image.title}
-      >
-        {image && (
-          <GatsbyImage
-            image={image.gatsbyImage}
-            alt={image.alt}
-            title={image.title}
-            style={getImageSize(image.gatsbyImage)}
-          />
-        )}
-      </ImageModal>
+        imageCollection={imageCollection}
+        imageIndex={image}
+      />
     </Layout>
   )
 }

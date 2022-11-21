@@ -4,13 +4,16 @@ const getImageSize = (gatsbyImage) => {
   const min = Math.min(gatsbyImage.width, gatsbyImage.height)
   const ratio = min / max
 
+  const width = landscape
+    ? `calc((100vw - 14rem))`
+    : `calc((100vh - 10rem) * ${ratio})`
+  const height = landscape
+    ? `calc((100vw - 14rem) * ${ratio})`
+    : `calc((100vh - 10rem))`
+
   return {
-    height: !landscape
-      ? 'calc(100vh - 8rem)'
-      : `calc(calc(90vw - 4rem) * ${ratio})`,
-    width: landscape
-      ? 'calc(90vw - 4rem)'
-      : `calc(calc(100vh - 8rem) * ${ratio}`,
+    height,
+    width,
   }
 }
 

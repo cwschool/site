@@ -5,6 +5,7 @@ import Hero from '../components/hero'
 import Layout from '../components/layout'
 import SectionTitle from '../components/section-title'
 import Seo from '../components/seo'
+import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import React from 'react'
@@ -19,6 +20,14 @@ const NewsListPageTemplate = ({ data }) => {
     allContentfulNews: { news },
   } = data
 
+  const richTextOptions = {
+    renderNode: {
+      [INLINES.ENTRY_HYPERLINK]: (node, children) => {
+        return <span></span>
+      },
+    },
+  }
+
   return (
     <Layout menu="">
       <Seo title={'Hírek, aktualitások'} />
@@ -31,10 +40,10 @@ const NewsListPageTemplate = ({ data }) => {
               type="full"
               color="peach"
               buttonText="Tovább"
-              buttonLink={`/allasok/${item.slug}`}
+              buttonLink={`/hirek/${item.slug}`}
               key={item.slug}
             >
-              {renderRichText(item.body)}
+              {item?.lead?.lead ?? renderRichText(item.body, richTextOptions)}
             </ContentBox>
           ))}
         </ContentList>
@@ -74,6 +83,12 @@ export const pageQuery = graphql`
               gatsbyImage(width: 450, placeholder: BLURRED)
               description
               title
+            }
+            ... on ContentfulImageGallery {
+              slug
+              internal {
+                type
+              }
             }
           }
         }

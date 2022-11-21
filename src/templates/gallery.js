@@ -15,13 +15,16 @@ const GalleryPageTemplate = ({ data }) => {
   const { title, thumbnails, images } = data.contentfulImageGallery
 
   const [image, displayImage] = useState(null)
+  const [imageCollection, setImageCollection] = useState(null)
 
   const showImage = (image) => {
+    setImageCollection(images)
     displayImage(image)
   }
 
   const close = () => {
     displayImage(null)
+    setImageCollection(null)
   }
 
   return (
@@ -33,24 +36,16 @@ const GalleryPageTemplate = ({ data }) => {
           <GalleryPreview
             thumbnails={thumbnails}
             images={images}
-            onShow={(image) => showImage(image)}
+            onShow={(i) => showImage(i, images)}
           />
         </div>
       </Content>
       <ImageModal
         show={image != null}
         onClose={() => close()}
-        title={image && image.title}
-      >
-        {image && (
-          <GatsbyImage
-            image={image.gatsbyImage}
-            alt={image.alt}
-            title={image.title}
-            style={getImageSize(image.gatsbyImage)}
-          />
-        )}
-      </ImageModal>
+        imageCollection={imageCollection}
+        imageIndex={image}
+      />
     </Layout>
   )
 }
