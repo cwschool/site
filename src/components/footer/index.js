@@ -18,8 +18,8 @@ const Footer = ({ title, children }) => (
         </p>
         <ul>
           <li>
-            Óvoda: <a href="tel:+36709425477">06/70 942-54-77</a> vagy{' '}
-            <a href="tel:+36703707665">06/70 370-76-65</a>
+            Óvoda: <a href="tel:+36202492288">06/20 249-22-88</a> vagy{' '}
+            <a href="tel:0619515286">06 1 951-52-86</a>
           </li>
           <li>
             Iskola: <a href="tel:+3612396795">06-1-239-6795</a>
