@@ -163,11 +163,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   try {
-    await createJobs(graphql, createPage, reporter)
-    await createPosts(graphql, createPage, reporter)
-    await createPeople(graphql, createPage, reporter)
-    await createGalleries(graphql, createPage, reporter)
-    await createNews(graphql, createPage, reporter)
+    await Promise.allSettled([
+      createJobs(graphql, createPage, reporter),
+      createPosts(graphql, createPage, reporter),
+      createPeople(graphql, createPage, reporter),
+      createGalleries(graphql, createPage, reporter),
+      createNews(graphql, createPage, reporter),
+    ]);
   } catch(e) {
     console.log(e)
   }
