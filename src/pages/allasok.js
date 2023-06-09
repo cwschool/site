@@ -27,7 +27,7 @@ const JobListPageTemplate = ({ data }) => {
         <SectionTitle title={relatedContentTitle} align="right" color="blue" />
 
         <ContentList type="full">
-          {jobs.map((item) => (
+          {jobs.filter(item => !!item.description).map((item) => (
             <ContentBox
               title={item.title}
               type="full"

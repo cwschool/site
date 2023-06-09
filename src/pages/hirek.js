@@ -34,7 +34,7 @@ const NewsListPageTemplate = ({ data }) => {
       <Hero title={'Hírek, aktualitások'} lead={' '} color="pink" />
       <Content>
         <ContentList type="full">
-          {news.map((item) => (
+          {news.filter(item => !!item.body && !!item.lead).map((item) => (
             <ContentBox
               title={item.title}
               type="full"

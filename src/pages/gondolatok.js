@@ -27,7 +27,7 @@ const BlogListPageTemplate = ({ data }) => {
       <Content>
         <SectionTitle title={relatedContentTitle} align="right" color="gold" />
         <ContentList type="full">
-          {posts.map((item) => (
+          {posts.filter(item => !!item.content).map((item) => (
             <ContentBox
               title={item.title}
               type="full"
