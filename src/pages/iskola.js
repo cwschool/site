@@ -99,29 +99,33 @@ const IskolaPageTemplate = ({ data }) => {
       <Seo title={title} description={lead} />
       <Hero title={title} lead={lead} color={'pink'} />
       <Content>
-        <SectionTitle
-          title={relatedContentTitle}
-          align="right"
-          color="purple"
-          anchor="aktualitasok"
-        />
-
-        <ContentList>
-          {relatedContent.map((item) => (
-            <ContentBox
-              title={item.title}
-              type="small"
+        {relatedContent && (
+          <>
+            <SectionTitle
+              title={relatedContentTitle}
+              align="right"
               color="purple"
-              buttonText="Tovább"
-              buttonLink={getInternalPath(item)}
-              key={item.slug}
-            >
-              {item.lead?.lead ?? ''}
-            </ContentBox>
-          ))}
-        </ContentList>
+              anchor="aktualitasok"
+            />
 
-        <Separator />
+            <ContentList>
+              {relatedContent.map((item) => (
+                <ContentBox
+                  title={item.title}
+                  type="small"
+                  color="purple"
+                  buttonText="Tovább"
+                  buttonLink={getInternalPath(item)}
+                  key={item.slug}
+                >
+                  {item.lead?.lead ?? ''}
+                </ContentBox>
+              ))}
+            </ContentList>
+
+            <Separator />
+          </>
+        )}
 
         <SectionTitle
           title={firstContentTitle}
@@ -135,73 +139,84 @@ const IskolaPageTemplate = ({ data }) => {
         </div>
 
         <Separator />
-
-        <SectionTitle
-          title={peopleListTitle}
-          align="right"
-          color="peach"
-          anchor="pedagogusaink"
-        />
-
-        <ContentList type="full">
-          {peopleList.map((item) => (
-            <ContentBox
-              title={item.name}
-              type="full"
-              color="brick"
-              buttonText="Tovább"
-              buttonLink={getInternalPath(item)}
-              key={item.slug}
-              image={item.image}
-            >
-              {truncate(
-                documentToPlainTextString(JSON.parse(item.bio.raw)),
-                840
-              )}
-            </ContentBox>
-          ))}
-        </ContentList>
-
-        <Separator />
-
-        <SectionTitle
-          title={additionalPeopleTitle}
-          align="left"
-          color="peach"
-          anchor="kollegaink"
-        />
-
-        <ContentList type="full">
-          {additionalPeople.map((item) => (
-            <ContentBox
-              title={item.name}
-              type="full"
+        {peopleList && (
+          <>
+            <SectionTitle
+              title={peopleListTitle}
+              align="right"
               color="peach"
-              buttonText="Tovább"
-              buttonLink={getInternalPath(item)}
-              key={item.slug}
-              image={item.image}
-            >
-              {truncate(
-                documentToPlainTextString(JSON.parse(item.bio.raw)),
-                840
-              )}
-            </ContentBox>
-          ))}
-        </ContentList>
+              anchor="pedagogusaink"
+            />
 
-        <Separator />
+            <ContentList type="full">
+              {peopleList.map((item) => (
+                <ContentBox
+                  title={item.name}
+                  type="full"
+                  color="brick"
+                  buttonText="Tovább"
+                  buttonLink={getInternalPath(item)}
+                  key={item.slug}
+                  image={item.image}
+                >
+                  {truncate(
+                    documentToPlainTextString(JSON.parse(item.bio.raw)),
+                    840
+                  )}
+                </ContentBox>
+              ))}
+            </ContentList>
 
-        <SectionTitle
-          title={secondContentTitle}
-          align="right"
-          color="orange"
-          anchor="iskolakertunk"
-        />
+            <Separator />
+          </>
+        )}
 
-        <div className={richText.content}>
-          {renderRichText(secondContent, gardenRichTextOptions)}
-        </div>
+        {additionalPeople && (
+          <>
+            <SectionTitle
+              title={additionalPeopleTitle}
+              align="left"
+              color="peach"
+              anchor="kollegaink"
+            />
+
+            <ContentList type="full">
+              {additionalPeople.map((item) => (
+                <ContentBox
+                  title={item.name}
+                  type="full"
+                  color="peach"
+                  buttonText="Tovább"
+                  buttonLink={getInternalPath(item)}
+                  key={item.slug}
+                  image={item.image}
+                >
+                  {truncate(
+                    documentToPlainTextString(JSON.parse(item.bio.raw)),
+                    840
+                  )}
+                </ContentBox>
+              ))}
+            </ContentList>
+
+            <Separator />
+          </>
+        )}
+
+        {secondContent && (
+          <>
+            <SectionTitle
+              title={secondContentTitle}
+              align="right"
+              color="orange"
+              anchor="iskolakertunk"
+            />
+
+            <div className={richText.content}>
+              {renderRichText(secondContent, gardenRichTextOptions)}
+            </div>
+          </>
+        )}
       </Content>
     </Layout>
   )
