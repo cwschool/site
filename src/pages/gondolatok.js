@@ -27,22 +27,24 @@ const BlogListPageTemplate = ({ data }) => {
       <Content>
         <SectionTitle title={relatedContentTitle} align="right" color="gold" />
         <ContentList type="full">
-          {posts.filter(item => !!item.content).map((item) => (
-            <ContentBox
-              title={item.title}
-              type="full"
-              color="gold"
-              buttonText="Tovább"
-              buttonLink={`/gondolatok/${item.slug}`}
-              key={item.slug}
-              image={item.image}
-            >
-              {truncate(
-                documentToPlainTextString(JSON.parse(item.content.raw)),
-                740
-              )}
-            </ContentBox>
-          ))}
+          {posts
+            .filter((item) => !!item.content)
+            .map((item) => (
+              <ContentBox
+                title={item.title}
+                type="full"
+                color="gold"
+                buttonText="Tovább"
+                buttonLink={`/gondolatok/${item.slug}`}
+                key={item.slug}
+                image={item.image}
+              >
+                {truncate(
+                  documentToPlainTextString(JSON.parse(item.content.raw)),
+                  740
+                )}
+              </ContentBox>
+            ))}
         </ContentList>
       </Content>
     </Layout>

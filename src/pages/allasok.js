@@ -27,18 +27,20 @@ const JobListPageTemplate = ({ data }) => {
         <SectionTitle title={relatedContentTitle} align="right" color="blue" />
 
         <ContentList type="full">
-          {jobs.filter(item => !!item.description).map((item) => (
-            <ContentBox
-              title={item.title}
-              type="full"
-              color="blue"
-              buttonText="Tovább"
-              buttonLink={`/allasok/${item.slug}`}
-              key={item.slug}
-            >
-              {renderRichText(item.description)}
-            </ContentBox>
-          ))}
+          {jobs
+            .filter((item) => !!item.description)
+            .map((item) => (
+              <ContentBox
+                title={item.title}
+                type="full"
+                color="blue"
+                buttonText="Tovább"
+                buttonLink={`/allasok/${item.slug}`}
+                key={item.slug}
+              >
+                {renderRichText(item.description)}
+              </ContentBox>
+            ))}
         </ContentList>
       </Content>
     </Layout>

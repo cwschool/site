@@ -34,18 +34,20 @@ const NewsListPageTemplate = ({ data }) => {
       <Hero title={'Hírek, aktualitások'} lead={' '} color="pink" />
       <Content>
         <ContentList type="full">
-          {news.filter(item => !!item.body && !!item.lead).map((item) => (
-            <ContentBox
-              title={item.title}
-              type="full"
-              color="peach"
-              buttonText="Tovább"
-              buttonLink={`/hirek/${item.slug}`}
-              key={item.slug}
-            >
-              {item?.lead?.lead ?? renderRichText(item.body, richTextOptions)}
-            </ContentBox>
-          ))}
+          {news
+            .filter((item) => !!item.body && !!item.lead)
+            .map((item) => (
+              <ContentBox
+                title={item.title}
+                type="full"
+                color="peach"
+                buttonText="Tovább"
+                buttonLink={`/hirek/${item.slug}`}
+                key={item.slug}
+              >
+                {item?.lead?.lead ?? renderRichText(item.body, richTextOptions)}
+              </ContentBox>
+            ))}
         </ContentList>
       </Content>
     </Layout>
