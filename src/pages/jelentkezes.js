@@ -65,6 +65,14 @@ export const pageQuery = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
+            gatsbyImage(width: 450, placeholder: BLURRED)
+            description
+            title
+            url
+          }
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
             gatsbyImage(width: 340, placeholder: BLURRED, aspectRatio: 1)
             description
             title
