@@ -48,16 +48,18 @@ const IndexPage = ({ data }) => {
     <Layout menu="">
       <Seo />
       <Hero color="warmRainbow">
-        {heroItems.map((item) => (
-          <HeroPage
-            key={item.slug}
-            title={item.title}
-            lead={item.lead?.lead ?? ' '}
-            date={new Date(item.date)}
-            buttonLink={getInternalPath(item)}
-            buttonText="Tovább"
-          />
-        ))}
+        {heroItems
+          .filter((h) => h.slug && h.title && h.lead?.lead && h.date)
+          .map((item) => (
+            <HeroPage
+              key={item.slug}
+              title={item.title}
+              lead={item.lead?.lead ?? ' '}
+              date={new Date(item.date)}
+              buttonLink={getInternalPath(item)}
+              buttonText="Tovább"
+            />
+          ))}
       </Hero>
       <Content>
         <SectionTitle title="Üdvözlünk!" align="right" color="peach" />
@@ -143,22 +145,24 @@ const IndexPage = ({ data }) => {
           color="gold"
           type="full"
         >
-          {posts.map((item) => (
-            <ContentBox
-              title={item.title}
-              type="full"
-              color="gold"
-              buttonText="Tovább"
-              buttonLink={getInternalPath(item)}
-              image={item.postPicture}
-              key={`blog-${item.slug}`}
-            >
-              {truncate(
-                documentToPlainTextString(JSON.parse(item.content.raw)),
-                600
-              )}
-            </ContentBox>
-          ))}
+          {posts
+            .filter((p) => p.title && p.slug && p.content?.raw)
+            .map((item) => (
+              <ContentBox
+                title={item.title}
+                type="full"
+                color="gold"
+                buttonText="Tovább"
+                buttonLink={getInternalPath(item)}
+                image={item.postPicture}
+                key={`blog-${item.slug}`}
+              >
+                {truncate(
+                  documentToPlainTextString(JSON.parse(item.content.raw)),
+                  600
+                )}
+              </ContentBox>
+            ))}
         </ContentList>
 
         <Separator />

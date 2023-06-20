@@ -109,18 +109,20 @@ const IskolaPageTemplate = ({ data }) => {
             />
 
             <ContentList>
-              {relatedContent.map((item) => (
-                <ContentBox
-                  title={item.title}
-                  type="small"
-                  color="purple"
-                  buttonText="Tovább"
-                  buttonLink={getInternalPath(item)}
-                  key={item.slug}
-                >
-                  {item.lead?.lead ?? ''}
-                </ContentBox>
-              ))}
+              {relatedContent
+                .filter((i) => i.title && i.slug && i.lead?.lead)
+                .map((item) => (
+                  <ContentBox
+                    title={item.title}
+                    type="small"
+                    color="purple"
+                    buttonText="Tovább"
+                    buttonLink={getInternalPath(item)}
+                    key={item.slug}
+                  >
+                    {item.lead?.lead ?? ''}
+                  </ContentBox>
+                ))}
             </ContentList>
 
             <Separator />
@@ -149,22 +151,24 @@ const IskolaPageTemplate = ({ data }) => {
             />
 
             <ContentList type="full">
-              {peopleList.map((item) => (
-                <ContentBox
-                  title={item.name}
-                  type="full"
-                  color="brick"
-                  buttonText="Tovább"
-                  buttonLink={getInternalPath(item)}
-                  key={item.slug}
-                  image={item.image}
-                >
-                  {truncate(
-                    documentToPlainTextString(JSON.parse(item.bio.raw)),
-                    840
-                  )}
-                </ContentBox>
-              ))}
+              {peopleList
+                .filter((i) => i.name && i.slug && i.image && i.bio?.raw)
+                .map((item) => (
+                  <ContentBox
+                    title={item.name}
+                    type="full"
+                    color="brick"
+                    buttonText="Tovább"
+                    buttonLink={getInternalPath(item)}
+                    key={item.slug}
+                    image={item.image}
+                  >
+                    {truncate(
+                      documentToPlainTextString(JSON.parse(item.bio.raw)),
+                      840
+                    )}
+                  </ContentBox>
+                ))}
             </ContentList>
 
             <Separator />
@@ -181,22 +185,24 @@ const IskolaPageTemplate = ({ data }) => {
             />
 
             <ContentList type="full">
-              {additionalPeople.map((item) => (
-                <ContentBox
-                  title={item.name}
-                  type="full"
-                  color="peach"
-                  buttonText="Tovább"
-                  buttonLink={getInternalPath(item)}
-                  key={item.slug}
-                  image={item.image}
-                >
-                  {truncate(
-                    documentToPlainTextString(JSON.parse(item.bio.raw)),
-                    840
-                  )}
-                </ContentBox>
-              ))}
+              {additionalPeople
+                .filter((i) => i.name && i.slug && i.image && i.bio?.raw)
+                .map((item) => (
+                  <ContentBox
+                    title={item.name}
+                    type="full"
+                    color="peach"
+                    buttonText="Tovább"
+                    buttonLink={getInternalPath(item)}
+                    key={item.slug}
+                    image={item.image}
+                  >
+                    {truncate(
+                      documentToPlainTextString(JSON.parse(item.bio.raw)),
+                      840
+                    )}
+                  </ContentBox>
+                ))}
             </ContentList>
 
             <Separator />
