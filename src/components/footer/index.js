@@ -76,7 +76,7 @@ const Footer = ({ title, children }) => (
             </a>
           </li>
         </ul>
-        2022. Minden jog fenntartva.
+        {new Date().getFullYear()}. Minden jog fenntartva.
       </div>
     </div>
   </footer>
