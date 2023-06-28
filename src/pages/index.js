@@ -11,10 +11,11 @@ import Seo from '../components/seo'
 import Separator from '../components/separator'
 import * as richText from '../richtext.module.scss'
 import getInternalPath from '../utils/getInternalPath'
+import * as css from './index.module.scss'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import classNames from 'classnames'
 import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import React, { useState } from 'react'
 import truncate from 'truncate'
@@ -28,6 +29,9 @@ const IndexPage = ({ data }) => {
       actual,
       posts,
       events,
+    },
+    contentfulAsset: {
+      file: { url: tenderReport },
     },
   } = data
 
@@ -182,6 +186,28 @@ const IndexPage = ({ data }) => {
           />
         </ContentList>
 
+        <Separator />
+
+        <div className={css.tender}>
+          <div className={css.text}>
+            <p>
+              <a href={tenderReport}>
+                Budapesti diákok nagy körutazása Erdélyben, Christophorus
+                Waldorf Iskola 7. osztálya, 2023. június 5-10.
+              </a>
+            </p>
+            <p>Megvalósult Magyarország Kormányának támogatásával</p>
+          </div>
+          <StaticImage
+            src="../static/hatartalanul-logo.png"
+            className={css.image}
+            alt="Határtalanul! program és a Bethlen Gábor Alapkezelő Zrt logói"
+            placeholder="blurred"
+            height={200}
+            objectFit="cover"
+          />
+        </div>
+
         <ImageModal
           show={image != null}
           onClose={() => close()}
@@ -322,6 +348,11 @@ export const pageQuery = graphql`
           alt: description
           gatsbyImage(layout: FULL_WIDTH, width: 1200, placeholder: BLURRED)
         }
+      }
+    }
+    contentfulAsset(title: { eq: "SZAKMAI BESZÁMOLÓ - Erdély 2023" }) {
+      file {
+        url
       }
     }
   }

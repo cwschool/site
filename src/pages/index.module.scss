@@ -1,0 +1,44 @@
+@import '../colors.scss';
+@import '../fonts.scss';
+
+.tender {
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem;
+
+  @media screen and (max-width: 480px) {
+    flex-flow: column;
+  }
+
+  p {
+    margin: 0;
+    margin-block-end: 1rem;
+
+    a {
+      color: $color-brick;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .text {
+    width: calc(70% - 21rem);
+    @media screen and (max-width: 480px) {
+        width: auto;
+    }
+  }
+
+  .image {
+    height: 6rem;
+    width: 19rem;
+
+    @media screen and (max-width: 480px) {
+      margin: 0 auto;
+      margin-block-start: 1rem;
+    }
+  }
+}
