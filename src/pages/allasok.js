@@ -16,8 +16,10 @@ const JobListPageTemplate = ({ data }) => {
       lead: { lead },
       relatedContentTitle,
     },
-    allContentfulJob: { jobs },
+    //allContentfulJob: { jobs },
   } = data
+
+const jobs = []
 
   return (
     <Layout menu="jobs">
@@ -58,7 +60,10 @@ export const pageQuery = graphql`
       title
       relatedContentTitle
     }
-    allContentfulJob(
+
+  }
+`
+    /* allContentfulJob(
       sort: { fields: date, order: ASC }
       filter: { title: { ne: null }, description: { raw: { ne: null } } }
     ) {
@@ -70,6 +75,4 @@ export const pageQuery = graphql`
           raw
         }
       }
-    }
-  }
-`
+    } */

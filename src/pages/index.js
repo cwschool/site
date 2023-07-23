@@ -250,18 +250,7 @@ export const pageQuery = graphql`
               type
             }
           }
-          ... on ContentfulJob {
-            id
-            title
-            lead {
-              lead
-            }
-            date
-            slug
-            internal {
-              type
-            }
-          }
+
           ... on ContentfulPage {
             id
             title
@@ -309,17 +298,7 @@ export const pageQuery = graphql`
               type
             }
           }
-          ... on ContentfulJob {
-            id
-            title
-            lead {
-              lead
-            }
-            slug
-            internal {
-              type
-            }
-          }
+
         }
       }
       posts {
@@ -357,3 +336,29 @@ export const pageQuery = graphql`
     }
   }
 `
+ /* ... on ContentfulJob {
+            id
+            title
+            lead {
+              lead
+            }
+            date
+            slug
+            internal {
+              type
+            }
+          }
+
+
+            ... on ContentfulJob {
+            id
+            title
+            lead {
+              lead
+            }
+            slug
+            internal {
+              type
+            }
+          }
+          */

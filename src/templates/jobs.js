@@ -44,7 +44,7 @@ const JobPageTemplate = ({ data }) => {
 
 export default JobPageTemplate
 
-export const pageQuery = graphql`
+/* export const pageQuery = graphql`
   query JobPostBySlug($slug: String!) {
     contentfulJob(slug: { eq: $slug }) {
       lead {
@@ -65,4 +65,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+` */
