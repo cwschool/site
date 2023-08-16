@@ -291,7 +291,18 @@ export const pageQuery = graphql`
               type
             }
           }
-
+          ... on ContentfulJob {
+            id
+            title
+            lead {
+              lead
+            }
+            date
+            slug
+            internal {
+              type
+            }
+          }
           ... on ContentfulPage {
             id
             title
@@ -337,15 +348,3 @@ export const pageQuery = graphql`
     }
   }
 `
- /* ... on ContentfulJob {
-            id
-            title
-            lead {
-              lead
-            }
-            date
-            slug
-            internal {
-              type
-            }
-          } */

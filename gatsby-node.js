@@ -164,7 +164,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   try {
     await Promise.allSettled([
-      //createJobs(graphql, createPage, reporter),
+      createJobs(graphql, createPage, reporter),
       createPosts(graphql, createPage, reporter),
       createPeople(graphql, createPage, reporter),
       createGalleries(graphql, createPage, reporter),
