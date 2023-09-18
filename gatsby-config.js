@@ -25,7 +25,7 @@ require("dotenv").config({
 
   module.exports = {
     siteMetadata: {
-      title: "Christophorus Waldorf Általános Iskola Budapest",
+      title: "Christophorus Waldorf Általános Iskola, Gimnázium és AMI",
       description: "A Christophorus Waldorf általános iskola, Rudolf Steiner tanításait alapul véve szeretetteli légkörrel és kis létszámú osztályokkal várja az érdeklődőket.",
     },
     plugins: [
