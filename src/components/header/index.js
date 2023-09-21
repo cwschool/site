@@ -27,7 +27,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
           to="/"
           title="Christophorus Waldorf Általános Iskola és AMI hivatalos honlapja"
         >
-          Christophorus Waldorf Általános Iskola és AMI hivatalos honlapja
+          Christophorus Waldorf Általános Iskola, Gimnázium és AMI hivatalos honlapja
         </Link>
       </h1>
       <nav className={css.navigation}>
@@ -62,6 +62,13 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
                 <a href="/iskola">Felvételi</a>
               </li> */}
             </ul>
+          </li>
+          <li
+            className={classNames(css.menuItem, {
+              [css.selected]: activeMenu === 'highschool',
+            })}
+          >
+            <Link to="/gimnazium">Gimnázium</Link>
           </li>
           {/* <li className={css.menuItem}>
             <a href="https://wokk.hu/">Óvoda</a>

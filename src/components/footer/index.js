@@ -5,7 +5,7 @@ const Footer = ({ title, children }) => (
   <footer className={css.footer}>
     <div className={css.centered}>
       <div className={css.contact}>
-        <h2>Christophorus Waldorf Óvoda és Általános Iskola</h2>
+        <h2>Christophorus Waldorf Óvoda és Általános Iskola, Gimnázium és AMI</h2>
 
         <p>
           <strong>Cím:</strong>{' '}
