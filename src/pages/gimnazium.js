@@ -97,14 +97,14 @@ const IskolaPageTemplate = ({ data }) => {
   return (
     <Layout menu="highschool">
       <Seo title={title} description={lead} />
-      <Hero title={title} lead={lead} color={'pink'} />
+      <Hero title={title} lead={lead} color={'lilac'} />
       <Content>
         {relatedContent && (
           <>
             <SectionTitle
               title={relatedContentTitle}
               align="right"
-              color="purple"
+              color="lilac"
               anchor="aktualitasok"
             />
 
@@ -115,7 +115,7 @@ const IskolaPageTemplate = ({ data }) => {
                   <ContentBox
                     title={item.title}
                     type="small"
-                    color="purple"
+                    color="lilac"
                     buttonText="Tovább"
                     buttonLink={getInternalPath(item)}
                     key={item.slug}
@@ -132,7 +132,7 @@ const IskolaPageTemplate = ({ data }) => {
         <SectionTitle
           title={firstContentTitle}
           align="left"
-          color="orange"
+          color="blue"
           anchor="pedagogiank"
         />
 
@@ -146,7 +146,7 @@ const IskolaPageTemplate = ({ data }) => {
             <SectionTitle
               title={peopleListTitle}
               align="right"
-              color="peach"
+              color="blue"
               anchor="pedagogusaink"
             />
 
@@ -157,7 +157,7 @@ const IskolaPageTemplate = ({ data }) => {
                   <ContentBox
                     title={item.name}
                     type="full"
-                    color="brick"
+                    color="blue"
                     buttonText="Tovább"
                     buttonLink={getInternalPath(item)}
                     key={item.slug}
@@ -180,7 +180,7 @@ const IskolaPageTemplate = ({ data }) => {
             <SectionTitle
               title={additionalPeopleTitle}
               align="left"
-              color="peach"
+              color="blue"
               anchor="kollegaink"
             />
 
@@ -191,7 +191,7 @@ const IskolaPageTemplate = ({ data }) => {
                   <ContentBox
                     title={item.name}
                     type="full"
-                    color="peach"
+                    color="blue"
                     buttonText="Tovább"
                     buttonLink={getInternalPath(item)}
                     key={item.slug}
@@ -214,7 +214,7 @@ const IskolaPageTemplate = ({ data }) => {
             <SectionTitle
               title={secondContentTitle}
               align="right"
-              color="orange"
+              color="lilac"
               anchor="iskolakertunk"
             />
 
