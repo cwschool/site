@@ -27,7 +27,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
           to="/"
           title="Christophorus Waldorf Általános Iskola és AMI hivatalos honlapja"
         >
-          Christophorus Waldorf Általános Iskola és AMI hivatalos honlapja
+          Christophorus Waldorf Általános Iskola, Gimnázium és AMI hivatalos honlapja
         </Link>
       </h1>
       <nav className={css.navigation}>
