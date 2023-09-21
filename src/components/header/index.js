@@ -25,7 +25,7 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
       <h1 className={css.logo}>
         <Link
           to="/"
-          title="Christophorus Waldorf Általános Iskola és AMI hivatalos honlapja"
+          title="Christophorus Waldorf Általános Iskola, Gimnázium és AMI hivatalos honlapja"
         >
           Christophorus Waldorf Általános Iskola, Gimnázium és AMI hivatalos honlapja
         </Link>
