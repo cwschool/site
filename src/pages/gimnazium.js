@@ -95,7 +95,7 @@ const IskolaPageTemplate = ({ data }) => {
   }
 
   return (
-    <Layout menu="school">
+    <Layout menu="highschool">
       <Seo title={title} description={lead} />
       <Hero title={title} lead={lead} color={'pink'} />
       <Content>
