@@ -63,6 +63,13 @@ const Header = ({ activeMenu, searchEnabled = false }) => (
               </li> */}
             </ul>
           </li>
+          <li
+            className={classNames(css.menuItem, {
+              [css.selected]: activeMenu === 'highschool',
+            })}
+          >
+            <Link to="/gimnazium">Gimnázium</Link>
+          </li>
           {/* <li className={css.menuItem}>
             <a href="https://wokk.hu/">Óvoda</a>
           </li> */}
