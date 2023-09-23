@@ -131,8 +131,8 @@ const IskolaPageTemplate = ({ data }) => {
 
         <SectionTitle
           title={firstContentTitle}
-          align="left"
-          color="orange"
+          align="right"
+          color="peach"
           anchor="pedagogiank"
         />
 
