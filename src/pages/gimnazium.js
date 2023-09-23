@@ -131,8 +131,8 @@ const IskolaPageTemplate = ({ data }) => {
 
         <SectionTitle
           title={firstContentTitle}
-          align="left"
-          color="blue"
+          align="right"
+          color="lilac"
           anchor="pedagogiank"
         />
 
@@ -140,7 +140,7 @@ const IskolaPageTemplate = ({ data }) => {
           {renderRichText(firstContent, introRichTextOptions)}
         </div>
 
-        <Separator />
+{/*     <Separator />
         {peopleList && (
           <>
             <SectionTitle
@@ -149,7 +149,7 @@ const IskolaPageTemplate = ({ data }) => {
               color="blue"
               anchor="pedagogusaink"
             />
-
+ 
             <ContentList type="full">
               {peopleList
                 .filter((i) => i.name && i.slug && i.image && i.bio?.raw)
@@ -223,6 +223,7 @@ const IskolaPageTemplate = ({ data }) => {
             </div>
           </>
         )}
+       */}
       </Content>
     </Layout>
   )
